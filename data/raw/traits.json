@@ -1,0 +1,85 @@
+{
+    "traits": {
+        "Samir": {
+            "trait": "Samir",
+            "traitDodgeDmg": 0,
+            "traitAdditionalFM": 0,
+            "traitTotalMod": 0,
+            "traitPassiveDmg": 0.20,
+            "traitEleDmg": 0,
+            "traitExtra": 0
+        },
+        "Annabella": {
+            "trait": "Annabella",
+            "traitDodgeDmg": 0,
+            "traitAdditionalFM": 0.30,
+            "traitTotalMod": 0,
+            "traitPassiveDmg": 0.00,
+            "traitEleDmg": 0,
+            "traitExtra": 0
+        },
+        "Alyss": {
+            "trait": "Alyss",
+            "traitDodgeDmg": 0,
+            "traitAdditionalFM": 0,
+            "traitTotalMod": 0,
+            "traitPassiveDmg": 0.18,
+            "traitEleDmg": 0,
+            "traitExtra": 0
+        },
+        "Fenrir": {
+            "trait": "Fenrir",
+            "traitDodgeDmg": 0,
+            "traitAdditionalFM": 0,
+            "traitTotalMod": 0,
+            "traitPassiveDmg": 0.18,
+            "traitEleDmg": 0,
+            "traitExtra": 0
+        },
+        "Fiona": {
+            "trait": "Fiona",
+            "traitDodgeDmg": 0,
+            "traitAdditionalFM": 0,
+            "traitTotalMod": 0,
+            "traitPassiveDmg": 0.18,
+            "traitEleDmg": 0,
+            "traitExtra": 0
+        },
+        "Rubilia": {
+            "trait": "Rubilia",
+            "traitDodgeDmg": 0,
+            "traitAdditionalFM": 0,
+            "traitTotalMod": 0,
+            "traitPassiveDmg": 0.00,
+            "traitEleDmg": 0,
+            "traitExtra": 0
+        },
+        "Liu Huo": {
+            "trait": "Liu Huo",
+            "traitDodgeDmg": 0,
+            "traitAdditionalFM": 0,
+            "traitTotalMod": 0,
+            "traitPassiveDmg": 0.18,
+            "traitEleDmg": 0,
+            "traitExtra": 0
+        },
+        "Yulan": {
+            "trait": "Yulan",
+            "traitDodgeDmg": 0,
+            "traitAdditionalFM": 0,
+            "traitTotalMod": 0,
+            "traitPassiveDmg": 0.25,
+            "traitEleDmg": 0,
+            "traitExtra": 0
+        },
+        "Zeke": {
+            "trait": "Zeke",
+            "traitDodgeDmg": 0,
+            "traitAdditionalFM": 0,
+            "traitTotalMod": 0,
+            "traitPassiveDmg": 0.18,
+            "traitEleDmg": 0,
+            "traitExtra": 0
+        }
+    }
+}

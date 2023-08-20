@@ -1,0 +1,53 @@
+{
+    "skills": {
+        "Crashing Falls": {
+            "multiplier": 416,
+            "time": 1,
+            "cooldown": 0.82,
+            "totalPercent": 30,
+            "percentPerSecondPerCooldown": 13.86666667
+        },
+        "Hydro Focus": {
+            "multiplier": 320,
+            "time": 1,
+            "cooldown": 0.00,
+            "totalPercent": 14,
+            "percentPerSecondPerCooldown": 22.85714286
+        },
+        "Vortex": {
+            "multiplier": 600,
+            "time": 1,
+            "cooldown": 0.00,
+            "totalPercent": 12,
+            "percentPerSecondPerCooldown": 50
+        },
+        "Torrential Force": {
+            "multiplier": 0,
+            "time": 0,
+            "cooldown": 0.00,
+            "totalPercent": 30,
+            "percentPerSecondPerCooldown": 0
+        },
+        "Maelstrom": {
+            "multiplier": 0,
+            "time": 0,
+            "cooldown": 0.00,
+            "totalPercent": 30,
+            "percentPerSecondPerCooldown": 0
+        },
+        "Aqua Shackles": {
+            "multiplier": 0,
+            "time": 0,
+            "cooldown": 0.00,
+            "totalPercent": 30,
+            "percentPerSecondPerCooldown": 0
+        },
+        "Wellspring": {
+            "multiplier": 0,
+            "time": 0,
+            "cooldown": 0.00,
+            "totalPercent": 30,
+            "percentPerSecondPerCooldown": 0
+        }
+    }
+}

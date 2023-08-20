@@ -1,0 +1,217 @@
+{
+    "name": "Pian Zhen",
+    "imgSrc": "item_Weapon_SSR_yulan_Ice01",
+    "element": "ice",
+    "type": "dps",
+    "isMeta": true,
+    "shatter": {
+        "tier": "S",
+        "value": "12.50"
+    },
+    "charge": {
+        "tier": "A",
+        "value": "10.00"
+    },
+    "baseStats": [
+        "attack",
+        "health",
+        "crit"
+    ],
+    "materials": [
+        "ice",
+        "green",
+        "blue"
+    ],
+    "weaponEffects": [
+        {
+            "title": "Frost Resonance",
+            "description": "Increases ATK by **20%** and resistance to cold by **40%**. To activate, equip at least **2** cold weapons. The effect of this kit works in the extra weapon box. It does not stack with other cold resonance or cold reaction effects, with cold resonance taking priority."
+        },
+        {
+            "title": "Ice Crusher - Swift Cut",
+            "description": "When **Pian Zhen** is equipped, any weapon's discharge skill will deal **400%** * Frost ATK + **6.7%** of your Max HP + **240%** * sum of your elemental resistances + **800%** * your Crit Damage worth of damage to nearby targets. For every **0.5** seconds you are in combat, the next Swift Cut's damage will be increased by **1x**, up to **30** times. If there is more than one Swift Cut, the maximum value is used. Swift Cut's damage is considered that of a discharge skill. If equipped with at least **1** Volt/Physical/Flame weapon, the Swift Cut damage multiplier is increased to **2.5x**. Ice Crusher is not affected by damage boosting effects other than Titan equipment rare attributes, and does not trigger additional attack effects."
+        }
+    ],
+    "advancements": [
+        "In **Martial Artist** style, each time **Pian Zhen** expends **3** or more stacks of **Inner Strength**, **1** stack of **Inner Strength** is returned, the wanderer's final damage is increased by **5%**, and **Pian Zhen's** normal and dodge attacks' damage is increased by **50%** for **30** seconds. In **Marauder** style, each time **Pian Zhen** expends **3** or more stacks of **Battle Spirit**, **1** stack of **Battle Spirit** is returned, and the wanderer's final damage is increased by **5%** for **15** seconds.",
+        "Increase the current weapon's base ATK growth by **16%**.",
+        "In **Martial Artist** style, if you don't get a stack of **Inner Strength** within **4** seconds, you will gain **2** stacks next time (instead of 1). In any form, when **Pian Zhen** consumes **3** or more stacks of **Inner Strength** or **Combat Spirit**, the wanderer will restore **10%** of their Max HP (**20%** when solo). This effect has a cooldown of **8** seconds in **Marauder** style, and no cooldown in **Martial Artist** style.",
+        "Increase the current weapon's base ATK growth by **32%**.",
+        "After **Pian Zhen** consumes stacks of **Inner Strength** or **Battle Spirit**, gain the ability to block lethal damage 1 time and subsequently restore **20%** ​​of your Max HP (unavailable in Apex League), or **40%** in solo play. This effect can only trigger once every **60** seconds.",
+        "In **Martial Artist** style, **Pian Zhen's** normal and dodge attacks' damage is increased by **60%**, and after consuming stacks of **Inner Strength**, final damage is increased by **10%** for **30** seconds. In **Marauder** style, after consuming stacks of **Battle Spirit**, final damage is increased by **15%** for **30** seconds."
+    ],
+    "abilities": [
+        {
+            "name": "Punching",
+            "type": "normal",
+            "imgSrc": "yulan_melee",
+            "input": [
+                "Attack x6"
+            ],
+            "description": "While on the ground, use a normal attack to deliver 6 consecutive punches. If in **Martial Arts** or **Marauder** form, pressing normal attack after dodging triggers the 4th hit quickly. The 5th hit in **Martial Arts** form freezes the target for 2 seconds, dealing **270% ATK + 14** damage per second for 8 seconds (not effective in Apex League and on bosses)." ,
+            "breakdown": [
+                "**132.2%** of ATK + **7**.",
+                "**102.8%** of ATK + **5**.",
+                "**107.7%** of ATK + **6**.",
+                "**293.7%** of ATK + **15**.",
+                "**569.8%** of ATK + **30**.",
+                "**464%** of ATK + **24**."
+            ]
+        },
+        {
+            "name": "Air Punch",
+            "type": "normal",
+            "imgSrc": "yulan_airattack",
+            "input": [
+                "Jump",
+                "Attack x6"
+            ],
+            "description": "Air attack x6, expending stamina. Use in Martial Arts/Marauder style.",
+            "breakdown": [
+                "**139.6%** of ATK + **7**.",
+                "**122.2%** of ATK + **6**.",
+                "**128%** of ATK + **7**.",
+                "**278.3%** of ATK + **15**.",
+                "**508.2%** of ATK + **27**.",
+                "**453.7%** of ATK + **24**."
+            ]
+        },
+        {
+            "name": "Forest Breaking Swallow",
+            "type": "normal",
+            "imgSrc": "yulan_branch1",
+            "input": [
+                "Attack x1-3",
+                "hold:Attack"
+            ],
+            "description": "When on the ground, use the first to third general attacks and hold the general attack button to trigger Forest Breaking Swallow. Deals **128.3% ATK + 7** damage and absorbs nearby targets. Then deals **299.3% ATK + 16** damage to nearby targets, knocking them back. Can only be released in **Martial Artist** form. After triggering Cloudbreak, tapping the general attack triggers Forest Breaking Swallow."
+        },
+        {
+            "name": "Snake Dance in the Sky",
+            "type": "normal",
+            "imgSrc": "yulan_branch2",
+            "input": [
+                "Attack x4-5",
+                "hold:Attack"
+            ],
+            "description": "On the ground, use fourth to fifth general attacks, hold general attack to trigger. Deals **153.9% ATK + 8** to nearby targets, suspending them. Can only be used in **Martial Artist** style. After using Forest Breaking Swallow, press and hold normal attack to trigger."
+        },
+        {
+            "name": "Frosty Sky",
+            "type": "normal",
+            "imgSrc": "yulan_branch4",
+            "input": [
+                "Jump",
+                "Attack x1-6",
+                "hold:Attack"
+            ],
+            "description": " In the air, after first to sixth normal attacks, press and hold normal attack to trigger. Throws a weapon, dealing **671.5% ATK + 35** to nearby targets. Can be used in **Martial Artist** or **Marauder** styles."
+        },
+        {
+            "name": "Cloudbreak",
+            "type": "normal",
+            "imgSrc": "yulan_jumpattack",
+            "input": [
+                "Jump",
+                "hold:Attack"
+            ],
+            "description": "Press and hold normal attack while in the air, climbing, reverse jump attacking, or using the jetpack to trigger. Deals **303.2% ATK + 16** to nearby targets and knocks them down upon landing. Can be used in **Martial Artist** or **Marauder** styles."
+        },
+        {
+            "name": "Cycle of Life",
+            "type": "normal",
+            "imgSrc": "yulan_branch3",
+            "input": [
+                "hold:Attack"
+            ],
+            "description": "Press and hold normal attack to trigger. Attracts nearby targets, consumes stamina, and grants Hyperbody. Can be used in **Martial Artist** or **Marauder** styles."
+        },
+        {
+            "name": "Dodge",
+            "type": "dodge",
+            "imgSrc": "common_evade",
+            "description": "Dodging in **Martial Arts** style grants **5** seconds of Hyperbody."
+        },
+        {
+            "name": "Mountains and Sea",
+            "type": "dodge",
+            "imgSrc": "yulan_evadeattackback",
+            "input": [
+                "Dodge",
+                "Attack"
+            ],
+            "description": "After dodging, press the normal attack button during a short window to use. Deals **362.5% ATK + 19** to nearby targets. Can be used in **Martial Artist** or **Marauder** styles."
+        },
+        {
+            "name": "Tempest",
+            "type": "dodge",
+            "imgSrc": "yulan_evadeattackfront",
+            "input": [
+                "Arrow keys",
+                "Dodge",
+                "Attack"
+            ],
+            "description": "After dodging while holding a directional key, press the normal attack button during a short window to use. Deals **342% ATK + 18** to nearby targets. Can be used in **Martial Artist** or **Marauder** styles."
+        },
+        {
+            "name": "Offense & Defense",
+            "type": "skill",
+            "imgSrc": "skill_yulan",
+            "description": " Pian Zhen has two styles: **Martial Artist** and **Marauder**. Choose one in Settings; can't switch in combat. **Martial Artist:** + **40%** normal & dodge attack damage. Using normal/dodge attacks **3** times grants **1** stack of Inner Strength (up to 10 stacks, 1 every 2 sec). Out of combat, stacks are lost. Marauder: Hitting a target grants Momentum, gaining **1** stack of Battle Spirit every **0.8** sec for **60** sec (up to 15 stacks). Out of combat, stacks are lost. Passive: Frosty Air - Ignore **30%** target's frost resistance (works in the background)."
+        },
+        {
+            "name": "Abyssal Dive",
+            "type": "skill",
+            "imgSrc": "yulan_skill",
+            "description": "Deals damage equal to **2730%** of ATK + **144** to the target, cooldown **15** seconds. **Pian Zhen** consumes up to **5** stacks of **Inner Strength**. For every **1/2/3/4/5** stack(s) consumed, increase the damage of Abyssal Dive by **1.2/1.5/2.1/2.8/3.7** times.\n\nAfter casting Abyssal Dive, frost damage is increased by **20%** for **30** seconds.After using Abyssal Dive, gain **2** dodge attempts.Abyssal Dive can only be used in **Martial Artist** style. Building **5** stacks of **Inner Strength** will reset the cooldown of Abyssal Dive."
+        },
+        {
+            "name": "War Cry",
+            "type": "skill",
+            "imgSrc": "yulan_skill",
+            "description": "Deals damage equal to **2730%** ATK + **144** to the target, cooldown **15** seconds.**Pian Zhen** consumes up to **5** stacks of **Battle Spirit** when using any weapon skill during **Momentum**. For every **1/2/3/4/5** stack(s) consumed, deal and additional **242%/503%/1049%/2351%/3930%** of ATK damage, and an additional **270%** of ATK + **14** per second for **5** seconds to nearby targets.When using any frost weapon skill, gain **2** seconds of Hyperbody. War Cry can only be used in **Marauder** style."
+        },
+        {
+            "name": "Tiger's Step",
+            "type": "discharge",
+            "imgSrc": "yulan_changeskill",
+            "description": "When ***weapon charge*** is full or ***Phantasia*** is triggered, **remove all debuffs from the wielder** upon switching to this weapon and deal damage equal to **2,394%** of ATK + **126** and **strongly suspend** them.Damage immunity lasts for **2.6** seconds while the skill is active (unavailable in Apex League).Tiger's Step can only be used in **Martial Artist** style."
+        },
+        {
+            "name": "Reactive",
+            "type": "discharge",
+            "imgSrc": "yulan_changeskill",
+            "description": "When ***weapon charge*** is full or ***Phantasia*** is triggered, **remove all debuffs from the wielder** upon switching to this weapon and deal damage equal to **2,394%** of ATK + **126** to nearby targets and **strongly suspend** them.Damage immunity lasts for **2.6** seconds while the skill is active (unavailable in Apex League).A successful hit will increase frost damage by **20%** for **30** seconds and grant **Momentum**. Using a discharge skill while **Pian Zhen** is the current weapon will recover **1000** weapon charge, up to once every **10** seconds. Reactive can only be used in **Marauder** style."
+        }
+    ],
+    "abilitiesVideoSrc": "https://youtube.com/embed/-Jc6hAW01sw?start=103",
+    "rating": [],
+    "recommendedPairings": ["Fiona","Icarus","Alyss"],
+    "recommendedMatrices": [
+        {
+            "name": "Samir",
+            "pieces": 2,
+            "description": "Great set for Yulan main dps due to her long on-field time"
+        },
+        {
+            "name": "Lyra",
+            "pieces": 2,
+            "description": "Great set for Yulan main dps due to her long on-field time"
+        },
+        {
+            "name": "Shiro",
+            "pieces": 2,
+            "description": "Great set for both damage and shatter(lower value than Lyra and Samir)"
+        },
+        {
+            "name": "Yulan",
+            "pieces": 4,
+            "description": "Extremely valuable matrice set all around"
+        },
+        {
+            "name": "Icarus",
+            "pieces": 4,
+            "description": "Lower value matrice set than Yulan however provides straight elemental damage buffs"
+        }
+    ]
+}
