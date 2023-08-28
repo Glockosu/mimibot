@@ -40,7 +40,7 @@
             "globalMult": 0
         },
         "Huma 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 26,
             "additional": 0,
             "totalMod": 0,
@@ -53,7 +53,7 @@
             "globalMult": 0
         },
         "Cobalt 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 24,
             "additional": 0,
             "totalMod": 0.14,
@@ -66,7 +66,7 @@
             "globalMult": 0
         },
         "Cobalt 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 30,
             "additional": 0,
             "totalMod": 0.16,
@@ -79,7 +79,7 @@
             "globalMult": 0
         },
         "Cobalt 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 36,
             "additional": 0,
             "totalMod": 0.18,
@@ -92,7 +92,7 @@
             "globalMult": 0
         },
         "Cobalt 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 42,
             "additional": 0,
             "totalMod": 0.2,
@@ -105,7 +105,7 @@
             "globalMult": 0
         },
         "Meryl 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 1.36,
             "totalMod": 0,
@@ -118,7 +118,7 @@
             "globalMult": 0
         },
         "Meryl 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 1.45,
             "totalMod": 0,
@@ -131,7 +131,7 @@
             "globalMult": 0
         },
         "Meryl 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 1.54,
             "totalMod": 0,
@@ -144,7 +144,7 @@
             "globalMult": 0
         },
         "Meryl 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 1.63,
             "totalMod": 0,
@@ -157,7 +157,7 @@
             "globalMult": 0
         },
         "Claudia 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.58,
             "totalMod": 0,
@@ -170,7 +170,7 @@
             "globalMult": 0
         },
         "Claudia 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.8,
             "totalMod": 0,
@@ -183,7 +183,7 @@
             "globalMult": 0
         },
         "Claudia 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 1.03,
             "totalMod": 0,
@@ -196,7 +196,7 @@
             "globalMult": 0
         },
         "Claudia 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 1.26,
             "totalMod": 0,
@@ -209,7 +209,7 @@
             "globalMult": 0
         },
         "Frigg 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -222,7 +222,7 @@
             "globalMult": 0
         },
         "Frigg 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -235,7 +235,7 @@
             "globalMult": 0
         },
         "Frigg 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -248,7 +248,7 @@
             "globalMult": 0
         },
         "Frigg 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -261,7 +261,7 @@
             "globalMult": 0
         },
         "Frigg 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -274,7 +274,7 @@
             "globalMult": 0
         },
         "Frigg 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -287,7 +287,7 @@
             "globalMult": 0
         },
         "Frigg 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -300,7 +300,7 @@
             "globalMult": 0
         },
         "Frigg 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -313,7 +313,7 @@
             "globalMult": 0
         },
         "Saki 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -326,7 +326,7 @@
             "globalMult": 0
         },
         "Saki 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -339,7 +339,7 @@
             "globalMult": 0
         },
         "Saki 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -352,7 +352,7 @@
             "globalMult": 0
         },
         "Saki 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -365,7 +365,7 @@
             "globalMult": 0
         },
         "Saki 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.166,
@@ -378,7 +378,7 @@
             "globalMult": 0
         },
         "Saki 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.187,
@@ -391,7 +391,7 @@
             "globalMult": 0
         },
         "Saki 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.208,
@@ -404,7 +404,7 @@
             "globalMult": 0
         },
         "Saki 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.229,
@@ -417,7 +417,7 @@
             "globalMult": 0
         },
         "Ruby 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.08,
@@ -430,7 +430,7 @@
             "globalMult": 0
         },
         "Ruby 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.1,
@@ -443,7 +443,7 @@
             "globalMult": 0
         },
         "Ruby 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.12,
@@ -456,7 +456,7 @@
             "globalMult": 0
         },
         "Ruby 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.15,
@@ -469,7 +469,7 @@
             "globalMult": 0
         },
         "Ruby 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.12,
             "totalMod": 0.08,
@@ -482,7 +482,7 @@
             "globalMult": 0
         },
         "Ruby 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.15,
             "totalMod": 0.1,
@@ -495,7 +495,7 @@
             "globalMult": 0
         },
         "Ruby 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.18,
             "totalMod": 0.12,
@@ -508,7 +508,7 @@
             "globalMult": 0
         },
         "Ruby 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.21,
             "totalMod": 0.15,
@@ -521,7 +521,7 @@
             "globalMult": 0
         },
         "Lin 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.105,
             "totalMod": 0,
@@ -534,7 +534,7 @@
             "globalMult": 0
         },
         "Lin 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0,
@@ -547,7 +547,7 @@
             "globalMult": 0
         },
         "Lin 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.155,
             "totalMod": 0,
@@ -560,7 +560,7 @@
             "globalMult": 0
         },
         "Lin 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.18,
             "totalMod": 0,
@@ -573,7 +573,7 @@
             "globalMult": 0
         },
         "Lin 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.105,
             "totalMod": 0.12,
@@ -586,7 +586,7 @@
             "globalMult": 0
         },
         "Lin 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0.147,
@@ -599,7 +599,7 @@
             "globalMult": 0
         },
         "Lin 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.155,
             "totalMod": 0.174,
@@ -612,7 +612,7 @@
             "globalMult": 0
         },
         "Lin 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.18,
             "totalMod": 0.201,
@@ -625,7 +625,7 @@
             "globalMult": 0
         },
         "Nemesis 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.08,
@@ -638,7 +638,7 @@
             "globalMult": 0
         },
         "Nemesis 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.1,
@@ -651,7 +651,7 @@
             "globalMult": 0
         },
         "Nemesis 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.12,
@@ -664,7 +664,7 @@
             "globalMult": 0
         },
         "Nemesis 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.15,
@@ -677,7 +677,7 @@
             "globalMult": 0
         },
         "Nemesis 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 240,
             "totalMod": 0.08,
@@ -690,7 +690,7 @@
             "globalMult": 0
         },
         "Nemesis 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 300,
             "totalMod": 0.1,
@@ -703,7 +703,7 @@
             "globalMult": 0
         },
         "Nemesis 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 360,
             "totalMod": 0.12,
@@ -716,7 +716,7 @@
             "globalMult": 0
         },
         "Nemesis 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 420,
             "totalMod": 0.15,
@@ -729,7 +729,7 @@
             "globalMult": 0
         },
         "Samir 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 16,
@@ -742,7 +742,7 @@
             "globalMult": 0
         },
         "Samir 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 22,
@@ -755,7 +755,7 @@
             "globalMult": 0
         },
         "Samir 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 30,
@@ -768,7 +768,7 @@
             "globalMult": 0
         },
         "Samir 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 40,
@@ -781,7 +781,7 @@
             "globalMult": 0
         },
         "Shiro 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.075,
             "totalMod": 0,
@@ -794,7 +794,7 @@
             "globalMult": 0.03888888889
         },
         "Shiro 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.095,
             "totalMod": 0,
@@ -807,7 +807,7 @@
             "globalMult": 0.04861111111
         },
         "Shiro 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.1125,
             "totalMod": 0,
@@ -820,7 +820,7 @@
             "globalMult": 0.05833333333
         },
         "Shiro 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0,
@@ -833,7 +833,7 @@
             "globalMult": 0.06805555556
         },
         "Crow+Shiro 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0.24,
             "additional": 0.075,
             "totalMod": 0,
@@ -846,7 +846,7 @@
             "globalMult": 0
         },
         "Crow+Shiro 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0.3,
             "additional": 0.095,
             "totalMod": 0,
@@ -859,7 +859,7 @@
             "globalMult": 0
         },
         "Crow+Shiro 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0.36,
             "additional": 0.1125,
             "totalMod": 0,
@@ -872,7 +872,7 @@
             "globalMult": 0
         },
         "Crow+Shiro 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0.42,
             "additional": 0.13,
             "totalMod": 0,
@@ -885,7 +885,7 @@
             "globalMult": 0
         },
         "Crow+Samir 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0.24,
             "additional": 0,
             "totalMod": 0,
@@ -898,7 +898,7 @@
             "globalMult": 0
         },
         "Crow+Samir 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0.3,
             "additional": 0,
             "totalMod": 0,
@@ -911,7 +911,7 @@
             "globalMult": 0
         },
         "Crow+Samir 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0.36,
             "additional": 0,
             "totalMod": 0,
@@ -924,7 +924,7 @@
             "globalMult": 0
         },
         "Crow+Samir 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0.42,
             "additional": 0,
             "totalMod": 0,
@@ -937,7 +937,7 @@
             "globalMult": 0
         },
         "Crow+Huma 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0.24,
             "additional": 0,
             "totalMod": 0,
@@ -950,7 +950,7 @@
             "globalMult": 0
         },
         "Crow+Huma 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0.3,
             "additional": 0,
             "totalMod": 0,
@@ -963,7 +963,7 @@
             "globalMult": 0
         },
         "Crow+Huma 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 22.5,
             "additional": 0.36,
             "totalMod": 0,
@@ -976,7 +976,7 @@
             "globalMult": 0
         },
         "Crow+Huma 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 26,
             "additional": 0.42,
             "totalMod": 0,
@@ -989,7 +989,7 @@
             "globalMult": 0
         },
         "Samir+Shiro 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.075,
             "totalMod": 0,
@@ -1002,7 +1002,7 @@
             "globalMult": 0
         },
         "Samir+Shiro 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.095,
             "totalMod": 0,
@@ -1015,7 +1015,7 @@
             "globalMult": 0
         },
         "Samir+Shiro 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.1125,
             "totalMod": 0,
@@ -1028,7 +1028,7 @@
             "globalMult": 0
         },
         "Samir+Shiro 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0,
@@ -1041,7 +1041,7 @@
             "globalMult": 0
         },
         "Samir+Cobalt 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.14,
             "totalMod": 0,
@@ -1054,7 +1054,7 @@
             "globalMult": 0
         },
         "Samir+Cobalt 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.16,
             "totalMod": 0,
@@ -1067,7 +1067,7 @@
             "globalMult": 0
         },
         "Samir+Cobalt 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.18,
             "totalMod": 0,
@@ -1080,7 +1080,7 @@
             "globalMult": 0
         },
         "Samir+Cobalt 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.2,
             "totalMod": 0,
@@ -1093,7 +1093,7 @@
             "globalMult": 0
         },
         "Samir+Huma 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 15,
             "additional": 0,
             "totalMod": 0,
@@ -1106,7 +1106,7 @@
             "globalMult": 0
         },
         "Samir+Huma 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 19,
             "additional": 0,
             "totalMod": 0,
@@ -1119,7 +1119,7 @@
             "globalMult": 0
         },
         "Samir+Huma 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 22.5,
             "additional": 0,
             "totalMod": 0,
@@ -1132,7 +1132,7 @@
             "globalMult": 0
         },
         "Samir+Huma 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 26,
             "additional": 0,
             "totalMod": 0,
@@ -1145,7 +1145,7 @@
             "globalMult": 0
         },
         "Shiro+Huma 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 15,
             "additional": 0,
             "totalMod": 0.075,
@@ -1158,7 +1158,7 @@
             "globalMult": 0
         },
         "Shiro+Huma 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 19,
             "additional": 0,
             "totalMod": 0.095,
@@ -1171,7 +1171,7 @@
             "globalMult": 0
         },
         "Shiro+Huma 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 22.5,
             "additional": 0,
             "totalMod": 0.1125,
@@ -1184,7 +1184,7 @@
             "globalMult": 0
         },
         "Shiro+Huma 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 26,
             "additional": 0,
             "totalMod": 0.13,
@@ -1197,7 +1197,7 @@
             "globalMult": 0
         },
         "Samir+Tsubasa 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.14,
             "totalMod": 0,
@@ -1210,7 +1210,7 @@
             "globalMult": 0
         },
         "Samir+Tsubasa 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.16,
             "totalMod": 0,
@@ -1223,7 +1223,7 @@
             "globalMult": 0
         },
         "Samir+Tsubasa 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.18,
             "totalMod": 0,
@@ -1236,7 +1236,7 @@
             "globalMult": 0
         },
         "Samir+Tsubasa 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.2,
             "totalMod": 0,
@@ -1249,7 +1249,7 @@
             "globalMult": 0
         },
         "Shiro+Tsubasa 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.215,
             "totalMod": 0,
@@ -1262,7 +1262,7 @@
             "globalMult": 0
         },
         "Shiro+Tsubasa 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.255,
             "totalMod": 0,
@@ -1275,7 +1275,7 @@
             "globalMult": 0
         },
         "Shiro+Tsubasa 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.2925,
@@ -1288,7 +1288,7 @@
             "globalMult": 0
         },
         "Shiro+Tsubasa 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0.33,
@@ -1301,7 +1301,7 @@
             "globalMult": 0
         },
         "King+Huma 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 15,
             "additional": 0.08,
             "totalMod": 0,
@@ -1314,7 +1314,7 @@
             "globalMult": 0
         },
         "King+Huma 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 19,
             "additional": 0.1,
             "totalMod": 0,
@@ -1327,7 +1327,7 @@
             "globalMult": 0
         },
         "King+Huma 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 22.5,
             "additional": 0.12,
             "totalMod": 0,
@@ -1340,7 +1340,7 @@
             "globalMult": 0
         },
         "King+Huma 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 26,
             "additional": 0.14,
             "totalMod": 0,
@@ -1353,7 +1353,7 @@
             "globalMult": 0
         },
         "King+Shiro 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.08,
             "totalMod": 0.075,
@@ -1366,7 +1366,7 @@
             "globalMult": 0
         },
         "King+Shiro 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.1,
             "totalMod": 0.095,
@@ -1379,7 +1379,7 @@
             "globalMult": 0
         },
         "King+Shiro 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.12,
             "totalMod": 0.1125,
@@ -1392,7 +1392,7 @@
             "globalMult": 0
         },
         "King+Shiro 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.14,
             "totalMod": 0.13,
@@ -1405,7 +1405,7 @@
             "globalMult": 0
         },
         "Lyra 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0,
@@ -1418,7 +1418,7 @@
             "globalMult": 0
         },
         "Lyra 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.17,
             "totalMod": 0,
@@ -1431,7 +1431,7 @@
             "globalMult": 0
         },
         "Lyra 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.21,
             "totalMod": 0,
@@ -1444,7 +1444,7 @@
             "globalMult": 0
         },
         "Lyra 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.25,
             "totalMod": 0,
@@ -1457,7 +1457,7 @@
             "globalMult": 0
         },
         "Lyra 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0,
@@ -1470,7 +1470,7 @@
             "globalMult": 0
         },
         "Lyra 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.17,
             "totalMod": 0,
@@ -1483,7 +1483,7 @@
             "globalMult": 0
         },
         "Lyra 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.21,
             "totalMod": 0,
@@ -1496,7 +1496,7 @@
             "globalMult": 0
         },
         "Lyra 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.25,
             "totalMod": 0,
@@ -1509,7 +1509,7 @@
             "globalMult": 0
         },
         "Lyra+Samir 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0,
@@ -1522,7 +1522,7 @@
             "globalMult": 0
         },
         "Lyra+Samir 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.17,
             "totalMod": 0,
@@ -1535,7 +1535,7 @@
             "globalMult": 0
         },
         "Lyra+Samir 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.21,
             "totalMod": 0,
@@ -1548,7 +1548,7 @@
             "globalMult": 0
         },
         "Lyra+Samir 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0.0,
             "matriceDodgeDmg": 0,
             "additional": 0.25,
             "totalMod": 0,
@@ -1557,11 +1557,11 @@
             "extra": 0,
             "totalCR": 0.2,
             "totalCD": 0,
-            "fieldFD": 0,
+            "fieldFD": 0.2,
             "globalMult": 0
         },
         "Lyra+Shiro 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0.075,
@@ -1574,7 +1574,7 @@
             "globalMult": 0
         },
         "Lyra+Shiro 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.17,
             "totalMod": 0.095,
@@ -1587,7 +1587,7 @@
             "globalMult": 0
         },
         "Lyra+Shiro 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.21,
             "totalMod": 0.1125,
@@ -1600,7 +1600,7 @@
             "globalMult": 0
         },
         "Lyra+Shiro 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.25,
             "totalMod": 0.13,
@@ -1613,7 +1613,7 @@
             "globalMult": 0
         },
         "Tian 2pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -1626,7 +1626,7 @@
             "globalMult": 0
         },
         "Tian 2pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -1639,7 +1639,7 @@
             "globalMult": 0
         },
         "Tian 2pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -1652,7 +1652,7 @@
             "globalMult": 0
         },
         "Tian 2pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -1665,7 +1665,7 @@
             "globalMult": 0
         },
         "Tian 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.12,
             "totalMod": 0,
@@ -1678,7 +1678,7 @@
             "globalMult": 0
         },
         "Tian 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.14,
             "totalMod": 0,
@@ -1691,7 +1691,7 @@
             "globalMult": 0
         },
         "Tian 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.16,
             "totalMod": 0,
@@ -1704,7 +1704,7 @@
             "globalMult": 0
         },
         "Tian 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.18,
             "totalMod": 0,
@@ -1717,7 +1717,7 @@
             "globalMult": 0
         },
         "Umi 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.04,
             "totalMod": 0.02,
@@ -1730,7 +1730,7 @@
             "globalMult": 0
         },
         "Umi 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.05,
             "totalMod": 0.025,
@@ -1743,7 +1743,7 @@
             "globalMult": 0
         },
         "Umi 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.06,
             "totalMod": 0.03,
@@ -1756,7 +1756,7 @@
             "globalMult": 0
         },
         "Umi 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.07,
             "totalMod": 0.035,
@@ -1769,7 +1769,7 @@
             "globalMult": 0
         },
         "Annabella 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0,
@@ -1782,7 +1782,7 @@
             "globalMult": 0.07
         },
         "Annabella 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.148,
             "totalMod": 0,
@@ -1795,7 +1795,7 @@
             "globalMult": 0.08
         },
         "Annabella 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.166,
             "totalMod": 0,
@@ -1808,7 +1808,7 @@
             "globalMult": 0.09
         },
         "Annabella 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.184,
             "totalMod": 0,
@@ -1821,7 +1821,7 @@
             "globalMult": 0.1
         },
         "Alyss 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.045,
             "totalMod": 0,
@@ -1834,7 +1834,7 @@
             "globalMult": 0.12
         },
         "Alyss 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.055,
             "totalMod": 0,
@@ -1847,7 +1847,7 @@
             "globalMult": 0.15
         },
         "Alyss 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.065,
             "totalMod": 0,
@@ -1860,7 +1860,7 @@
             "globalMult": 0.18
         },
         "Alyss 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.075,
             "totalMod": 0,
@@ -1873,7 +1873,7 @@
             "globalMult": 0.21
         },
         "Fenrir 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.1375,
             "totalMod": 0,
@@ -1886,7 +1886,7 @@
             "globalMult": 0
         },
         "Fenrir 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.165,
             "totalMod": 0,
@@ -1899,7 +1899,7 @@
             "globalMult": 0
         },
         "Fenrir 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.1925,
             "totalMod": 0,
@@ -1912,7 +1912,7 @@
             "globalMult": 0
         },
         "Fenrir 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.22,
             "totalMod": 0,
@@ -1925,7 +1925,7 @@
             "globalMult": 0
         },
         "Lan 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.032,
             "totalMod": 0.06,
@@ -1938,7 +1938,7 @@
             "globalMult": 0.05
         },
         "Lan 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.038,
             "totalMod": 0.07,
@@ -1951,7 +1951,7 @@
             "globalMult": 0.06
         },
         "Lan 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.044,
             "totalMod": 0.08,
@@ -1964,7 +1964,7 @@
             "globalMult": 0.07
         },
         "Lan 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.05,
             "totalMod": 0.09,
@@ -1977,7 +1977,7 @@
             "globalMult": 0.08
         },
         "Scylla 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0,
@@ -1990,7 +1990,7 @@
             "globalMult": 0.095
         },
         "Scylla 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.16,
             "totalMod": 0,
@@ -2003,7 +2003,7 @@
             "globalMult": 0.115
         },
         "Scylla 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.19,
             "totalMod": 0,
@@ -2016,7 +2016,7 @@
             "globalMult": 0.135
         },
         "Scylla 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.23,
             "totalMod": 0,
@@ -2029,7 +2029,7 @@
             "globalMult": 0.155
         },
         "Haboela 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -2042,7 +2042,7 @@
             "globalMult": 0
         },
         "Haboela 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -2055,7 +2055,7 @@
             "globalMult": 0
         },
         "Haboela 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -2068,7 +2068,7 @@
             "globalMult": 0
         },
         "Haboela 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0,
             "totalMod": 0,
@@ -2081,7 +2081,7 @@
             "globalMult": 0
         },
         "Icarus 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.08,
             "totalMod": 0,
@@ -2094,7 +2094,7 @@
             "globalMult": 0.13
         },
         "Icarus 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.09,
             "totalMod": 0,
@@ -2107,7 +2107,7 @@
             "globalMult": 0.16
         },
         "Icarus 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.1,
             "totalMod": 0,
@@ -2120,7 +2120,7 @@
             "globalMult": 0.19
         },
         "Icarus 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.11,
             "totalMod": 0,
@@ -2133,7 +2133,7 @@
             "globalMult": 0.22
         },
         "Fiona 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.16,
             "totalMod": 0.17,
@@ -2146,7 +2146,7 @@
             "globalMult": 0
         },
         "Fiona 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.18,
             "totalMod": 0.19,
@@ -2159,7 +2159,7 @@
             "globalMult": 0
         },
         "Fiona 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.2,
             "totalMod": 0.21,
@@ -2172,7 +2172,7 @@
             "globalMult": 0
         },
         "Fiona 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.22,
             "totalMod": 0.23,
@@ -2185,7 +2185,7 @@
             "globalMult": 0
         },
         "Gnonno 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.08,
             "totalMod": 0,
@@ -2198,7 +2198,7 @@
             "globalMult": 0.13
         },
         "Gnonno 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.09,
             "totalMod": 0,
@@ -2211,7 +2211,7 @@
             "globalMult": 0.16
         },
         "Gnonno 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.1,
             "totalMod": 0,
@@ -2224,7 +2224,7 @@
             "globalMult": 0.19
         },
         "Gnonno 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.11,
             "totalMod": 0,
@@ -2237,7 +2237,7 @@
             "globalMult": 0.22
         },
         "Rubilia 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.145,
             "totalMod": 0,
@@ -2250,7 +2250,7 @@
             "globalMult": 0.13
         },
         "Rubilia 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.165,
             "totalMod": 0,
@@ -2263,7 +2263,7 @@
             "globalMult": 0.16
         },
         "Rubilia 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.185,
             "totalMod": 0,
@@ -2276,7 +2276,7 @@
             "globalMult": 0.19
         },
         "Rubilia 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.205,
             "totalMod": 0,
@@ -2289,7 +2289,7 @@
             "globalMult": 0.22
         },
         "Liu Huo 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.09,
             "totalMod": 0.11,
@@ -2302,7 +2302,7 @@
             "globalMult": 0
         },
         "Liu Huo 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.1,
             "totalMod": 0.14,
@@ -2315,7 +2315,7 @@
             "globalMult": 0
         },
         "Liu Huo 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.11,
             "totalMod": 0.17,
@@ -2328,7 +2328,7 @@
             "globalMult": 0
         },
         "Liu Huo 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.12,
             "totalMod": 0.2,
@@ -2341,7 +2341,7 @@
             "globalMult": 0
         },
         "Yulan 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0.12,
@@ -2354,7 +2354,7 @@
             "globalMult": 0
         },
         "Yulan 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.14,
             "totalMod": 0.15,
@@ -2367,7 +2367,7 @@
             "globalMult": 0
         },
         "Yulan 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.15,
             "totalMod": 0.19,
@@ -2380,7 +2380,7 @@
             "globalMult": 0
         },
         "Yulan 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.16,
             "totalMod": 0.23,
@@ -2393,7 +2393,7 @@
             "globalMult": 0
         },
         "Zeke 4pc ☆0": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.14,
             "totalMod": 0,
@@ -2406,7 +2406,7 @@
             "globalMult": 0.14
         },
         "Zeke 4pc ☆1": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.16,
             "totalMod": 0,
@@ -2419,7 +2419,7 @@
             "globalMult": 0.17
         },
         "Zeke 4pc ☆2": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.18,
             "totalMod": 0,
@@ -2432,7 +2432,7 @@
             "globalMult": 0.2
         },
         "Zeke 4pc ☆3": {
-            "Matrix": "N/A",
+            "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.2,
             "totalMod": 0,
