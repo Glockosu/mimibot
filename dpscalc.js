@@ -1,4 +1,6 @@
 const fs = require('fs');
+const { MessageEmbed } = require('discord.js');
+const { getPriority } = require('os');
 
 // Step 1: Read the JSON Data
 const jsonCharacterFilePath = 'data/raw/characters.json';
@@ -457,10 +459,6 @@ const skillsSelection = {
 };
 
 
-
-
-
-
 function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk2) {
 
 
@@ -488,18 +486,14 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
 
     
     //simulacra 1 data
-    const type1 = selectedCharacterData1.type;
     const element1 = selectedCharacterData1.element;
     const maxAutoDPS1 = selectedCharacterData1.maxAutoDPS;
     let skillDamage1 = selectedCharacterData1.skillDamage;
     const endurancePerSecond1 = selectedCharacterData1.endurancePerSecond;
     const enduranceDPS1 = selectedCharacterData1.enduranceDPS;
-    const dodgeTime1 = selectedCharacterData1.dodgeTime;
     const dodgeDamage1 = selectedCharacterData1.dodgeDamage;
     const dodgeHits1 = selectedCharacterData1.dodgeHits;
     const skillCooldown1 = selectedCharacterData1.skillCooldown;
-    const skillCast1 = selectedCharacterData1.skillCast;
-    const damagePerDischarge1 = selectedCharacterData1.damagePerDischarge;
     const passiveDPS1 = selectedCharacterData1.passiveDPS;
     const damageBuffAverage1 = selectedCharacterData1.damageBuffAverage;
     const buffType1 = selectedCharacterData1.buffType;
@@ -510,7 +504,6 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
     const debuffType1 = selectedCharacterData1.debuffType;
     const dischargeTime1 = selectedCharacterData1.dischargeTime;
     const onFieldPassive1 = selectedCharacterData1.onFieldPassive;
-    const onFieldCritRate1 = selectedCharacterData1.onFieldCritRate;
     const specialSkillDamage1 = selectedCharacterData1.specialSkillDamage;
     const specialSkillCast1 = selectedCharacterData1.specialSkillCast;
     const specialSkillCooldown1 = selectedCharacterData1.specialSkillCooldown;
@@ -520,20 +513,30 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
     const maxAutoDpsValue = [selectedCharacterData1.maxAutoDPS, selectedCharacterData2.maxAutoDPS, selectedCharacterData3.maxAutoDPS];
     const enduranceDpsValue = [selectedCharacterData1.enduranceDPS, selectedCharacterData2.enduranceDPS2, selectedCharacterData3.enduranceDPS];
     const endurancePerSecondValue = [selectedCharacterData1.endurancePerSecond, selectedCharacterData2.enduranceDPS2, selectedCharacterData3.enduranceDPS3];
+    const onfieldCritRate = [selectedCharacterData1.onfieldCritRate, selectedCharacterData2.onfieldCritRate, selectedCharacterData3.onfieldCritRate];
+    const skillCast = [selectedCharacterData1.skillCast, selectedCharacterData2.skillCast, selectedCharacterData3.skillCast];
+    const damagePerDischarge = [selectedCharacterData1.damagePerDischarge, selectedCharacterData2.damagePerDischarge, selectedCharacterData3.damagePerDischarge];
+    const skillDamage = [selectedCharacterData1.skillDamage, selectedCharacterData2.skillDamage, selectedCharacterData3.skillDamage];
+    const passiveDps = [selectedCharacterData1.passiveDPS, selectedCharacterData2.passiveDPS, selectedCharacterData3.passiveDPS];
+    const skillCooldown = [selectedCharacterData1.skillCooldown, selectedCharacterData2.skillCooldown, selectedCharacterData3.skillCooldown];
+    const specialSkillCooldown = [selectedCharacterData1.specialSkillCooldown, selectedCharacterData2.specialSkillCooldown, selectedCharacterData3.specialSkillCooldown];
+    const specialSkillCast = [selectedCharacterData1.specialSkillCast, selectedCharacterData2.specialSkillCast, selectedCharacterData3.specialSkillCast];
+    const dischargeTime = [selectedCharacterData1.dischargeTime, selectedCharacterData2.dischargeTime, selectedCharacterData3.dischargeTime];
+    const enduranceDps = [selectedCharacterData1.enduranceDPS, selectedCharacterData2.enduranceDPS, selectedCharacterData3.enduranceDPS];
+    const specialSkillDmg = [selectedCharacterData1.specialSkillDamage, selectedCharacterData2.specialSkillDamage, selectedCharacterData3.specialSkillDamage];  
+    const dodgeTime = [selectedCharacterData1.dodgeTime, selectedCharacterData2.dodgeTime, selectedCharacterData3.dodgeTime];
+    const onfieldPassive = [selectedCharacterData1.onFieldPassive, selectedCharacterData2.onFieldPassive, selectedCharacterData3.onFieldPassive];
+    const typeValue = [selectedCharacterData1.type, selectedCharacterData2.type, selectedCharacterData3.type];
 
     //simulacra 2 dat
-    const type2 = selectedCharacterData2.type;
     const element2 = selectedCharacterData2.element;
     const maxAutoDPS2 = selectedCharacterData2.maxAutoDPS;
     let skillDamage2 = selectedCharacterData2.skillDamage;
     const endurancePerSecond2 = selectedCharacterData2.endurancePerSecond;
     const enduranceDPS2 = selectedCharacterData2.enduranceDPS;
-    const dodgeTime2 = selectedCharacterData2.dodgeTime;
     const dodgeDamage2 = selectedCharacterData2.dodgeDamage;
     const dodgeHits2 = selectedCharacterData2.dodgeHits;
     const skillCooldown2 = selectedCharacterData2.skillCooldown;
-    const skillCast2 = selectedCharacterData2.skillCast;
-    const damagePerDischarge2 = selectedCharacterData2.damagePerDischarge;
     const passiveDPS2 = selectedCharacterData2.passiveDPS;
     const damageBuffAverage2 = selectedCharacterData2.damageBuffAverage;
     const buffType2 = selectedCharacterData2.buffType;
@@ -544,24 +547,19 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
     const debuffType2 = selectedCharacterData2.debuffType;
     const dischargeTime2 = selectedCharacterData2.dischargeTime;
     const onFieldPassive2 = selectedCharacterData2.onFieldPassive;
-    const onFieldCritRate2 = selectedCharacterData2.onFieldCritRate;
     const specialSkillDamage2 = selectedCharacterData2.specialSkillDamage;
     const specialSkillCast2 = selectedCharacterData2.specialSkillCast;
     const specialSkillCooldown2 = selectedCharacterData2.specialSkillCooldown;
 
     //simulacra 3 data
-    const type3 = selectedCharacterData3.type;
     const element3 = selectedCharacterData3.element;
     const maxAutoDPS3 = selectedCharacterData3.maxAutoDPS;
     let skillDamage3 = selectedCharacterData3.skillDamage;
     const endurancePerSecond3 = selectedCharacterData3.endurancePerSecond;
     const enduranceDPS3 = selectedCharacterData3.enduranceDPS;
-    const dodgeTime3 = selectedCharacterData3.dodgeTime;
     const dodgeDamage3 = selectedCharacterData3.dodgeDamage;
     const dodgeHits3 = selectedCharacterData3.dodgeHits;
     const skillCooldown3 = selectedCharacterData3.skillCooldown;
-    const skillCast3 = selectedCharacterData3.skillCast;
-    const damagePerDischarge3 = selectedCharacterData3.damagePerDischarge;
     const passiveDPS3 = selectedCharacterData3.passiveDPS;
     const damageBuffAverage3 = selectedCharacterData3.damageBuffAverage;
     const buffType3 = selectedCharacterData3.buffType;
@@ -572,10 +570,19 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
     const debuffType3 = selectedCharacterData3.debuffType;
     const dischargeTime3 = selectedCharacterData3.dischargeTime;
     const onFieldPassive3 = selectedCharacterData3.onFieldPassive;
-    const onFieldCritRate3 = selectedCharacterData3.onFieldCritRate;
     const specialSkillDamage3 = selectedCharacterData3.specialSkillDamage;
     const specialSkillCast3 = selectedCharacterData3.specialSkillCast;
     const specialSkillCooldown3 = selectedCharacterData3.specialSkillCooldown;
+
+
+    const fieldFD = [selectedMatrice1.fieldFD, selectedMatrice2.fieldFD, selectedMatrice3.fieldFD];
+    const fieldModN = [selectedMatrice1.fieldModN, selectedMatrice2.fieldModN, selectedMatrice3.fieldModN];
+    const passiveDmg = [selectedMatrice1.passiveDmg, selectedMatrice2.passiveDmg, selectedMatrice3.passiveDmg];
+    const matricefieldModE = [selectedMatrice1.fieldModE, selectedMatrice2.fieldModE, selectedMatrice3.fieldModE];
+    const matriceExtra = [selectedMatrice1.extra, selectedMatrice2.extra, selectedMatrice3.extra];
+    const matriceTotalCD = [selectedMatrice1.totalCD, selectedMatrice2.totalCD, selectedMatrice3.totalCD];
+    const matriceTotalCR = [selectedMatrice1.totalCR, selectedMatrice2.totalCR, selectedMatrice3.totalCR];
+    const matriceAdditional = [selectedMatrice1.additional, selectedMatrice2.additional, selectedMatrice3.additional]
 
     //matrice 1 data
     const matriceDodgeDmg1 = selectedMatrice1.matriceDodgeDmg;
@@ -713,34 +720,80 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
     let alteredAtk = Math.max(voltAtk,physicalAtk,fireAtk,frostAtk);
 
     const elementTypes = [element1, element2, element3];
-    const characterTypes = [type1, type2, type3];
 
     const contains2elements = [...new Set(elementTypes)].length >= 2;
-    const contains2types = [...new Set(characterTypes)].length >= 2;
+    const contains2types = [...new Set(typeValue)].length >= 2;
     const containsFiona = selectedCharacterNames.some(name => name.includes("fiona"));
+    const containsFiona1 = selectedCharacterNames.some(name => name.includes("fiona1") || name.includes("fiona3") || name.includes("fiona5") || name.includes("fiona6"));
+    const containsFiona5 = selectedCharacterNames.some(name => name.includes("fiona5") || name.includes("fiona6"));
+    const containsFiona6 = selectedCharacterNames.some(name => name.includes("fiona6"));
+    const containsSamir = selectedCharacterNames.some(name => name.includes("samir"));
+    const containsFrigg = selectedCharacterNames.some(name => name.includes("frigg"));
+    const containsFrigg3 = selectedCharacterNames.some(name => name.includes("frigg3") || name.includes("frigg5") || name.includes("frigg6"));
     const containsLin = selectedCharacterNames.some(name => name.includes("lin"));
+    const containsLin3 = selectedCharacterNames.some(name => name.includes("lin3") || name.includes("lin5") || name.includes("lin6"));
+    const containsLin5 = selectedCharacterNames.some(name => name.includes("lin5") || name.includes("lin6"));
     const containsLin6 = selectedCharacterNames.some(name => name.includes("lin6"));
+    const containsLinSakiFrigg = selectedCharacterNames.some(name => name.includes("lin") && name.includes("saki") && name.includes("frigg"));
+    const containsShiro3 = selectedCharacterNames.some(name => name.includes("shiro3") || name.includes("shiro5") || name.includes("shiro6"));
+    const containsRuby5 = selectedCharacterNames.some(name => name.includes("ruby5") || name.includes("ruby6"));
     const containsYulan = selectedCharacterNames.some(name => name.includes("yulan"));
+    const containsYulan1 = selectedCharacterNames.some(name => name.includes("martial1") || name.includes("martial3") || name.includes("martial5") || name.includes("martial6") ||
+        name.includes("sweeping1") || name.includes("sweeping3") || name.includes("sweeping5") || name.includes("sweeping6"));
+    const containsYulanMartial = selectedCharacterNames.some(name => name.includes("martial"));
+    const containsMimi = selectedCharacterNames.some(name => name.includes("mimi"));
+    const containsMimi1 = selectedCharacterNames.some(name => name.includes("mimi1") || name.includes("mimi3") || name.includes("mimi5") || name.includes("mimi6"));
+    const containsAnna = selectedCharacterNames.some(name => name.includes("anna"));
+    const containsAnna1 = selectedCharacterNames.some(name => name.includes("annabellagas1") || name.includes("annabellagas3") || name.includes("annabellagas5") || name.includes("annabellagas6"));
+    const containsAnnaBurn = selectedCharacterNames.some(name => name.includes("annabellaburn"));
+    const containsAnnaBurn5 = selectedCharacterNames.some(name => name.includes("annabellaburn5") || name.includes("annabellaburn6"));
     const containsAlyss = selectedCharacterNames.some(name => name.includes("alyss"));
+    const containsAlyss1 = selectedCharacterNames.some(name => name.includes("alyss1") || name.includes("alyss3") || name.includes("alyss5") || name.includes("alyss6"));
+    const containsAlyss3 = selectedCharacterNames.some(name => name.includes("alyss3") || name.includes("alyss5") || name.includes("alyss6"));
     const containsAlyss6 = selectedCharacterNames.some(name => name.includes("alyss6"));
     const containsIcarus = selectedCharacterNames.some(name => name.includes("icarus"));
     const containsLiuhuo = selectedCharacterNames.some(name => name.includes("liu"));
     const containsGnonno = selectedCharacterNames.some(name => name.includes("gnonno"));
     const containsRubilia = selectedCharacterNames.some(name => name.includes("rubilia"));
+    const containsRubilia3 = selectedCharacterNames.some(name => name.includes("rubilia3") || name.includes("rubilia5") || name.includes("rubilia6"));
+    const containsRubiliaMat4pc = selectedMatricesNames.some(name => name.includes("rubilia4pc"));
     const containsNemesis = selectedCharacterNames.some(name => name.includes("nemesis"));
+    const containsNemesis6 = selectedCharacterNames.some(name => name.includes("nemesis6"));
     const containsLyra = selectedCharacterNames.some(name => name.includes("lyra"));
     const containsLyraMat = selectedMatricesNames.some(name => name.includes("lyra"));
+    const containsRubyMat4pc = selectedMatricesNames.some(name => name.includes("ruby4pc"));
+    const containsClaudiaMat4pc = selectedMatricesNames.some(name => name.includes("claudia4pc"));
+    const containsCobaltMat4pc = selectedMatricesNames.some(name => name.includes("cobalt4pc"));
+    const containsAnnabellaMat4pc = selectedMatricesNames.some(name => name.includes("annabella4pc"));
     const containsUmi = selectedCharacterNames.some(name => name.includes("umi"));
     const containsUmi1 = selectedCharacterNames.some(name => name.includes("umi1") || name.includes("umi3") || name.includes("umi5") || name.includes("umi6"));
     const containsUmi3 = selectedCharacterNames.some(name => name.includes("umi3") || name.includes("umi5") || name.includes("umi6"));
     const containsClaudia = selectedCharacterNames.some(name => name.includes("claudia"));
+    const containsClaudia1 = selectedCharacterNames.some(name => name.includes("claudia1") || name.includes("claudia3") || name.includes("claudia5") || name.includes("claudia6"));
+    const containsClaudia5 = selectedCharacterNames.some(name => name.includes("claudia5") || name.includes("claudia6"));
     const containsUmi5 = selectedCharacterNames.some(name => name.includes("umi5") || name.includes("umi6"));
     const containsLan6 = selectedCharacterNames.some(name => name.includes("lan6"));
     const containsLan5 = selectedCharacterNames.some(name => name.includes("lan5") || name.includes("lan6"));
+    const containsLan3 = selectedCharacterNames.some(name => name.includes("lan3") || name.includes("lan5") || name.includes("lan6"));
+    const containsLan1 = selectedCharacterNames.some(name => name.includes("lan1") || name.includes("lan3") ||name.includes("lan5") || name.includes("lan6"));
     const containsLan = selectedCharacterNames.some(name => name.includes("lan"));
     const containsFenrir = selectedCharacterNames.some(name => name.includes("fenrir"));
+    const containsFenrir1 = selectedCharacterNames.some(name => name.includes("fenrir1") || name.includes("fenrir3") || name.includes("fenrir5") || name.includes("fenrir6"));
     const containsFenrir6 = selectedCharacterNames.some(name => name.includes("fenrir6"));
+    const containsFenrir5 = selectedCharacterNames.some(name => name.includes("fenrir5") || name.includes("fenrir6"));
+    const containsCobalt3 = selectedCharacterNames.some(name => name.includes("cobalt3") || name.includes("cobalt5") || name.includes("cobalt6"));
+    const containsTsubasa = selectedCharacterNames.some(name => name.includes("tsubasa"));
+    const containsTsubasa3 = selectedCharacterNames.some(name => name.includes("tsubasa3") || name.includes("tsubasa5") || name.includes("tsubasa6"));
+    const containsTian = selectedCharacterNames.some(name => name.includes("tian"));
+    const containsTian1 = selectedCharacterNames.some(name => name.includes("tian1") || name.includes("tian3") || name.includes("tian5") || name.includes("tian6"));
+    const containsTian3 = selectedCharacterNames.some(name => name.includes("tian3") || name.includes("tian5") || name.includes("tian6"));
+    const containsTian5 = selectedCharacterNames.some(name => name.includes("tian5") || name.includes("tian6"));
     const containsTian6 = selectedCharacterNames.some(name => name.includes("tian6"));
+    const containsSaki1 = selectedCharacterNames.some(name => name.includes("saki1") || name.includes("saki3") || name.includes("saki5") || name.includes("saki6"));
+    const containsSaki3 = selectedCharacterNames.some(name => name.includes("saki3") || name.includes("saki5") || name.includes("saki6"));
+    const containsZeke = selectedCharacterNames.some(name => name.includes("zeke"));
+    const containsZeke1 = selectedCharacterNames.some(name => name.includes("zeke1") || name.includes("zeke3") || name.includes("zeke5") || name.includes("zeke6"));
+    const containsZeke6 = selectedCharacterNames.some(name => name.includes("zeke6"));
     const annaGas = selectedCharacterNames.some(name => name.includes("annabellagas"));
     const containsVolt = (element1.includes("Volt") || element2.includes("Volt") || element3.includes("Volt"));
     const containsFrost = (element1.includes("Ice") || element2.includes("Ice") || element3.includes("Ice"));
@@ -781,16 +834,40 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
     let rubyMatrice2pc = 0;
     let zekeMatrice2pc = 0;
     let rubyMatrice4pc = 0;
+    let friggMatrice4pc = 0;
+    let yulanMatricePassive = 0;
     let alyss2pAdd = 0;
     let resistance = .45;
+    let playerResistance = 40000;
     let umiMagicShowValue = 0;
+    let totalTime =150;
+    let claudiaMatrice4pc = 0;
+    const resistShred =
+        (annaGas ? 0.1 : 0) +
+        (containsFenrir ? 0.2 : 0) +
+        (containsUmi5 ? (0.1 * 20) / 30 : 0) +
+        (fionaSk1 === "Aqua Shackles" || fionaSk2 === "Aqua Shackles"
+            ? sTrait === "Fiona"
+            ? 0.1
+            : 0.08
+            : 0) +
+        Math.min(containsLiuhuo ? 0.15 + (containsYulan ? 0.15 : 0.15) : 0.15);
+    const resistShredMulti = (1-resistance*(1-resistShred))/(1-resistance);
+
+    //todo : working on spSkillDamagePercent
+    const fenrirCloneShred = ((1/(1-resistance)) / resistShredMulti) * Math.min(1, calcFenrirCloneUptime()) + resistShredMulti * (1-Math.min(1, calcFenrirCloneUptime()));
+
+    let umiMultiplier = (containsUmi1 ? .15 : 0) + 1
+
+    let umiAlt = 0;
+
+
+    let umiSupportSlot = 0;
     let umiSupportValue = 0;
-    let umiMultiplier = 0;
-
-    umiMultiplier = (containsUmi1 ? .15 : 0) + 1
-
+    let umiSupport = containsUmi3 && umiMagicShowValue < umiSupportValue ? true : false;
     let umiChargeTime = containsUmi5 ? (containsLyra || containsGnonno) ? (containsLyra || containsGnonno) ? 12 : 20 : 18 : 50
-    let umiMagicShowTotal = Math.floor(1+(totalTime))
+    let umiMagicShows = Math.floor(1+(totalTime - 30)/ Math.max((umiSupport ? 17: 30), ((umiSupport ? 4 : 18 ) + umiChargeTime), 1 )); 
+
       
 
     for (const characterMatrix of selectedMatricesNames) {
@@ -803,6 +880,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
         } else if (characterMatrix.includes("yulan4pc") && containsFrost) {
           const yulanMatriceAdditional = matriceSelections[characterMatrix].additional;  
           const yulanMatriceTotalMod = matriceSelections[characterMatrix].totalMod;
+          yulanMatricePassive = matriceSelections[characterMatrix].passiveDmg;
           if (containsYulan) {
             FDMulti += yulanMatriceAdditional;
           } else {
@@ -920,6 +998,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
             }
         } else if (characterMatrix.includes("frigg4pc")) {
             friggMatrice2pc = matriceSelections[characterMatrix].totalMod;
+            friggMatrice4pc = matriceSelections[characterMatrix].passiveDmg;
         } else if (characterMatrix.includes("lin4pc")) {
             linMatrice2pc = matriceSelections[characterMatrix].additional;
             if(containsLin) {
@@ -946,8 +1025,10 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
             lyraMatrice2pc = matriceSelections[characterMatrix].additional;
         } else if (characterMatrix.includes("claudia")) {
             claudiaMatrice2pc = matriceSelections[characterMatrix].totalMod;
-        }
+            claudiaMatrice4pc = matriceSelections[characterMatrix].additional;
+        } 
     }
+
 
     let elementalist = 1;
     if(containsIcarus) {
@@ -1239,17 +1320,6 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
       ))) / (1 - resistance);
       
 
-      console.log("FDMulti:", FDMulti);
-      console.log("AllEleDmg:", AllEleDmg);
-      
-      console.log("frostTrueMulti:", frostTrueMulti);
-      console.log("frostAttack:", frostAttack);
-      console.log("frostDebuff:", frostDebuff);
-      console.log("frostGearMod:", frostGearMod);
-      console.log("normalMulti:", normalMulti);
-      console.log("frostEleDmg:", frostEleDmg);
-      console.log("frostResistMulti:", frostResistMulti);
-
     const baseMultResults = [];
 
     for (const elementList of elementTypes) {
@@ -1279,38 +1349,33 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
         baseMultResults.push(baseMult);
       }
 
-    console.log(baseMultResults);
     
 
-    let onfieldEleDmg = [0,0,0];
-
-    function calcOnfieldEleDmg(characterIndex) {
+    function onfieldEleDmg(characterIndex) {
         const characterName = selectedMatricesNames[characterIndex];
-        const matriceName = matriceSelections[characterName];
     
         if (characterName.includes("lyra") && !containsPhysical) {
-            onfieldEleDmg[characterIndex] = 0;
+            return 1;
         }
     
         
         switch (elementTypes[characterIndex]) {
             
             case "Fire":
-                return matriceName.fieldModE + flameEleDmg + AllEleDmg -1;
+                return matricefieldModE[characterIndex] + flameEleDmg + AllEleDmg -1;
             case "Ice":
-                return matriceName.fieldModE + frostEleDmg + AllEleDmg -1;
+                return matricefieldModE[characterIndex] + frostEleDmg + AllEleDmg -1;
             case "Volt":
-                return matriceName.fieldModE + voltEleDmg + AllEleDmg-1;
+                return matricefieldModE[characterIndex] + voltEleDmg + AllEleDmg-1;
             case "Physical":
-                return matriceName.fieldModE + physicalEleDmg + AllEleDmg-1;
+                return matricefieldModE[characterIndex] + physicalEleDmg + AllEleDmg-1;
             case "Altered":
-                return matriceName.fieldModE + alteredEleDmg + AllEleDmg-1;
+                return matricefieldModE[characterIndex] + alteredEleDmg + AllEleDmg-1;
             default:
                 // Handle cases where the character's element is not recognized
                 return 0;
         }
     }
-
 
     function helperCalcOnfieldEleDmg(characterIndex) {
         switch (elementTypes[characterIndex]) {
@@ -1331,7 +1396,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
     }
 
 
-    onfieldEleDmg = [(calcOnfieldEleDmg(0)/helperCalcOnfieldEleDmg(0)), (calcOnfieldEleDmg(1)/helperCalcOnfieldEleDmg(1)), (calcOnfieldEleDmg(2)/helperCalcOnfieldEleDmg(2))];
+    const calcOnfieldEleDmg = [(onfieldEleDmg(0)/helperCalcOnfieldEleDmg(0)), (onfieldEleDmg(1)/helperCalcOnfieldEleDmg(1)), (onfieldEleDmg(2)/helperCalcOnfieldEleDmg(2))];
     
 
     function calcActiveMultiplier(characterIndex) {
@@ -1348,69 +1413,1720 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk
             attackBase = alteredAttack;
         }
         const characterName = selectedMatricesNames[characterIndex];
-        const matriceName = matriceSelections[characterName];
 
         return (1*((sTrait === "Annabella" && annaGas && characterName.includes("annabella") ) ? 1.3 : 1) *
-        ((FDMulti + matriceName.fieldFD) * ((selectedCharacterNames[characterIndex].includes("samir") ? 1 : 1)/FDMulti)) *
-        (normalMulti + (matriceName.fieldModN)) / normalMulti)  * ((attackBase + (characterName.includes("lyra") ? lyraMatrice2pc : 0))/ attackBase);
+        ((FDMulti + fieldFD[characterIndex]) * ((selectedCharacterNames[characterIndex].includes("samir") ? 1 : 1)/FDMulti)) *
+        (normalMulti + (fieldModN[characterIndex])) / normalMulti)  * ((attackBase + (characterName.includes("lyra") ? lyraMatrice2pc : 0))/ attackBase);
       }
 
 
      
     let critRate = .7;
     let critDamage = .5;
-    let bonusCritrate = (matriceTotalCR1 + matriceTotalCR2 + matriceTotalCR3);
-    let bonusCritDamage = (matriceTotalCD1 + matriceTotalCD2 + matriceTotalCD3);
+    const bonusCritRate = (matriceTotalCD[0] + matriceTotalCD[1] + matriceTotalCD[2]);
+    const bonusCritDamage = (matriceTotalCD[0] + matriceTotalCD[1] + matriceTotalCD[2]);
+    let critMultiplierForm = (critRate*(1-critDamage) + 1-(critRate));
 
     function critMutliplier(characterIndex) {
         const characterName = selectedMatricesNames[characterIndex];
         const matriceName = matriceSelections[characterName];
-        return (characterName.includes("scylla" | "crow") ? 1 + characterName.includes("crow") ? .6 : .6 : 1) * 
-        (Math.min(critRate +  bonusCritrate +(containsFenrir6 ? .18 : 0), 1)) * (critDamage + bonusCritDamage + matriceName.additional) + 
-        ((characterName.includes("crow") ? ((1-.6) * (critRate + (containsFenrir6 ? .18 : 0)) * critDamage + bonusCritDamage)  : 0) / 
-        (1 + critRate + critDamage))
-    };
 
-    const critMulti = 1;
+       
+        const isScyllaOrCrow = characterName.includes("scylla") || characterName.includes("crow");
+
+        const result = isScyllaOrCrow
+        ? (
+            (1 + (characterName.includes("crow") ? 0.6 : 1) *
+            Math.min(critRate + onfieldCritRate[characterIndex] + bonusCritRate + (containsFenrir6 ? 0.18 : 0), 1) *
+            (critDamage + bonusCritDamage + matriceName.additional) +
+            (characterName.includes("crow")
+                ? (1 - 0.6) * (critRate + onfieldCritRate[characterIndex] + bonusCritRate + (containsFenrir6 ? 0.18 : 0)) * (critDamage + bonusCritDamage)
+                : 0)
+            ) / (1 + critDamage * critRate)
+            )
+        : (
+            Math.min(1, critRate + onfieldCritRate[characterIndex] + bonusCritRate + (containsFenrir6 ? 0.18 : 0)) *
+            (1 + critDamage + bonusCritDamage) +
+            (1 - Math.min(1, critRate + onfieldCritRate[characterIndex] + bonusCritRate + (containsFenrir6 ? 0.18 : 0)))
+            ) / critMultiplierForm;
+
+        return finalResult = isScyllaOrCrow ? (result < 1 ? 1 : result) : 1;
+
+    }
+
+    
+
+
     let maxAutoValue = 0;
       
 
 
 
     function calcMaxAutoDps(characterIndex) {
-        return maxAutoDpsValue[characterIndex] * ((baseMultResults[characterIndex] * onfieldEleDmg[characterIndex] * calcActiveMultiplier(characterIndex)) 
-        * critMulti) * (containsClaudia ? normalMulti + claudiaMatrice2pc / normalMulti : 1)
+        return maxAutoDpsValue[characterIndex] * ((baseMultResults[characterIndex] * calcOnfieldEleDmg[characterIndex] * calcActiveMultiplier(characterIndex)) 
+        * critMutliplier(characterIndex)) * (containsClaudia ? normalMulti + claudiaMatrice2pc / normalMulti : 1)
     }
 
     function calcEnduranceDps(characterIndex) {
-        return enduranceDpsValue[characterIndex] * ((baseMultResults[characterIndex] * onfieldEleDmg[characterIndex] * calcActiveMultiplier(characterIndex)) 
-        * critMulti) * (containsClaudia ? normalMulti + claudiaMatrice2pc / normalMulti : 1)
+        return enduranceDpsValue[characterIndex] * ((baseMultResults[characterIndex] * calcOnfieldEleDmg[characterIndex] * calcActiveMultiplier(characterIndex)) 
+        * critMutliplier(characterIndex)) * (containsClaudia ? normalMulti + claudiaMatrice2pc / normalMulti : 1)
     }
 
     function calcDodgeDamage(characterIndex) {
-        return dodgeDamageValue[characterIndex] * (baseMultResults[characterIndex] * onfieldEleDmg[characterIndex] * 
-            calcActiveMultiplier(characterIndex) * critMulti)
+        return dodgeDamageValue[characterIndex] * (baseMultResults[characterIndex] * calcOnfieldEleDmg[characterIndex] * 
+            calcActiveMultiplier(characterIndex) * critMutliplier(characterIndex))
     }
 
     function calcDodgeDps(characterIndex) {
-        return damagePerDodgeValue[characterIndex] * (baseMultResults[characterIndex] * onfieldEleDmg[characterIndex] * 
-            calcActiveMultiplier(characterIndex) * critMulti)
+        return damagePerDodgeValue[characterIndex] * (baseMultResults[characterIndex] * calcOnfieldEleDmg[characterIndex] * 
+            calcActiveMultiplier(characterIndex) * critMutliplier(characterIndex))
     }
 
-    function calcPassiveMod(characterIndex) {
-        return (1+((onfieldEleDmg[characterIndex] * calcActiveMultiplier(0) * critMulti)))
+
+    function calcTotalMulti(characterIndex) {
+        return baseMultResults[characterIndex] * calcOnfieldEleDmg[characterIndex] * calcActiveMultiplier(characterIndex) * critMutliplier(characterIndex) * calcAdditionalMulti(characterIndex);
     }
+
+    function calcPassiveModBalanced() {
+        const term1 = 1;
+        const term2 = (calcOnfieldEleDmg[0] * calcActiveMultiplier(0) * critMutliplier(0) - 1) * 0.333;
+        const term3 = (calcOnfieldEleDmg[1] * calcActiveMultiplier(1) * critMutliplier(1) - 1) * 0.333;
+        const term4 = (calcOnfieldEleDmg[2] * calcActiveMultiplier(2) * critMutliplier(2) - 1) * 0.333;
+    
+        const result = term1 + term2 + term3 + term4;
+    
+        return result;
+    }
+
+    function fieldTime(characterIndex) {
+        if(characterIndex == 0) {
+            return (totalTimeSkillDmg(characterIndex) + totalTimeDischarge(characterIndex) + enduranceRevisedTime() + totalTimeDodge() +
+            basicDmgRevisedTime() + basicDmgTotalTimePriority() + reqUptimeTotalTime(characterIndex) + reqUptimeTotalTimeExtra(characterIndex) + 
+            totalTimeSpSkill(characterIndex))/totalTime 
+        } else if(characterIndex == 1) {
+            return (totalTimeSkillDmg(characterIndex) + totalTimeDischarge(characterIndex) + totalTimeDodge2() +
+            basicDmgTotalTimePriority() + reqUptimeTotalTime(characterIndex) + reqUptimeTotalTimeExtra(characterIndex) + 
+            totalTimeSpSkill(characterIndex))/totalTime 
+        } else if(characterIndex == 2) {
+            return (totalTimeSkillDmg(characterIndex) + totalTimeDischarge(characterIndex) + totalTimeDodge3() +
+            basicDmgTotalTimePriority2() + reqUptimeTotalTime(characterIndex) + reqUptimeTotalTimeExtra(characterIndex) + 
+            totalTimeSpSkill(characterIndex))/totalTime 
+        } else {
+            return 0
+        }
+    }
+
 
     function calcAdditionalMulti(characterIndex) {
-
+        return (((umiSupportValue && selectedCharacterNames[characterIndex].includes("umi") == 0 && containsPhysical) ? 1.25 : 1) * 
+        (1 + ((containsFiona) && (fionaSk1 === "maelstrom" || fionaSk2 === "maelstrom") && (sTrait === "fiona" && elementTypes[characterIndex] === "Physical") ? 0.61 : 0.28) 
+        * (selectedCharacterNames[characterIndex].includes("martial") ? 0.78 : selectedCharacterNames[characterIndex].includes("gnonno") ? 0.68 : selectedCharacterNames[characterIndex].includes("umi") ? 0.7 : 0)));
     }
 
-    console.log();
+    function calcDischargeMulti(characterIndex) {
+        const result = (
+            (fieldModN[characterIndex] + ((selectedCharacterNames[characterIndex].includes("lin5") || selectedCharacterNames[characterIndex].includes("lin6")) ? 0.15 * linUptimeCapped : 0) 
+            + normalMulti + (dischargeMulti() - 1)) /
+            (fieldModN[characterIndex] + normalMulti) *
+            (FDMulti + (claudMatSlot(characterIndex) && calcClaudEligible(characterIndex) ? claudiaMatrice2pc : 0)) /
+            FDMulti
+          );
+        return result;
+    }
 
-  };
+    function calcPriority() {
+        // Create an array of indices to keep track of the original order
+        const indices = [0, 1, 2];
+    
+        // Sort the indices based on bonusDmgSkill values (in descending order)
+        indices.sort((a, b) => bonusDmgSkill(b) - bonusDmgSkill(a));
+    
+        // Create an array to store the priority values based on the sorted order
+        const sortedPriorities = Array(3).fill(0);
+    
+        // Assign priorities based on the sorted order
+        for (let i = 0; i < indices.length; i++) {
+            sortedPriorities[indices[i]] = i + 1; // Add 1 to make it 1-based
+        }
+    
+        return sortedPriorities;
+    }
+
+    const priorities = calcPriority()
+
+    function adjPriority() {
+        for (let characterIndex = 0; characterIndex < 3; characterIndex++) {
+            if (selectedCharacterNames[characterIndex].includes("rubilia")) {
+                // Check if the character is already at the first position (priority 1)
+                if (priorities[characterIndex] === 1) {
+                    // In this case, just increase the priority of the character in the second slot
+                    priorities[characterIndex + 1] += 1;
+                } else {
+                    // Decrease the priority of the character in the first slot and set the character's priority to 1
+                    priorities[characterIndex] = 1;
+                    priorities[characterIndex - 1] += 1;
+                }
+            }
+        }
+        return priorities; // Return the updated priorities array
+    }
+     
+
+    const sortedCharacterPriority = calcPriority()
+    const priority = [sortedCharacterPriority[0], sortedCharacterPriority[1], sortedCharacterPriority[2]];
 
 
-calculateDPS("yulanmartial6", "fiona6", "alyss6", "lyrasamir2pc3", "alyss4pc3", "yulan4pc3", "yulan", "wellspring", "maelstrom");
+    function characterMatriceKey(characterIndex, returnKey = false) {
+        // Check if the characterIndex is valid
+        if (characterIndex >= 0 && characterIndex < selectedCharacterNames.length) {
+            // Create an empty object
+            var characterMatriceCombine = {};
+    
+            // Add a key-value pair to the object
+            characterMatriceCombine[selectedCharacterNames[characterIndex]] = selectedMatricesNames[characterIndex];
+    
+            // Return the value if specified, otherwise return the key
+            if (returnKey) {
+                return selectedCharacterNames[characterIndex];
+            } else {
+                return selectedMatricesNames[characterIndex];
+            }
+        } else {
+            // Handle invalid characterIndex
+            return null; // You can return null or an error message, depending on your use case
+        }
+    }
+
+
+    function calcSakiDelay() {
+        for(let i = 0; i < 3; i++) {
+            if(priority[i] == 3) {
+                return skillCast[i]
+            }
+        }
+    }
+
+    function calcSkillCDOrder(arr) {
+        if (arr.length === 0) {
+            return null; // Return null for an empty array
+          }
+        
+          // Sort the array in ascending order
+          arr.sort((a, b) => a - b);
+        
+          // Find the middle index
+          const middleIndex = Math.floor(arr.length / 2);
+        
+          // Return the middle element (which is now the middle largest)
+          return arr[middleIndex];
+    }
+
+    let sakiDelay = (skillCast[0] + skillCast[1] + skillCast[2]) - calcSakiDelay()
+
+
+    function claudMatSlot(characterIndex) {
+        if(containsClaudiaMat4pc) {
+            if(characterMatriceKey(characterIndex).includes("claudia")) {
+                return 1;
+            }
+        } else {
+            return 0;
+        }
+    }
+
+    function calcDodgeMatrix() {
+        return 0 //I will implement this eventually
+    }
+
+    function calcDodgeBonus(characterIndex) {
+        return selectedCharacterNames[characterIndex].includes("shiro") ? 24.2 + (characterMatriceKey(characterIndex).includes("cobalt") 
+        ? 0 : calcDodgeMatrix()) * 60 * (selectedCharacterNames[characterIndex].includes("shiro") ? 1 : 1.3) : 0
+    }
+
+    function calcClaudCDR() {
+        let claudiaCDR = 0;
+        for(let i = 0; i<3; i++) {
+            const characterName = selectedMatricesNames[i];
+            claudiaCDR += (characterName.includes("claudia4pc")) ? matriceExtra[i] : 0;  
+        }
+        return claudiaCDR;
+    }
+
+
+    function totalCastsSpSkill(characterIndex) {
+        if (selectedCharacterNames[characterIndex].includes("fenrir")) {
+            return adjCastsSkillDmg(characterIndex) * (containsSaki1 ? 2 : 4);
+          } else if (selectedCharacterNames[characterIndex].includes("icarus")) {
+            return calcIcarusDischarge() * 2;
+          } else if (selectedCharacterNames[characterIndex].includes("fiona")) {
+            if (fionaSk2 === "torrential") {
+              return totalTime / fionaTorrents();
+            } else {
+              return totalTime / specialSkillCooldown[characterIndex];
+            }
+          } else {
+            return 0;
+          }
+    }
+
+    function totalTimeSpSkill(characterIndex) {
+        return totalCastsSpSkill(characterIndex) * specialSkillCast[characterIndex];
+    }
+
+    function buffedDmgSpSkill(characterIndex) {
+        return pbDmgSpSkill(characterIndex) * baseMultResults[characterIndex] * calcOnfieldEleDmg[characterIndex] * calcActiveMultiplier(characterIndex) * critMutliplier(characterIndex) *
+        calcSkillMulti(0) * calcAdditionalMulti(0);
+    }
+
+    function calcFenrirCloneUptime() {
+        let fenrirCloneUptime = 0;
+        for(let i = 0; i<3; i++) {
+            fenrirCloneUptime += (15 * (selectedCharacterNames[i].includes("fenrir") ? adjCastsSkillDmg(i) : 0))/totalTime;
+        }
+        return fenrirCloneUptime;
+    }
+
+    function pbDmgSpSkill(characterIndex) {
+        return specialSkillDmg[characterIndex];
+    }
+
+    
+    function extraMultiBonusDmg(characterIndex) {
+        return ((selectedCharacterNames[characterIndex].includes("ruby3") || selectedCharacterNames[characterIndex].includes("ruby5") || selectedCharacterNames[characterIndex].includes("ruby6"))
+        ? .75 : .45 * (containsLan1 ? 1.3 : 1)) * (selectedCharacterNames[characterIndex].includes("shiro6") ? ((1+critDamage) * critRate + (1-critRate)) : 1) * 
+        (selectedCharacterNames[characterIndex].includes("samir3") || selectedCharacterNames[characterIndex].includes("samir5") || selectedCharacterNames[characterIndex].includes("samir6")) ?
+        (1+(Math.min(naturalCharge*11/totalTime, 1) * Math.min(critRate+.4,1)*critDamage+(1-Math.min(naturalCharge*11/totalTime,1)) * critRate*critDamage)) / (1+critRate*critDamage) : 1
+    }
+
+    function totalCastsBonusDmg(characterIndex) {
+        return (selectedCharacterNames[characterIndex].includes("ruby") ? 0.75 * (containsAnna1 ? 1 : 1) : 
+        (selectedCharacterNames[characterIndex].includes("king") || selectedCharacterNames[characterIndex].includes("frigg5") || selectedCharacterNames[characterIndex].includes("frigg6")) 
+        ? ShatterPerEncounter : ((selectedCharacterNames[characterIndex].includes("tian") || selectedCharacterNames[characterIndex].includes("alyss") || selectedCharacterNames[characterIndex].includes("fenrir")
+        || selectedCharacterNames[characterIndex].includes("lan") || selectedCharacterNames[characterIndex].includes("rubilia") || selectedCharacterNames[characterIndex].includes("yulan")) ? 1 : 
+        (selectedCharacterNames[characterIndex].includes("zeke")) ? zekeA1Total : maxCastsSkillDmg(characterIndex)));
+    }
+
+    const chargeBurns = naturalCharge * 580;
+    const cobaltBurn3 = (naturalCharge * 18 > totalTime) ? 1 : (naturalCharge * 18/totalTime)* 560 *(totalTime/10);
+    const cobaltBurn5 = (600 * totalTime/6);
+    const cobaltBurn6 = (870*totalTime/6 + 1566 * totalTime/20);
+    const cobalt4pcBurn = (192 * totalTime/6);
+    const kingBurn1 = (3240 * ShatterPerEncounter);
+    const annabellaBurn = (1575 * totalTime/15);
+    const burnMod = (containsAnnaBurn ? 1.2 : 1) + (containsAnnaBurn5 ? 0.1 : 0);
+    
+    function actualBurns() {
+        let actualBurn = 0;
+        for(let i = 0; i<3; i++) {
+            actualBurn = chargeBurns + (selectedCharacterNames[i].includes("cobalt6") ? cobaltBurn6 : 0) + (selectedCharacterNames[i].includes("cobalt5") ? cobaltBurn5 : 0) +
+            (selectedCharacterNames[i].includes("cobalt3") ? cobaltBurn3 : 0) + (selectedCharacterNames[i].includes("king") ? kingBurn1 : 0) + (characterMatriceKey(i).includes("cobalt4pc") ? cobalt4pcBurn : 0) +
+            (selectedCharacterNames[i].includes("annabellaburn") ? annabellaBurn : 0) + (selectedCharacterNames[i].includes("lan") ? 420 : 0) + (selectedCharacterNames[i].includes("liu") ? 1200 : 0)
+        }
+        return actualBurn;
+    }
+
+
+    function voltSD() {
+        let voltSperD = 0;
+        for(let i=0; i<3; i++) {
+            voltSperD += (elementTypes[characterIndex] == "Volt") ? adjCastsSkillDmg(characterIndex) + totalCastsSpSkill(characterIndex) + totalCastsDischarge(characterIndex) : 0
+        }
+        return voltSperD;
+    }
+
+
+    const eeCount = (containsNemesis ? 1 : 0) + (containsFenrir ? 1.5 : 2);
+    const avgHp = 1;
+    const hp = 1200000;
+    const hpBonus = (containsTian1 ? (containsFenrir && !containsTian3 ? 1 : 1.6) : 1);
+    const tianSkillPerDischarge =Math.min(Math.max(4*voltAtk*voltAttack,avgHp*hp*hpBonus*0.3*0.45),30*voltAtk*voltAttack)/(voltAtk*voltAttack)*100;
+    const eeDamage =Math.min(Math.max(voltAtk*voltAttack,((1-avgHp)*hp*hpBonus)*0.05),10*voltAtk*voltAttack)/(voltAtk*voltAttack)*100;
+    const tianBonus = (containsTian ? (voltSD() * (eeDamage*eeCount*tianSkillPerDischarge)) : 0);
+    const tianA3Charge = (containsTian3 ? (voltSD() * 2) : 0);
+    const tianCharge = Math.min(Math.max(voltAtk*voltAttack,((1-avgHp)*hp*hpBonus)*0.03),10*voltAtk*voltAttack)/
+    (voltAtk*voltAttack)*100+Math.min(Math.max(voltAtk*voltAttack*0.4,((1-avgHp)*hp)*0.02),4*voltAtk*voltAttack)/(voltAtk*voltAttack)*100*eeCount;
+    
+    function rubiliaDischarges() {
+        let conditional = 0;
+        for(let i =0; i<3; i++) {
+            conditional +=(selectedCharacterNames[i].includes("rubilia") ? totalCastsDischarge(i) : 0);
+        }
+        return conditional
+    }
+
+    const skillCount = (Math.floor(maxCastsSkillDmg(0) + maxCastsSkillDmg(1) + maxCastsSkillDmg(2), 1));
+    const rubiliaThorns = (containsRubilia3 ? (containsRubiliaMat4pc ? 6 : 5) : (3+((totalTime/20)-1) * (containsRubiliaMat4pc ? 6 : 5))/(totalTime/20));
+    const rubiliaFeedback = (rubiliaDischarges() * rubiliaThorns * 72 * 2);
+    const yulanAnticipateDmg = ((containsYulan1 || (containsLin && containsFiona) ? 1350 : 938) * (skillCount + (containsIcarus ? calcIcarusDischarge()*2 : 0))) * (sTrait =="yulan" ? 
+    1 + elementTypes.filter(element => element === "Ice").length * 0.09 : 1);
+
+    function fenrirA1Dodges() {
+        let initialVal = ((containsFenrir1 && containsSaki1) ? 2 : 4) 
+        let conditional = 0;
+        for(let i =0; i<3; i++) {
+            conditional +=(selectedCharacterNames[i].includes("fenrir") ? adjCastsSkillDmg(i) : 0);
+        }
+        return initialVal * (conditional/(containsMimi ? 4 : (containsRubilia ? 2 : 0)));
+    }
+
+    function pbDmgBonusDmg(characterIndex) {
+        const characterName = selectedCharacterNames[characterIndex];
+        let bonusDmg = 0;
+      
+        bonusDmg += characterName.includes("ruby")
+          ? actualBurns() * burnMod
+          : characterName.includes("king")
+          ? 1800
+          : calcDodgeBonus(characterIndex);
+      
+        if (characterName.includes("frigg5") || characterName.includes("frigg6")) {
+          bonusDmg += 35 * 15 * 2;
+        }
+      
+        if (characterName.includes("tian")) {
+          bonusDmg += tianBonus;
+          if (containsFenrir) {
+            bonusDmg += tianA3Charge * tianCharge;
+          }
+        }
+      
+        if (characterName.includes("alyss")) {
+          bonusDmg += alyssHoarFrost;
+        }
+      
+        if (characterName.includes("fenrir")) {
+          bonusDmg +=
+            fenrirA1Dodges() * 3 * fenrirNote +
+            fenrirCombos * 3.5 * fenrirNote +
+            totalTime * calcDodgeMatrix();
+        }
+      
+        if (containsLan3 && characterName.includes("lan")) {
+          bonusDmg += lanA3Bonus;
+        }
+      
+        if (characterName.includes("rubilia")) {
+          bonusDmg += rubiliaFeedback;
+        }
+      
+        if (characterName.includes("yulansweeping")) {
+          bonusDmg += yulanAnticipateDmg;
+        }
+      
+        if (containsZeke1 && characterName.includes("zeke")) {
+          bonusDmg += 50;
+        }
+      
+        return bonusDmg;
+    }
+
+    function voltFieldTime() {
+        let voltField = 0;
+        for(let i=0; i<3; i++) {
+            voltField += (elementTypes[i] == "Volt" ? fieldTime(i) : 0)
+        }
+        return voltField;
+    }
+
+    function voltPassiveMod() {
+        const voltPassive1 = (elementTypes[0] === "Volt") ? (calcActiveMultiplier(0) * critMutliplier(0) - 1) * (fieldTime(0) / voltFieldTime()) : 0;
+        const voltPassive2 = (elementTypes[1] === "Volt") ? (calcActiveMultiplier(1) * critMutliplier(1) - 1) * (fieldTime(1) / voltFieldTime()) : 0;
+        const voltPassive3 = (elementTypes[2] === "Volt") ? (calcActiveMultiplier(2) * critMutliplier(2) - 1) * (fieldTime(2) / voltFieldTime()) : 0;
+        
+        return 1 + voltPassive1 + voltPassive2 + voltPassive3;
+    }
+
+    function frostFieldTime() {
+        let frostField = 0;
+        for(let i=0; i<3; i++) {
+            frostField += (elementTypes[i] == "Ice" ? fieldTime(i) : 0)
+        }
+        return frostField;
+    }
+
+    function frostPassiveMod() {
+        const frostPassive1 = (elementTypes[0] === "Ice") ? (calcActiveMultiplier(0) * critMutliplier(0) - 1) * (fieldTime(0) / frostFieldTime()) : 0;
+        const frostPassive2 = (elementTypes[1] === "Ice") ? (calcActiveMultiplier(1) * critMutliplier(1) - 1) * (fieldTime(1) / frostFieldTime()) : 0;
+        const frostPassive3 = (elementTypes[2] === "Ice") ? (calcActiveMultiplier(2) * critMutliplier(2) - 1) * (fieldTime(2) / frostFieldTime()) : 0;
+        
+        return 1 + frostPassive1 + frostPassive2 + frostPassive3;
+    }
+
+    
+    function buffedDmgBonusDmg(characterIndex) { //need to finish this add yulan stuff
+        return pbDmgBonusDmg(characterIndex) * ((selectedCharacterNames[characterIndex].includes("tian") ? baseMultResults[characterIndex] * voltPassiveMod() : 
+        ((containsYulan ? baseMultResults[characterIndex] * frostPassiveMod() : baseMultResults[characterIndex] * calcOnfieldEleDmg[characterIndex] * 
+            calcActiveMultiplier(characterIndex) * calcAdditionalMulti(characterIndex) * critMutliplier(characterIndex)))))
+    }
+
+    function calcFenrirBonusCD() {
+        let fenrirBonusCd = 1;
+        for(let i = 0; i<3; i++) {
+            fenrirBonusCd += (selectedCharacterNames[i].includes("fenrir") ? matriceAdditional[i] : 0) 
+        }
+        return fenrirBonusCd;
+    }
+
+    const maxCrMulti = (1+critDamage+bonusCritDamage+calcFenrirBonusCD())/((1+critDamage+bonusCritDamage+calcFenrirBonusCD())*critRate+(1-critRate));
+
+
+    function extraMultiSpSkill(characterIndex) {
+        return skillMulti * (selectedCharacterNames[characterIndex].includes("fenrir") ? 1 + Math.min(1, calcFenrirCloneUptime())*fenrirCloneShred * maxCrMulti / (1+(voltDebuff-1)/ 2) : 1) *
+        ((selectedCharacterNames[characterIndex].includes("fiona") && fionaSk2 == "vortex") ? dischargeMulti(characterIndex)/(1+claudiaMatrice2pc) : 1) * 
+        ((selectedCharacterNames[characterIndex].includes("fiona") && fionaSk2 == "vortex" && sTrait == "fiona") ? 1.3 : 1);
+    }
+
+    function bonusCastsSpSkill(characterIndex) {
+        return Math.max(
+            0,
+            (
+                (containsAlyss1 && (elementTypes[characterIndex] === "Ice" || (sTrait === "alyss" && elementTypes[characterIndex] !== "Altered")))
+                    ? totalCastsSpSkill(characterIndex)
+                    : 0
+            ) - (
+                (containsLin6 === 0)
+                    ? 1
+                    : (
+                        (selectedCharacterNames[characterIndex].includes("alyss"))
+                            ? 1
+                            : 0
+                    )
+            )
+        )
+    }
+
+    function calcSakiCycleFast() {
+        if(containsSaki1 && containsIcarus>0) {
+            return 8.65
+        } else if(containsLin6 && containsAlyss1) {
+            return 16.13
+        } else if(containsLin6 && containsClaudia1) {
+            return 15 - calcClaudCDR() + sakiDelay 
+        } else if(containsFenrir1 && containsSaki1) {
+            return 9
+        } else {
+            return calcSkillCDOrder(skillCooldown) - calcClaudCDR() + sakiDelay
+        }
+    }
+
+    let alyssTime = 2.083;
+
+    function calcSakiCycleSlow() {
+        return 25 - calcClaudCDR() * 2 + 2.083
+    }
+
+    let fastCycles = Math.floor((totalTime/(calcSakiCycleSlow() * 2 + calcSakiCycleFast()), 1)+1)
+    let slowCycles = Math.floor((totalTime - fastCycles*calcSakiCycleFast())/calcSakiCycleSlow(), 1);
+
+    function dischargeMulti() {
+        const dischargeMultiplier = () => {
+            for(let i = 0; i<3; i++) {
+                let claudMat4pcValue = 0;
+                if (containsClaudiaMat4pc <= 0) {
+                    claudMat4pcValue = 0;
+                } else { 
+                    claudMat4pcValue = 1.26
+                }
+            
+                if (containsIcarus > 0 || containsUmi > 0) {
+                    return claudMat4pcValue * (containsIcarus ? 1 : 15 / (totalTime))
+                }
+            
+                if (characterMatriceKey(i).includes("claudia4pc")) { //todo sakiCycle
+                    return claudMat4pcValue * Math.min(1, 15 / (containsSaki1 ? calcSakiCycleFast() : totalTime / adjCastsSkillDmg(i)));
+                }
+            
+                return 0;
+            }
+          };
+        
+          const result =
+            (1 + dischargeMultiplier()) *
+            (sTrait === 'fiona' && containsFiona && (fionaSk1 === 'torrential' || fionaSk2 === 'torrential')
+              ? 1.12
+              : 1) +
+            (containsLiuhuo ? 0.08 : 0);
+        
+          return result;
+    }
+
+
+    let secondarySplit = 0;
+    let halfHalf = 0;
+    let balanced = 0;
+    let secondaryOnly = 0;
+    let allOne = 0;
+
+    const sortedArray = selectedCharacterNames.slice().sort();
+    const formattedArray = sortedArray.map(character => character.replace(/\d+$/, ''));
+    const characterKey = formattedArray.join('-');
+        
+    if(characterKey == "annabellagas-fiona-lan" || characterKey == "lan-liu-zeke" || characterKey == "annabellagas-lan-zeke" || characterKey == "fiona-yulanmartial-zeke") {
+        secondarySplit = 1;
+    } else if(characterKey == "fiona-lin-liu" || characterKey == "annabellaburn-lan-liu" || characterKey == "alyss-icarus-yulansweeping" || characterKey == "fiona-lin-yulansweeping" || characterKey == "fenrir-mimi-rubilia") {
+        halfHalf = 1;
+    } else if(characterKey == "annabellaburn-lan-liu" || characterKey == "fiona-icarus-yulansweeping") {
+        balanced = 1;
+    } else if(characterKey == "alyss-fiona-yulanmartial" || characterKey == "fiona-gnonno-zeke" || characterKey == "fiona-gnonno-umi") {
+        secondaryOnly = 1;
+    } else {
+        allOne = 1;
+    }
+  
+
+    function dischargeDistribution() {
+        if(secondarySplit) {
+            return .5
+        } else if(halfHalf) {
+            return .5
+        } else if(balanced) {
+            return .3334
+        } else if(secondaryOnly) {
+            return 1
+        } else {
+            return 1
+        }
+    }
+
+    const totalNaturalDischarges = naturalCharge + calcLinBonusDischarge() + calcRubyBonusDischarge()
+    const zekeA1Total = (containsGnonno ? totalTime/30*42 : totalNaturalDischarges);
+
+    function totalTimeSkillDmg(characterIndex) {
+        return skillCast[characterIndex] * adjCastsSkillDmg(characterIndex) * ((selectedCharacterNames[characterIndex].includes("tian") && containsFenrir) ? .5 : 1 ) * 
+        ((selectedCharacterNames[characterIndex].includes("saki") && containsFenrir) ? .1 : 1) * 
+        ((containsSaki1 && containsIcarus && selectedCharacterNames[characterIndex].includes("alyss")) ? .5 : 1) * cancelFactorSkill(characterIndex)
+    }
+
+    function totalCastsDischarge(characterIndex) {
+        return Math.floor(castCalcDischarge(characterIndex), 1);
+    }
+
+
+
+    function fionaDischarges() {
+        let result = 0;
+        for(let i =0; i<3; i++) {
+            if(selectedCharacterNames[i].includes("fiona")) {
+                return result += castCalcDischarge(i);
+            }
+        }
+    }
+
+    function fionaTorrentEFC() {
+        return Math.floor(fionaDischarges === 0 ? 30 : Math.min(30, totalTime/fionaDischarges()));
+    }
+
+    function fionaTorrents() {
+        return containsFiona ? (fionaSk1 == "torrential"  || fionaSk2 == "torrential") ? totalTime/fionaTorrentEFC() : 0 : 0
+    }
+
+    let zekeDischarge = containsZeke && basicDmgCharacterCheck().includes("zeke") ? 1 : 0
+
+    function cancelDischargeZeke(characterIndex) {
+        return ((selectedCharacterNames[characterIndex].includes("zeke") || selectedCharacterNames[characterIndex].includes("anna")) && zekeDischarge) || 
+        ((containsMimi && !containsRubilia || !containsFiona) ? 1 : 0) 
+    }
+
+    function basicDmgBuffedDps() {
+        // Calculate all three values and store them in an array with their corresponding indices
+        const dpsValues = [
+            { value: calcMaxAutoDps(0), index: 0 },
+            { value: calcMaxAutoDps(1), index: 1 },
+            { value: calcMaxAutoDps(2), index: 2 }
+        ];
+    
+        // Find the index of the largest value
+        const maxIndex = dpsValues.reduce((maxIdx, currentValue, currentIndex) => {
+            if (currentValue.value > dpsValues[maxIdx].value) {
+                return currentIndex;
+            }
+            return maxIdx;
+        }, 0);
+    
+        // The largest value and its index
+        const maxValue = dpsValues[maxIndex].value;
+        const maxIndexValue = dpsValues[maxIndex].index;
+    
+        return { value: maxValue, index: maxIndexValue };
+    }
+
+    function basicDmgBuffedDps2() {
+        // Calculate all three values and store them in an array with their corresponding indices
+        const dpsValues = [
+            { value: calcMaxAutoDps(0), index: 0 },
+            { value: calcMaxAutoDps(1), index: 1 },
+            { value: calcMaxAutoDps(2), index: 2 }
+        ];
+    
+        // Sort the values in ascending order
+        dpsValues.sort((a, b) => a.value - b.value);
+    
+        // The middle value (second-largest) and its index
+        const middleValue = dpsValues[1].value;
+        const middleIndex = dpsValues[1].index;
+    
+        return { value: middleValue, index: middleIndex };
+    }
+
+    function basicDmgExtraMulti() {
+        let storedValues = [];
+        const buffedCheck = basicDmgBuffedDps().index;
+        const buffedCheck2 = basicDmgBuffedDps2().index;
+        let indexCheck = "";
+        let indexCheck2 = "";
+        let value1 =0;
+        let value2 =0;
+        let value3 =1;
+        let value4 =1;
+        for(let i = 0; i<3; i++) {
+            indexCheck = storeIndexCharacter(i, basicDmgCharacterCheck());
+            indexCheck2 = storeIndexCharacter(i, basicDmgCharacterCheck2());
+        }
+        
+        
+        value1 += (selectedCharacterNames[buffedCheck].includes("samir6") ? (1+(Math.min((naturalCharge*11/totalTime), 1) * Math.min(critRate+0.4, 1) * critDamage * 
+            (1-Math.min(naturalCharge * 11 / totalTime, 1)) * critRate * critDamage)) / (1+critRate*critDamage) : 1) * 
+            ((!umiSupport && !selectedCharacterNames[buffedCheck].includes("umi") && containsPhysical) ? 1.25 : 1) * normalMulti;
+        
+            // Calculate the value you want to store for buffedCheck2
+        value2 += (selectedCharacterNames[buffedCheck2].includes("samir6") ? (1+(Math.min((naturalCharge*11/totalTime), 1) * Math.min(critRate+0.4, 1) * critDamage * 
+            (1-Math.min(naturalCharge * 11 / totalTime, 1)) * critRate * critDamage)) / (1+critRate*critDamage) : 1) * 
+            ((!umiSupport && !selectedCharacterNames[buffedCheck2].includes("umi") && containsPhysical) ? 1.25 : 1) * normalMulti;
+        
+        if (indexCheck != "N/A") {
+            value3 = (selectedCharacterNames[indexCheck].includes("samir6") ? (1+(Math.min((naturalCharge*11/totalTime), 1) * Math.min(critRate+0.4, 1) * critDamage * 
+            (1-Math.min(naturalCharge * 11 / totalTime, 1)) * critRate * critDamage)) / (1+critRate*critDamage) : 1) * 
+            ((!umiSupport && !selectedCharacterNames[indexCheck].includes("umi") && containsPhysical) ? 1.25 : 1) * normalMulti;
+        }
+        else if(indexCheck2 != "N/A") {
+            // Calculate the value you want to store for indexCheck2
+            value4 = (selectedCharacterNames[indexCheck2].includes("samir6") ? (1+(Math.min((naturalCharge*11/totalTime), 1) * Math.min(critRate+0.4, 1) * critDamage * 
+            (1-Math.min(naturalCharge * 11 / totalTime, 1)) * critRate * critDamage)) / (1+critRate*critDamage) : 1) * 
+            ((!umiSupport && !selectedCharacterNames[indexCheck2].includes("umi") && containsPhysical) ? 1.25 : 1) * normalMulti;
+        }
+        // Push the calculated values into the storeValues array
+        storedValues.push(value1, value2, value3, value4);
+        return storedValues
+    }
+
+
+    function enduranceDmgBuffedDps() {
+        let tianConditional = 0;
+        let value = 0;
+        for(let i = 0; i<3; i++) {
+            tianConditional += characterMatriceKey(i, 1).includes("tian") ? calcEnduranceDps(i) : 0;
+            value += ((containsTian && !containsFenrir) ? tianConditional : ((containsUmi && (containsGnonno || containsLyra) && (umiSupport = 0)) 
+            ? calcEnduranceDps(i) : (Math.max(calcEnduranceDps(0), calcEnduranceDps(1), calcEnduranceDps(2)) > Math.max(calcMaxAutoDps(0), calcMaxAutoDps(1), calcMaxAutoDps(2))) 
+            ? Math.max(calcEnduranceDps(0), calcEnduranceDps(1), calcEnduranceDps(2)) : 0)) 
+        }
+        return value;
+    }
+
+    function enduranceDmgPbDps() {
+        let index;
+        for(let i = 0; i<3; i++) {
+            index = (Math.max(calcEnduranceDps(0), calcEnduranceDps(1), calcEnduranceDps(2)) == calcEnduranceDps(i)) ? i : 0
+        }
+        return (enduranceDmgBuffedDps() == 0) ? 0 : enduranceDps[index]; 
+    }
+
+    let baseEndurance = 1300;
+    let enduranceRegen = 100;
+    let potentialEndurance = baseEndurance + enduranceRegen* totalTime;
+    let avgEndUsage = (linUptimeCapped*.5+(1-linUptimeCapped)*1);
+
+    function enduranceTotalTime() {
+        const result = Math.max(
+            0,
+            (
+                buffedDmgDodge(0) > pbDmgBonusDmg(0) && maxDodges === 999 ? 0 :
+                Math.min(
+                    totalTime - (totalTimeSkillDmg(0) + totalTimeSkillDmg(1) + totalTimeSkillDmg(2)) - (totalTimeDischarge(0) + totalTimeDischarge(1) + totalTimeDischarge(2)) 
+                    - totalTimeDodge2() - totalTimeDodge3() - basicDmgTotalTimePriority() - basicDmgTotalTimePriority2() - (totalTimeSpSkill(0) + totalTimeSpSkill(1) + totalTimeSpSkill(2)) 
+                    - (reqUptimeTotalTime(0) + reqUptimeTotalTime(1) + reqUptimeTotalTime(2)) - (reqUptimeTotalTimeExtra(0) + reqUptimeTotalTimeExtra(1) + reqUptimeTotalTimeExtra(2)),
+                    (
+                        buffedDmgDodge(0) > enduranceDmgBuffedDps() ?
+                        maxDodges * pbDpsDodge(0):
+                        0.5 * potentialEndurance / ( enduranceDmgPbDps() * (containsLin ? avgEndUsage : 1))
+                    )
+                )
+            )
+        );
+    
+        return result;
+    }
+
+    function enduranceRevisedTime() {
+        let index;
+        for(let i = 0; i<3; i++) {
+            index = (Math.max(calcEnduranceDps(0), calcEnduranceDps(1), calcEnduranceDps(2)) == calcEnduranceDps(i)) ? i : 0
+        }
+        return (tianAutoTime ? tianAutoTime : Math.max((selectedCharacterNames[index].includes("meryl6")), 
+        Math.min(enduranceTotalTime(), (totalTime/2-totalTimeSkillDmg(index) - bDpsDischarge(index)))))
+    }
+
+    function enduranceMatch(characterIndex) {
+        ((enduranceDmgBuffedDps() == calcEnduranceDps(characterIndex)) ? characterMatriceKey(characterIndex , 1) : "N/A");
+    }    
+
+    function basicDmgMatch(characterIndex) {
+        ((basicDmgBuffedDps().value == calcMaxAutoDps(characterIndex)) ? characterMatriceKey(characterIndex, 1) : "N/A")
+    }
+
+    function basicDmgMatch2(characterIndex) {
+        ((basicDmgBuffedDps2().value == calcMaxAutoDps(characterIndex)) ? characterMatriceKey(characterIndex, 1) : "N/A")
+    }
+
+    function dodgeMatch(characterIndex) {
+        ((buffedDmgDodge(characterIndex) == calcDodgeDamage(characterIndex)) ? characterMatriceKey(characterIndex, 1) : "N/A");
+    }
+
+    function cancelDischarges(characterIndex) {
+        if((containsUmi && !containsClaudia1) && (!containsLin || !containsFiona )) {
+            return 1
+        } else {
+            return Math.max(buffedDmgDischarge(0), buffedDmgDischarge(1), buffedDmgDischarge(2)) < 
+            Math.min(basicDmgBuffedDps().value, enduranceDmgBuffedDps(characterIndex)) * .66 || (containsSaki1 && containsFenrir) || (containsIcarus && (containsLin6 || containsSaki1))
+        }  
+    }
+
+
+    function totalTimeDischarge(characterIndex) {
+        if( cancelDischargeZeke(characterIndex) || cancelDischarges(characterIndex) || (containsIcarus && containsAlyss && selectedCharacterNames[characterIndex].includes("icarus"))) {
+            return .25 * totalCastsDischarge(characterIndex);
+        } else {
+            return totalCastsDischarge(characterIndex) * dischargeTime[characterIndex];
+        }
+    }
+
+
+    function calcIcarusDischarge() {
+        let result = 0;
+        for(let i = 0; i<3; i++) {
+            if(selectedCharacterNames[i].includes("icarus")) {
+                result = totalCastsDischarge(i) + ((containsIcarus && fionaSk2 == "torrential") ? fionaTorrents() : 0) 
+            }
+        }
+        return result
+    }
+
+
+    function maxCastsSkillDmg(characterIndex) {
+        let result = 0;
+
+        if (selectedCharacterNames[characterIndex].includes("saki")) {
+            if (
+            ((containsSaki1 > 0 && !containsLinSakiFrigg) || calcPriority()[characterIndex] < 3) &&
+            selectedCharacterNames[characterIndex].includes("lin") === 0
+            ) {
+            result = totalTime / calcSakiCycleFast() * (skillCooldown[characterIndex] <= calcSakiCycleFast() ? 2 : 1);
+            } else {
+            result = totalTime / calcSakiCycleFast();
+            }
+        } else {
+            result = totalTime / skillCooldown[characterIndex] + (containsShiro3 ? ShatterPerEncounter : 0);
+
+            if (selectedCharacterNames[characterIndex].includes("lin")) {
+            result += (naturalCharge + phantasiaPerEncounter + fionaTorrents(characterIndex)) / 3;
+            }
+
+            if (containsLin6 && containsSaki1 && selectedCharacterNames[characterIndex].includes("lin") === 0) {
+            result -= Math.floor((totalNaturalDischarges + phantasiaPerEncounter) / 3);
+            }
+        }
+
+        return Math.max(Math.floor(Math.max(0, result)), 1);
+    }
+
+
+    function calcClaudACDR() {
+        for(let i = 0; i<3; i++) {
+            if(containsClaudiaMat4pc) { 
+                if (claudMatSlot(i)) {
+                    let numerator = (maxCastsSkillDmg(i) /
+                    (totalTime / skillCooldown[i]) +
+                    (characterMatriceKey(i, 1).includes("fiona") && characterMatriceKey(i).includes("claudia") ? 0 : totalCastsSpSkill(i)) *
+                    skillCooldown[i] /
+                    totalTime);
+                const result = Math.min(30, numerator * calcClaudCDR());
+                return Math.max(result, 0);
+                }
+            }
+        }
+        return 0;
+    }
+
+    const claudCycle = (containsIcarus && containsFiona) ? 19 : 30
+
+
+    // function needs to be reviewed, occassionaly returns wrong values
+    function adjCastsSkillDmg(characterIndex) {
+        if(characterIndex != "N/A") {
+            const result = (containsUmi && containsGnonno) || (selectedCharacterNames[characterIndex].includes("gnonno") || selectedCharacterNames[characterIndex].includes("fiona"))
+          ? umiMagicShows
+          : fionaSk1 === "torrential" && selectedCharacterNames[characterIndex].includes("fiona")
+            ? totalTime / fionaTorrents(characterIndex)
+            : selectedCharacterNames[characterIndex].includes("umi")
+              ? umiMagicShows
+              : containsSaki1 && containsLin6 && containsAlyss1
+                ? selectedCharacterNames[characterIndex].includes("lin")
+                  ? fastCycles + slowCycles + totalDischarges / 3
+                  : skillCooldown[characterIndex] - calcClaudCDR() <= calcSakiCycleSlow()
+                    ? 2
+                    : 1 * slowCycles + fastCycles
+                : Math.ceil(Math.max(
+                    0,
+                    containsSaki1
+                      ? calcPriority(characterIndex) < 3
+                        ? totalTime / calcSakiCycleFast() * (skillCooldown[characterIndex] - calcClaudCDR() - 1 <= calcSakiCycleFast() ? 2 : 1)
+                        : totalTime / calcSakiCycleFast()
+                      : totalTime / (calcClaudACDR() > skillCooldown[characterIndex] * 0.5 ? claudCycle : (skillCooldown[characterIndex] - calcClaudACDR())),
+                    containsShiro3 ? ShatterPerEncounter : 0,
+                    Math.floor(selectedCharacterNames[characterIndex].includes("lin6") ? (1 + (totalDischarges + fionaTorrents()) / 3) : 0)
+                  ) -
+                  ((containsLin6 && containsSaki1 && !calcPriority(characterIndex) < 3 && selectedCharacterNames[characterIndex].includes("alyss")) ? Math.floor((totalNaturalDischarges + phantasiaPerEncounter) / 3) : 0)
+                );
+      
+        return result;
+        }
+        else {
+            return 0;
+        }
+    }
+    
+
+    function pbDmgDischarge(characterIndex) {
+        let finalValue = 0;
+        if(selectedCharacterNames[characterIndex].includes("meryl5") || selectedCharacterNames[characterIndex].includes("meryl6")) {
+            finalValue = 0;
+        } else if(selectedCharacterNames[characterIndex].includes("crow")){
+            finalValue = ((350/critMutliplier(characterIndex))/critMultiplierForm)
+        }
+        return finalValue + damagePerDischarge[characterIndex];
+    }
+
+    function buffedDmgDischarge(characterIndex) {
+        return pbDmgDischarge(characterIndex) * (baseMultResults[characterIndex] * (calcActiveMultiplier(characterIndex) - (selectedCharacterNames[characterIndex].includes("samir") ? fieldFD[characterIndex] : 0)) 
+        * critMutliplier(characterIndex) * calcOnfieldEleDmg[characterIndex] * calcDischargeMulti(characterIndex) * calcAdditionalMulti(characterIndex))
+    }
+
+
+    function pbDmgSkill(characterIndex) {
+        if(selectedCharacterNames[characterIndex].includes("umi")) {
+            return umiMagicShowValue;
+        } else {
+            return skillDamage[characterIndex] * cancelFactorSkill(characterIndex);
+        }
+    }
+
+    function extraMultiSkill(characterIndex) {
+        return skillMulti * (selectedCharacterNames[characterIndex].includes("shiro6") ? (1+critDamage)/((1+critDamage) * critRate+(1-critRate)) : 1) * 
+        ((selectedCharacterNames[characterIndex].includes("samir3") || selectedCharacterNames[characterIndex].includes("samir5") || selectedCharacterNames[characterIndex].includes("samir6")) ? 
+        (1 + (Math.min(naturalCharge*11/totalTime,1) * Math.min(critRate+.4,1) * critDamage + (1-Math.min(naturalCharge*11/totalTime,1)) * critRate * critDamage)) / (1+critRate*critDamage) : 1) *
+        (((selectedCharacterNames[characterIndex].includes("saki") && containsFenrir) ? .1 : 1 )) * (((selectedCharacterNames[characterIndex].includes("fiona") && fionaSk1 == "vortex" && sTrait == "fiona") ?
+        1.3*dischargeMulti(characterIndex)/(1+claudiaMatrice2pc) : 1)) * 1 + ((containsFiona && (fionaSk1 == "maelstrom" || fionaSk2 == "maelstrom") && (selectedCharacterNames[characterIndex].includes("umi"))) ? 
+        (1+fionaCrystalBonus+((sTrait=="fiona") ? 0.33+.26 : .26) * .6) /(1+fionaCrystalBonus) - 1 : 0)
+    }
+
+    function cancelFactorSkill(characterIndex) {
+        return ((containsGnonno && umiSupportSlot && selectedCharacterNames[characterIndex].includes("umi")) ? .01 : 1) 
+        * (((selectedCharacterNames[characterIndex].includes("tian")) && containsFenrir) ? .5 : 1) * 
+        (containsSaki1 && containsIcarus && ((selectedCharacterNames[characterIndex].includes("saki")) || (selectedCharacterNames[characterIndex].includes("alyss"))) ? .5 : 1)
+        * (containsYulan && (selectedCharacterNames[characterIndex].includes("alyss") || (selectedCharacterNames[characterIndex].includes("zeke"))) ? .1 : 1);
+    }
+
+    let skillDischargeCountFinal;
+
+    try {
+    skillDischargeCountFinal = Math.floor(
+        adjCastsSkillDmg(0) + adjCastsSkillDmg(1) + adjCastsSkillDmg(2) +
+        totalCastsSpSkill(0) + totalCastsSpSkill(1) + totalCastsSpSkill(2) +
+        totalCastsDischarge(0) + totalCastsDischarge(1) + totalCastsDischarge(2),
+        1
+    );
+    } catch (error) {
+        // Handle the error here, or simply assign a default value
+        skillDischargeCountFinal = totalCastsDischarge(0) +
+        totalCastsDischarge(1) +
+        totalCastsDischarge(2) +
+        maxCastsSkillDmg(0) +
+        maxCastsSkillDmg(1) +
+        maxCastsSkillDmg(2); // Replace 'defaultValue' with the value you want to return in case of an error
+    }
+
+    let fionaCrystalRampUp = (((totalTime/skillDischargeCountFinal)*(containsFiona5 ? 4 : 5))*2.5+(totalTime-(totalTime/skillDischargeCountFinal)*(containsFiona5 ? 4 : 5))*5)/totalTime;
+    let fionaA1CrystalAvg = Math.min(5,((containsFiona5 ? 20 : 6)/(totalTime/(skillDischargeCountFinal/2)))*5)*fionaCrystalRampUp/5;
+    let fionaA6CrystalBonus = 0.07*(fionaA1CrystalAvg+3)/2;
+    let fionaA1CrystalBonus = 0.04*(fionaA1CrystalAvg+1)/2;
+    let fionaCrystalBonus = containsFiona6 ? fionaA6CrystalBonus : containsFiona1 ? fionaA1CrystalBonus : 0; 
+
+    function calcClaudEligible(characterIndex) {
+        return (characterMatriceKey(characterIndex).includes("claudia") && characterMatriceKey(characterIndex, true).includes("frigg") || characterMatriceKey(characterIndex, true).includes("alyss")
+        || characterMatriceKey(characterIndex, true).includes("fiona")) ? 0 : 1
+    } 
+   
+    let skillMulti = (containsClaudia5 ? 1.2 : 1) * ((containsFiona && (fionaSk1 == "torrential" || fionaSk2 == "torrential")) ? 1.12 : 1) + (containsLiuhuo ? .08 : 0);
+
+    function bonusDmgSkill(characterIndex) {
+        return pbDmgSkill(characterIndex) * baseMultResults[characterIndex] * calcActiveMultiplier(characterIndex) * critMutliplier(characterIndex) * 
+        calcOnfieldEleDmg[characterIndex] * calcSkillMulti(characterIndex) * ((selectedCharacterNames[characterIndex].includes("lin")) ? passiveDps[characterIndex] * 
+        (containsLin3 ? 20 : 15) * baseMultResults[characterIndex]*calcPassiveMod(characterIndex) : 1)
+    }
+
+    function buffedDmgSkill(characterIndex) {
+        return pbDmgSkill(characterIndex) * baseMultResults[characterIndex] * calcActiveMultiplier(characterIndex) * critMutliplier(characterIndex) * calcOnfieldEleDmg[characterIndex] * 
+        calcSkillMulti(characterIndex) * calcAdditionalMulti(characterIndex);
+    }
+
+    function calcSkillMulti(characterIndex) {
+        return normalMulti + fieldModN[characterIndex] + (characterMatriceKey(characterIndex).includes("claudia") && calcClaudEligible(characterIndex) 
+        ? claudiaMatrice2pc : 0)/(normalMulti + fieldModN[characterIndex]) 
+    }
+
+
+
+    function calcLinBonusDischarge() {
+        if(containsLin5) {
+            return (linUptimeCapped * 30 * totalTime)/1000 + ((containsFiona || fionaSk1 == "torrential" || fionaSk2 == "torrential") ? 60*totalTime / 1000 : 0)
+        } else {
+            return 0
+        }
+    }
+
+    function calcRubyBonusDischarge() {
+        return containsRuby5 ? (totalTime * 0.3 * 0.9 * 75)/1000 : 0
+    }
+
+    let totalDischarges = totalNaturalDischarges + phantasiaPerEncounter + bonusCastsDischarge(0) + bonusCastsDischarge(1) + bonusCastsDischarge(2); 
+    const lanA3Bonus = (totalDischarges+ShatterPerEncounter) * (containsLan5 ? 385.2509091 : 258.4);
+
+    function calcNemesisDischarge() {
+        return Math.min((containsNemesis ? totalTime/35 : 0), naturalCharge )
+    }
+
+    function calcFrostSkillCount() {
+        let frostSkill = 0;
+        for(let i =0; i<3; i++) {
+            if(elementTypes[i] == "Ice") {
+                frostSkill += adjCastsSkillDmg(i);
+                frostSkill += totalCastsSpSkill(i);
+               
+            }
+        }
+        return frostSkill;
+    }
+
+    function bonusCastsSkill(characterIndex) {
+        return Math.max(
+            0,
+            (
+                (containsAlyss1 && (elementTypes[characterIndex] === "Ice" || (sTrait === "alyss" && elementTypes[characterIndex] !== "Altered")))
+                    ? adjCastsSkillDmg(characterIndex)
+                    : 0
+            ) - (
+                (containsLin6 === 0)
+                    ? 1
+                    : (
+                        (selectedCharacterNames[characterIndex].includes("alyss"))
+                            ? 1
+                            : 0
+                    )
+            )
+        )
+    }
+
+    function bonusCastsDischarge(characterIndex) {
+        if(containsAlyss1 && selectedCharacterNames[characterIndex].includes("alyss")) {
+            return calcFrostSkillCount()
+        } else {
+            return 0
+        }
+    }
+
+    function castCalcDischarge(characterIndex) {
+        adjPriorityValues = adjPriority();
+        let result = 0;
+        if (
+            (secondaryOnly && adjPriorityValues[characterIndex] === 2) ||
+            (adjPriorityValues[characterIndex] === 1 && secondarySplit) ||
+            (adjPriorityValues[characterIndex] === 2 && dischargeDistribution() <= 0.5) ||
+            (adjPriorityValues[characterIndex] === 3 && (dischargeDistribution() <= 0.3334 || secondarySplit))
+        ) {
+            result += (totalNaturalDischarges + phantasiaPerEncounter) * dischargeDistribution();
+            
+            if (
+                (adjPriorityValues[characterIndex] === 1 && dischargeDistribution() === 1) ||
+                (adjPriorityValues[characterIndex] === 2 && (secondaryOnly || dischargeDistribution() <= 0.5))
+            ) {
+                return calcNemesisDischarge() +
+                    (selectedCharacterNames[characterIndex].includes("claudia") && containsClaudia1 ? 1 : 0) +
+                    ((containsFiona && containsGnonno && containsLan) || (containsFiona && containsRubilia)
+                        ? 0
+                        : secondarySplit
+                        ? 0
+                        : selectedCharacterNames[characterIndex].includes("fiona") &&
+                        containsFiona &&
+                        (balanced ? totalNaturalDischarges / 3 < totalTime / 30 : true)
+                        ? totalTime / 30
+                        : 0);
+            } else {
+                return result;
+            }
+        } else if (
+            selectedCharacterNames[characterIndex].includes("nemesis") ||
+            selectedCharacterNames[characterIndex].includes("nemesis6")
+        ) {
+            return calcNemesisDischarge();
+        } else if (selectedCharacterNames[characterIndex].includes("claudia") && containsClaudia1) {
+            return 1;
+        } else if (
+            selectedCharacterNames[characterIndex].includes("fiona") &&
+            !(containsGnonno && containsLan) &&
+            (!containsRubilia && containsMimi)
+        ) {
+            return totalTime / 30;
+        } else {
+            return 0;
+        }
+    }
+
+
+    function endurancePbDps(characterIndex) {
+        return (enduranceDmgBuffedDps(characterIndex) == 0) ? 0 : enduranceDps[characterIndex]
+    }
+
+    function bDpsDischarge(characterIndex) {
+        return buffedDmgDischarge(characterIndex) / dischargeTime[characterIndex];
+    }
+
+
+    const alyssHoarFrost = (totalCastsDischarge(0) + totalCastsDischarge(1) + totalCastsDischarge(2) + bonusCastsDischarge(0) + bonusCastsDischarge(1) + bonusCastsDischarge(2)) * 125.8
+
+
+    let chargedAtkBonus = (containsLan ? 0.08 : 0)
+    let twilightArcNoBullet = (37+180.4 * (1+chargedAtkBonus));
+    
+    function calcTianMulti(characterIndex) {
+        return (selectedCharacterNames[characterIndex].includes("tian") ? baseMultResults[characterIndex] * calcOnfieldEleDmg[characterIndex] * calcActiveMultiplier(characterIndex) * critMutliplier(characterIndex) : 0)
+    }
+
+
+    function pbDpsDodge(characterIndex) {
+        if(buffedDmgDodge(characterIndex) == 0) {
+            return 0;
+        } else {
+            return dodgeDamageValue[characterIndex];
+        }
+    }
+
+    function buffedDmgDodge(characterIndex) {
+        let bonusDamage = 0
+        if(containsTian && !containsFenrir) {
+            if(characterMatriceKey(characterIndex,1).includes("tian")) {
+                return tianCharge/extraMultiDodge(characterIndex)*calcTianMulti(characterIndex)
+            }
+        } else if(containsAnna) {
+            if(characterMatriceKey(characterIndex,1).includes("anna")) {
+                bonusDamage += calcDodgeDps(characterIndex);
+            } else if(containsLan1 && containsAnna) {
+                return (twilightArcNoBullet * calcTotalMulti(characterIndex));
+            }
+        } else if(containsYulan) {
+            if(characterMatriceKey(characterIndex,1).includes("yulan")) {
+                bonusDamage += calcDodgeDps(characterIndex);
+            }
+        } else if(Math.max(calcDodgeDps(0), calcDodgeDps(1), calcDodgeDps(2)) > Math.max(calcMaxAutoDps(0), calcMaxAutoDps(1), calcMaxAutoDps(2))) {
+            return calcDodgeDps(characterIndex)
+        } else if(selectedCharacterNames[characterIndex].includes("meryl5") ||selectedCharacterNames[characterIndex].includes("meryl6") ) {
+            return Math.max(calcDodgeDps(0), calcDodgeDps(1), calcDodgeDps(2));
+        }
+        return bonusDamage;
+    }
+
+    function annaDodges() {
+        let getIndex;
+        for (let i = 0; i < 3; i++) {
+            getIndex = storeIndexCharacter(i, "annabella");
+        }
+    
+        if (getIndex !== "N/A") {
+            const annaSkillDamage = Math.floor(adjCastsSkillDmg(getIndex));
+            if (containsLan1) {
+                return annaSkillDamage * 2;
+            } else if (containsAnna) {
+                const baseDamage = annaSkillDamage * (annaGas ? (containsCobaltMat4pc || containsAnnabellaMat4pc ? 8 : 7) : 2);
+                return Math.min(baseDamage, dodges * 2);
+            } else {
+                return dodges * 2;
+            }
+        }
+        return 0;
+    }
+
+    const dodgeRegen = 4;
+    let dodges = 3 + totalTime/dodgeRegen * (linType == "Volt" ? 6 : 1) * ((characterMatriceKey(0).includes("cobalt") || characterMatriceKey(1).includes("cobalt") || characterMatriceKey(2).includes("cobalt")) ? 1.66 : 1);
+    let emptyAnnaDodges = ((containsLiuhuo && !containsLan) ? 0 : (sTrait == "annabella" ? annaDodges() * 2 : (containsFiona ? annaDodges()*4 : annaDodges()/2)));
+    let tsubasaDodges = ((containsTsubasa ? totalTime/15 : 0)+ (containsTsubasa3 ? 2 : 0))
+
+
+    function maxDodgesPrimary() {
+        for(let i = 0; i<3; i++) {
+            return Math.min(dodges, pbDpsDodge(i) == 0 ? 0 : ((containsLan1 && containsAnna) ? emptyAnnaDodges : (containsCobaltMat4pc ? totalTime / ((linType=="Fire") ? 8 : 4) : 
+            (containsCobalt3 ? totalTime/10 : ((containsTian && !containsFenrir) ? (containsTian3 ? tianA3Charge : tianA3Charge) : ((containsLyra && selectedCharacterNames[i].includes("lyra")) ? 
+            totalTime/15 : (containsFenrir ? Math.floor(fenrirCombos + fenrirA1Dodges, 1) : tsubasaDodges)))))))
+        }
+    }
+
+
+    function maxDodgesSecondary() {
+        for(let i =0; i<3; i++) {
+            if(pbDpsDodge(i) == 0) {
+                return 0
+            } else if(selectedCharacterNames[i].includes("frigg")) {
+                return 999
+            } else if(containsAnna) {
+                return annaDodges
+            } else if(selectedCharacterNames[i].includes("cobalt")) {
+                return dodges * 1.25
+            } else if(selectedCharacterNames[i].includes("lyra")) {
+                return totalTime/15
+            } else {
+                dodges-maxDodgesPrimary()
+            }
+        }
+    }
+
+
+
+    let maxDodges = Math.min(dodges, )
+    let dodgeMulti = (1 + (containsLiuhuo ? .1 : 0));
+
+    function extraMultiDodge(characterIndex) {
+        return tianAutoTime > 0 ?
+            (buffedDmgDodge(0) - buffedDmgDodge(1)) *
+            (1 + (linType === "Volt" ? 0.05 * linUptimeCapped : 0)) *
+            (umiSupport && !selectedCharacterNames[characterIndex].includes("umi") && elementTypes[characterIndex] === "Physical" ? 1.25 : 1) *
+            dodgeMulti :
+            1; // Return 1 if the conditions are not met
+    }
+
+
+    function totalTimeDodge2() {
+        return Math.min((totalTime - (totalTimeSkillDmg(0) + totalTimeSkillDmg(1) + totalTimeSkillDmg(2)) - (totalTimeDischarge(0) + totalTimeDischarge(1) + totalTimeDischarge(2)) -
+        (totalTimeSpSkill(0) + totalTimeSpSkill(1) + totalTimeSpSkill(2))), ((pbDpsDodge(1) == 0) ? 0 : dodgeTime[1] * maxDodgesPrimary()))
+    }
+
+    function totalTimeDodge3() {
+        return ((maxDodgesSecondary() === 999) && (buffedDmgDodge(2) > enduranceDmgBuffedDps()) && (buffedDmgDodge(2) > basicDmgBuffedDps().value) ? Math.max(totalTime - 
+            (totalTimeSkillDmg(0) + totalTimeSkillDmg(1) + totalTimeSkillDmg(2)) - (totalTimeDischarge(0) + totalTimeDischarge(1) + totalTimeDischarge(2)) - 
+            (totalTimeSpSkill(0) + totalTimeSpSkill(1) + totalTimeSpSkill(2)) - totalTimeDodge() - basicDmgTotalTimePriority() - ((buffedDmgDodge(0) > enduranceDmgBuffedDps()) ? maxDodges * dodgeDamageValue[0]: 0)) : 0)
+    }
+
+    function dmgPercentSkill(characterIndex) {
+        return (
+          buffedDmgSkill(characterIndex) *
+          adjCastsSkillDmg(characterIndex) *
+          extraMultiSkill(characterIndex) +
+          (skillDamage[characterIndex] > 0
+            ? (0.7 *
+                bonusCastsSkill(characterIndex) *
+                buffedDmgSkill(characterIndex) *
+                extraMultiSkill(characterIndex) *
+                skillDamage[characterIndex]) /
+              pbDmgSkill(characterIndex) *
+              (containsAlyss1 && selectedCharacterNames[characterIndex].includes("saki")
+                ? 0.5
+                : 1)
+            : 0)
+        );
+    }
+
+    function dmgPercentSpSk(characterIndex) {
+        return totalCastsSpSkill(characterIndex) * buffedDmgSpSkill(characterIndex) * extraMultiSpSkill(characterIndex) + 
+        (0.7 * bonusCastsSpSkill(characterIndex) * buffedDmgSpSkill(characterIndex) * extraMultiSpSkill(characterIndex));
+    }
+
+    const sakiWorthSurging = ((containsSaki1 && containsIcarus) || containsFenrir) ? 0 : 1
+
+    function reqUptimeTotalTimeExtra(characterIndex) {
+        return (selectedCharacterNames[characterIndex].includes("lin") ? (containsUmi ? totalTime/18 : 1) : 0) + ((selectedCharacterNames[characterIndex].includes("ruby") && rubyWorthHeating) ?
+        (totalTime/25) * (selectedCharacterNames[characterIndex].includes("ruby6") ? 3.6 : 7.2) : 0 ) + ((containsSaki3 && selectedCharacterNames[characterIndex].includes("saki") && sakiWorthSurging) ? 
+        totalTime/10 * 2.15 : 0) + ((selectedCharacterNames[characterIndex].includes("fiona") && containsGnonno && containsLan && containsFiona) ? totalTime/3 : 0)
+    }
+
+    function reqUptimeBonusDps(characterIndex) {
+        return (selectedCharacterNames[characterIndex].includes("rubilia") || selectedCharacterNames[characterIndex].includes("yulan")) ? calcDodgeDps(characterIndex) : calcMaxAutoDps(characterIndex);
+    }
+
+    const quickswap = ((containsUmi && !containsLyra && containsClaudia1) || (containsGnonno && containsLan && containsFiona)) ? 1 : 0
+
+    function reqUptimeQuickSwapTimes(characterIndex) {
+        return (quickswap ? ((containsClaudia1 && containsUmi) ? (selectedCharacterNames[characterIndex].includes("claudia") ? umiMagicShows : 0) : 
+        (reqUptimeBonusDps(characterIndex) == Math.max(reqUptimeBonusDps(0), reqUptimeBonusDps(1), reqUptimeBonusDps(2)) ? 0 
+        : skillCooldown[characterIndex] == Math.min(skillCooldown[0], skillCooldown[1], skillCooldown[2]) ? totalTime / (skillCooldown[characterIndex] !== 
+        (Math.min(skillCooldown[0], skillCooldown[1], skillCooldown[2]) && Math.max(skillCooldown[0], skillCooldown[1], skillCooldown[2])) ? skillCooldown[characterIndex] : 0): 0)) : 0) 
+    }
+
+    const rubiliaSkills = (selectedCharacterNames[0].includes("rubilia") ? adjCastsSkillDmg(0) : selectedCharacterNames[1].includes("rubilia") ? adjCastsSkillDmg(1) : selectedCharacterNames[2].includes("rubilia") ? adjCastsSkillDmg(2) : 0);
+
+    function reqUptimeTotalTime(characterIndex) {
+        return Math.max(0,Math.max(0,3-dischargeTime[characterIndex]-skillCast[characterIndex])*
+        (reqUptimeQuickSwapTimes(characterIndex)-Math.max(0,(reqUptimeQuickSwapTimes(characterIndex)-totalCastsDischarge(characterIndex))))+Math.max(0,3-skillCast[characterIndex])*
+        (reqUptimeQuickSwapTimes(characterIndex)-(reqUptimeQuickSwapTimes(characterIndex)-Math.max(0,(reqUptimeQuickSwapTimes(characterIndex)-totalCastsDischarge(characterIndex))))))+
+        (selectedCharacterNames[characterIndex].includes("rubilia") ? .7667 * rubiliaSkills * 2 : 0);
+    }
+
+
+    function basicDmgCharacterCheck() {
+        if (fionaMainDps) {
+            return "fiona";
+          } else if (containsIcarus) {
+            return "icarus";
+          } else if (containsRubyMat4pc) {
+            return "ruby4pc";
+          } else if (
+            containsTian > 0 &&
+            !containsNemesis6 &&
+            containsFenrir === 0
+          ) {
+            return "tian";
+          } else if (!annaGas && containsAnnaBurn) {
+            return "anna";
+          } else if(annaGas) {
+            return "annagas";
+          } else if (containsUmi > 0) {
+            return "umi";
+          } else if (containsLin && containsFiona && containsYulan) {
+            return "lin";
+          } else {
+            return "N/A";
+          }
+    }
+
+    function findCharacterIndex(characterName) {
+        for (let i = 0; i < 3; i++) {
+            if (selectedCharacterNames[i].includes(characterName)) {
+                return i; // Return the index when a match is found
+            }
+        }
+        return -1; // Return -1 if the character is not found in the array
+    }
+
+    function storeIndexCharacter(characterIndex, character) {
+        const characterKey = characterMatriceKey(characterIndex, 1);
+        if (characterKey.includes(character)) {
+            return characterIndex;
+        } else {
+            return "N/A";
+        }
+    }
+
+    function storeIndexMatrice(matriceIndex, matrice) {
+        const matriceKey = characterMatriceKey(characterIndex);
+        if (matriceKey.includes(matrice)) {
+            return matriceIndex;
+        } else {
+            return "N/A";
+        }
+    }
+
+
+    function basicDmgCharacterCheck2() {
+        if (containsClaudia && containsLin) {
+            if (containsUmi && umiSupport == 0) {
+                return umiSupportSlot;
+            } else {
+                return "lin";
+            }
+        } else {
+            return "N/A";
+        }
+    }
+
+    function basicDmgTotalTimePriority2() {
+        let indexCheck = 0;
+        for(let i =0; i<3; i++) {
+            indexCheck = storeIndexCharacter(i, basicDmgCharacterCheck2())
+        }
+        return ((containsClaudia && containsLin) ? Math.min(totalTime/15,(maxCastsSkillDmg(indexCheck))) * .6 : 0 ); 
+    }
+
+
+    function basicDmgBuffedDpsPriority() {
+        let indexCheck;
+        for(let i =0; i<3; i++) {
+            indexCheck = storeIndexCharacter(i, basicDmgCharacterCheck())
+        }
+        if (indexCheck != "N/A") {
+            const autoDps = calcMaxAutoDps(indexCheck);
+            if (containsUmi) {
+                const umiCondition = containsFiona && (fionaSk1 === "maelstrom" || fionaSk2 === "maelstrom") && containsUmi;
+                const umiResult = umiMultiplier * (1 + (umiCondition ? (1 + fionaCrystalBonus + (sTrait === "fiona" ? 0.33 + 0.26 : 0.26) * 0.6) / (1 + fionaCrystalBonus) - 1 : 0));
+                return autoDps * umiResult;
+            } else {
+                return autoDps * (1 + fionaCrystalBonus + (sTrait === "fiona" ? 0.33 + 0.26 : 0.26) * 0.6) / (1 + fionaCrystalBonus) - 1;
+            }
+        } else {
+            return 0;
+        }
+    }
+
+    function basicDmgBuffedDpsPriority2() {
+        let indexCheck;
+        for(let i =0; i<3; i++) {
+            indexCheck = storeIndexCharacter(i, basicDmgCharacterCheck2())
+        }
+        if(indexCheck !== "N/A") {
+            return baseMultResults[indexCheck] * calcOnfieldEleDmg[indexCheck] * calcActiveMultiplier(indexCheck) *
+            critMutliplier(indexCheck) * 123.1666667;
+        } else {
+            return 0;
+        }
+    }
+
+
+    const fionaMainDps = ((globalResonance == "Altered" || (containsLan && containsClaudia1)) ? 1 : 0 )
+
+
+
+    function mimiEnduranceDps(characterIndex) {
+        if(containsMimi1 && selectedCharacterNames[characterIndex].includes("mimi")) {
+            return enduranceDps[characterIndex] * (normalMulti+0.3 + fieldModN[characterIndex])/(normalMulti+ fieldModN[characterIndex]);
+        }
+    }
+
+    const critConstant1 = -3.71;
+    const critConstant2 = 1151;
+    const critConstant3 = -49787
+    const charLevel = 95;
+
+    function fenrirUptime() {
+        return (containsMimi ? 0 : totalTime - (totalTimeSkillDmg(0) + totalTimeSkillDmg(1) + totalTimeSkillDmg(2)) - (totalTimeDischarge(0) + totalTimeDischarge(1) + totalTimeDischarge(2)) -
+        (totalTimeSpSkill(0) + totalTimeSpSkill(1) + totalTimeSpSkill(2)) - basicDmgTotalTimePriority() - basicDmgTotalTimePriority2() - (reqUptimeTotalTime(1) + reqUptimeTotalTime(2) + reqUptimeTotalTime(0)
+        +reqUptimeTotalTimeExtra(0) + reqUptimeTotalTimeExtra(1) + reqUptimeTotalTimeExtra(2)) - .81667 * fenrirA1Dodges())
+    }
+
+    const fenrirNote = (containsFenrir5 ? 80 : 40);
+    const fenrirCombos = fenrirUptime() / (1.41667 + .81667)
+    const timeWithoutRevision = totalTime - (totalTimeSkillDmg(0) + totalTimeSkillDmg(1) + totalTimeSkillDmg(2)) - (totalTimeDischarge(0) + totalTimeDischarge(1) + totalTimeDischarge(2)) -
+    (totalTimeSpSkill(0) + totalTimeSpSkill(1) + totalTimeSpSkill(2)) - totalTimeDodge2() - basicDmgTotalTimePriority() - basicDmgTotalTimePriority2() - 
+    (reqUptimeTotalTime(0) + reqUptimeTotalTime(1) + reqUptimeTotalTime(2) + reqUptimeTotalTimeExtra(0) + reqUptimeTotalTimeExtra(1) + reqUptimeTotalTimeExtra(2));
+
+    const tianAutoTime = (containsMimi ? 0 : (containsTian && !containsFenrir) ? timeWithoutRevision - (timeWithoutRevision * .53 / (1.0167 * 2)) : 0);
+    const yulanDodgeTime = (containsYulanMartial ? (totalTime - (totalTimeSkillDmg(0) + totalTimeSkillDmg(1) + totalTimeSkillDmg(2)) - 
+    (totalTimeDischarge(0) + totalTimeDischarge(1) + totalTimeDischarge(2)) - enduranceRevisedTime() - totalTimeDodge2() - basicDmgTotalTimePriority() - basicDmgTotalTimePriority2() - 
+    (totalTimeSpSkill(0) + totalTimeSpSkill(1) + totalTimeSpSkill(2)) - (reqUptimeTotalTime(0) + reqUptimeTotalTime(1) + reqUptimeTotalTime(2) 
+    + reqUptimeTotalTimeExtra(0) + reqUptimeTotalTimeExtra(1) + reqUptimeTotalTimeExtra(2))) / (1.15 + 1.05): 0)
+
+    function totalTimeDodge() {
+        return (containsYulan ? yulanDodgeTime : Math.min(totalTime - (totalTimeSkillDmg(0) + totalTimeSkillDmg(1) + totalTimeSkillDmg(2)) - 
+        (totalTimeDischarge(0) + totalTimeDischarge(1) + totalTimeDischarge(2)) - enduranceRevisedTime() - totalTimeDodge2() - basicDmgTotalTimePriority() - basicDmgTotalTimePriority2() -
+        (totalTimeSpSkill(0) + totalTimeSpSkill(1) + totalTimeSpSkill(2)), dodgeDamageValue[0] * maxDodges))
+    }
+
+
+    function basicDmgTotalTime() {
+        return totalTime - (totalTimeSkillDmg(0) + totalTimeSkillDmg(1) + totalTimeSkillDmg(2)) - (totalTimeDischarge(0) + totalTimeDischarge(1) + totalTimeDischarge(2)) - 
+        (totalTimeSpSkill(0) + totalTimeSpSkill(1) + totalTimeSpSkill(2)) - totalTimeDodge(1) - 0;
+    }
+
+
+    function basicDmgTotalTimePriority() {
+        return Math.min(
+            totalTime -
+            (totalTimeSkillDmg(0) + totalTimeSkillDmg(1) + totalTimeSkillDmg(2) +
+                totalTimeSpSkill(0) + totalTimeSpSkill(1) + totalTimeSpSkill(2) +
+                totalTimeDischarge(0) + totalTimeDischarge(1) + totalTimeDischarge(2) +
+                basicDmgTotalTimePriority2() +
+                reqUptimeTotalTimeExtra(0) + reqUptimeTotalTimeExtra(1) + reqUptimeTotalTimeExtra(2)),
+            fionaMainDps
+                ? 999
+                : containsIcarus
+                    ? containsSaki1
+                        ? 100
+                        : (2 - 0.5667) * calcIcarusDischarge()
+                    : 0,
+            containsRubyMat4pc
+                ? basicDmgCharacterCheck().includes("cobalt") ||
+                basicDmgCharacterCheck().includes("anna") ||
+                basicDmgCharacterCheck().includes("ruby")
+                    ? 0
+                    : totalTime / 15
+                : containsTian && !containsNemesis6 && !containsFenrir
+                    ? (totalTime / 30) * 4.15
+                    : basicDmgCharacterCheck().includes("annagas")
+                        ? (totalTime / 15) * 1.63
+                        : 0,
+            basicDmgCharacterCheck().includes("umi")
+                ? containsGnonno && umiSupport
+                    ? 0
+                    : umiSupport
+                        ? 0
+                        : 18 - 2.083 /*umiskillcast*/ * umiMagicShows
+                : 0,
+            containsLin && containsYulan && containsFiona ? 999 : 0
+        );
+    }
+
+    function dmgPercentDodge(characterIndex) {
+        if(characterIndex == 0) {
+           return buffedDmgDodge(characterIndex) * totalTimeDodge() * extraMultiDodge(characterIndex) 
+        } else if(characterIndex == 1) {
+            return buffedDmgDodge(characterIndex) * totalTimeDodge2() * extraMultiDodge(characterIndex)
+        } else if(characterIndex == 2) {
+            return buffedDmgDodge(characterIndex) * totalTimeDodge3() * extraMultiDodge(characterIndex)
+        } else {
+            return 0;
+        }
+        
+    }
+
+    function dmgPercentBonus(characterIndex) {
+        return buffedDmgBonusDmg(characterIndex) * totalCastsBonusDmg(characterIndex) * extraMultiBonusDmg(characterIndex);
+    }
+
+    function basicDmgRevisedTime() {
+        for(let i = 0; i<3; i++) {
+            return ((selectedCharacterNames[i].includes("meryl5") || selectedCharacterNames[i].includes("meryl6")) ? 
+            Math.min(basicDmgTotalTime(), totalTime/2 - totalTimeSkillDmg(i) - totalTimeDischarge(i) - enduranceRevisedTime()) : basicDmgTotalTime()) 
+        } 
+    }
+
+    function enduranceExtraMulti() {
+        if (containsSamir && calcEnduranceDps(findCharacterIndex("samir")) == (Math.max(calcEnduranceDps(0), calcEnduranceDps(1), calcEnduranceDps(2)))) {
+            const critMultiplier = 1 + (Math.min(naturalCharge * 11 / totalTime, 1) * Math.min(critRate + 0.4, 1) * critDamage + (1 - Math.min(naturalCharge * 11 / totalTime, 1)) * 
+            critRate * critDamage) / (1 + critRate * critDamage);
+            return critMultiplier;
+        } 
+        let damageMultiplier = 1;
+    
+        if (umiSupport && (elementTypes[0] || elementTypes[1] || elementTypes[2]) === "Physical") {
+            damageMultiplier *= 1.25;
+        }
+    
+        if (containsFenrir) {
+            damageMultiplier *= (1 + Math.min(1, calcFenrirCloneUptime()) * fenrirCloneShred * maxCrMulti / (1 + (voltTrueMulti - 1) / 2));
+        }
+    
+        damageMultiplier *= normalMulti;
+        return damageMultiplier;
+    }
+
+    function dmgPercentEndurance() {
+        return enduranceDmgBuffedDps() * enduranceRevisedTime() * enduranceExtraMulti();
+    }
+
+    function extraMultiDischarge(characterIndex) {
+        return ((selectedCharacterNames[characterIndex].includes("samir3") || selectedCharacterNames[characterIndex].includes("samir5") || selectedCharacterNames[characterIndex].includes("samir6"))
+         ? (1+(Math.min(naturalCharge*11/totalTime,1)*Math.min(critRate+.4, 1)*critDamage+(1-Math.min(naturalCharge*11/totalTime,1)) * critRate*critDamage))/ (1+critRate*critDamage) : 1) *
+         (selectedCharacterNames[characterIndex].includes("alyss") && containsAlyss3 ? 1.3 : 1)
+    }
+
+    function dmgPercentDischarge(characterIndex) {
+        return (buffedDmgDischarge(characterIndex) + 0 /* soon to be extra*/) * (totalCastsDischarge(characterIndex) * (cancelDischarges(characterIndex) || cancelDischargeZeke(characterIndex)
+        || ((containsIcarus && containsAlyss && selectedCharacterNames[characterIndex].includes("icarus"))) ? 0 : 1) + bonusCastsDischarge(characterIndex) * .7) * extraMultiDischarge(characterIndex);
+    }
+
+    function basicDmgTotalTime2() {
+        return basicDmgTotalTime() - basicDmgRevisedTime()
+    }
+
+    function dmgPercentBasicDmg(characterIndex) {
+        if(characterIndex == 0) {
+            return basicDmgBuffedDps().value * basicDmgRevisedTime() * basicDmgExtraMulti()[characterIndex]
+        } else if(characterIndex == 1) {
+            return basicDmgBuffedDps2().value * basicDmgTotalTime2() * basicDmgExtraMulti()[characterIndex]
+        } else if(characterIndex == 2) {
+            return basicDmgBuffedDpsPriority() * basicDmgTotalTimePriority() * basicDmgExtraMulti()[characterIndex]
+        } else if(characterIndex == 3) {
+            return basicDmgBuffedDpsPriority2() * basicDmgTotalTimePriority2() * basicDmgExtraMulti()[characterIndex]
+        }
+    }
+
+    function dmgPercentReqUptime(characterIndex) {
+        return reqUptimeBonusDps(characterIndex) * (reqUptimeTotalTime(characterIndex) + reqUptimeTotalTimeExtra(characterIndex))
+    }
+
+    function calcPassiveMod() {
+        return (1+((calcOnfieldEleDmg[0] * calcActiveMultiplier(0) * critMutliplier(0) * calcAdditionalMulti(0) - 1) * fieldTime(0) + (calcOnfieldEleDmg[1] * calcActiveMultiplier(1) * 
+        critMutliplier(1) * calcAdditionalMulti(1) - 1) * fieldTime(1) + (calcOnfieldEleDmg[2] * calcActiveMultiplier(2) * critMutliplier(2) * calcAdditionalMulti(0)-1)* fieldTime(2))) 
+    }
+
+    const linSkillQMult = (selectedCharacterNames[0].includes("lin") ? adjCastsSkillDmg(0) : selectedCharacterNames[1].includes("lin") ? adjCastsSkillDmg(1) : 
+    selectedCharacterNames[2].includes("lin") ? adjCastsSkillDmg(2) : 0)/(totalTime/30)
+    const zekeFieldTime = (selectedCharacterNames[0].includes("zeke") ? fieldTime(0) : selectedCharacterNames[1].includes("zeke") ? fieldTime(1) : 
+    selectedCharacterNames[2].includes("zeke") ? fieldTime(2) : 0);
+    const icarusSkills = (selectedCharacterNames[0].includes("icarus") ? adjCastsSkillDmg(0) : selectedCharacterNames[1].includes("icarus") ? adjCastsSkillDmg(1) : 
+    selectedCharacterNames[2].includes("icarus") ? adjCastsSkillDmg(2) : 0);
+    const weightedOnfieldEle = (calcOnfieldEleDmg[0] * fieldTime(0)) + (calcOnfieldEleDmg[1] * fieldTime(1)) + (calcOnfieldEleDmg[2] * fieldTime(2));
+    const frostDischarges = (elementTypes[0] == "Ice" ? totalCastsDischarge(0) : 0) + (elementTypes[1] == "Ice" ? totalCastsDischarge(1) : 0) + 
+    (elementTypes[2] == "Ice" ? totalCastsDischarge(2) : 0) + (containsAlyss1 ? calcFrostSkillCount() : 0)
+    const friggA3Count = (Math.max(0, frostDischarges-((containsAlyss1 && (containsLin6 === 0)) ? adjCastsSkillDmg(findCharacterIndex("frigg"))/2 : 0)-1))
+    const friggA3Dmg = (containsFrigg3 ? (calcPassiveMod() * friggA3Count * frostTrueMulti * frostAttack * frostDebuff * frostGearMod * normalMulti * 500)/totalTime : 0);
+    const zekeTransfer = (containsZeke ? (containsZeke6 ? .5 : .3) : 0);
+    const liuFiery = (0.015*hp + (1.05*fireAtk*flameAttack) + playerResistance+2*critRate*(critConstant1*(charLevel^2)+critConstant2*charLevel+critConstant3))/(fireAtk)*100
+    const liuExplosions = (liuFiery * ((containsFrost || containsPhysical || containsVolt) ? 1.3 : 1));
+    const yulanSwiftCut = (0.004*hp + (0.4*frostAtk*frostAttack) + 0.15*playerResistance+.55*critRate*(critConstant1*(charLevel^2)+critConstant2*charLevel+critConstant3))/(frostAtk)*100
+    const yulanSwiftCutFinal = (yulanSwiftCut * ((containsFlame || containsPhysical || containsVolt) ? 1.3 : 1));
+    const zekePassive = (0.01*hp + (0.7 * physicalAtk*physicalAttack) + .36*playerResistance+1.35*critRate*(critConstant1*(charLevel^2)+critConstant2*charLevel+critConstant3))/(physicalAtk)*100
+    const zekePassiveFinal = (zekePassive * ((containsFlame || containsFrost || containsVolt) ? 1.3 : 1));
+    const mimiThunderboom = (0.019 * hp + (voltAtk * voltAttack) + 0.688*playerResistance+2.5*critRate*(critConstant1*(charLevel^2) + critConstant2*charLevel+critConstant3))/(voltAtk)*100
+    const mimiPassive = (mimiThunderboom * ((containsFlame || containsFrost || containsPhysical) ? 1.3 : 1)) + (phantasiaPerEncounter * 5000)/ totalTime;
+
+    function calcPassiveDps(characterIndex) {
+        const part1 = calcPassiveMod() * baseMultResults[characterIndex] * calcOnfieldEleDmg[characterIndex] * (
+            (passiveDps[characterIndex] * (elementTypes[characterIndex] === "Fire" ? burnMod : 1) * (selectedCharacterNames[characterIndex].includes("lin") ? linSkillQMult : 1) *
+                (sTrait === "Zeke" && containsZeke && selectedCharacterNames[characterIndex].includes("gnonno") ? 0.5 * zekeFieldTime + 1 : 1) *
+                (selectedCharacterNames[characterIndex].includes("gnonno") ? normalMulti : 1) +
+                (characterMatriceKey(characterIndex).includes("huma") ? calcDodgeMatrix() * (totalTime - 0) / totalTime : 0) +
+                (characterMatriceKey(characterIndex).includes("cobalt") && pbDpsDodge(characterIndex) > 0 ? calcDodgeMatrix() * 2 * burnMod : 0)
+            ) +
+            (characterMatriceKey(characterIndex).includes("frigg") && containsFrigg ? friggMatrice4pc : 0) +
+            (selectedCharacterNames[characterIndex].includes("icarus") ? (totalDischarges * calcIcarusDischarge() + skillCount * icarusSkills) / totalTime : 0) +
+            ((containsYulan === 0 && characterMatriceKey(characterIndex).includes("yulan")) || selectedCharacterNames[characterIndex].includes("yulan") ? yulanMatricePassive : 0)
+        );
+    
+        const part2 = onfieldPassive[characterIndex] * baseMultResults[characterIndex] * calcActiveMultiplier(characterIndex) * critMutliplier(characterIndex);
+    
+        const part3 = (selectedCharacterNames[characterIndex].includes("lin") && linType === "Physical") ? 
+            (calcPassiveMod() / baseMultResults[characterIndex] * 50 * physicalTrueMulti * physicalAttack * physicalDebuff * physicalGearMod * normalMulti * linUptimeCapped * weightedOnfieldEle *
+                (containsUmi ? (umiMagicShows * 18 / totalTime) * (umiMultiplier - 1) + 1 : 1)
+            ) : 0;
+    
+        const part4 = selectedCharacterNames[characterIndex].includes("frigg") ? friggA3Dmg : 0;
+    
+        return part1 + part2 + part3 + part4;
+    }
+
+    function dmgPercentPassive() {
+        return calcPassiveDps(0) + calcPassiveDps(1) + calcPassiveDps(2);
+    }
+
+    function finalMultiplier() {
+        return 1+ fionaCrystalBonus;
+    }
+
+    function echoDamage() {
+        return containsZeke
+        ? zekeTransfer * (
+          (dmgPercentSkill(0) + dmgPercentSkill(1) + dmgPercentSkill(2)) + (dmgPercentSpSk(0) + dmgPercentSpSk(1) + dmgPercentSpSk(2)) + (dmgPercentDischarge(0) + dmgPercentDischarge(1) + dmgPercentDischarge(2)) 
+          + (dmgPercentBonus(0) + dmgPercentBonus(1) + dmgPercentBonus(2)) + dmgPercentEndurance() + (dmgPercentDodge(0)+ dmgPercentDodge(1) + dmgPercentDodge(2)) +
+          (dmgPercentBasicDmg(0) + dmgPercentBasicDmg(1) + dmgPercentBasicDmg(2) + dmgPercentBasicDmg(3)) + (dmgPercentReqUptime(0) + dmgPercentReqUptime(1) + dmgPercentReqUptime(2)) + totalTime * 
+          (
+            calcPassiveDps(0) * (containsZeke ? zekeTransfer * fieldTime(0) : 0) +
+            calcPassiveDps(1) * (containsZeke ? zekeTransfer * fieldTime(1) : 0) +
+            calcPassiveDps(2) * (containsZeke ? zekeTransfer * fieldTime(2) : 0)
+          )
+        )
+        : 0;
+    }
+
+    function finalDamage() {
+        return (dmgPercentSkill(0) + dmgPercentSkill(1) + dmgPercentSkill(2)) + (dmgPercentSpSk(0) + dmgPercentSpSk(1) + dmgPercentSpSk(2)) + (dmgPercentBonus(0) + dmgPercentBonus(1) + dmgPercentBonus(2)) 
+        + (dmgPercentDischarge(0) + dmgPercentDischarge(1) + dmgPercentDischarge(2)) + dmgPercentEndurance() + (dmgPercentDodge(0) + dmgPercentDodge(1) + dmgPercentDodge(2))
+        + (dmgPercentBasicDmg(0) + dmgPercentBasicDmg(1) + dmgPercentBasicDmg(2) + dmgPercentBasicDmg(3)) + (dmgPercentReqUptime(0) + dmgPercentReqUptime(1) + dmgPercentReqUptime(2)) + (dmgPercentPassive()) + echoDamage()
+    }
+
+    function finalFlat() {
+        let mimiFieldtime = 0;
+        for(let i = 0; i<3; i++) {
+            mimiFieldtime += selectedCharacterNames[i].includes("mimi") ? fieldTime(i) : 0
+        }
+
+        return (
+            (containsLiuhuo ? liuExplosions * totalTime / 1.5 : 0) +
+            (containsYulan ? yulanSwiftCutFinal * totalTime * 2 : 0) +
+            (containsZeke ? zekePassiveFinal * totalTime : 0) +
+            (containsMimi ? mimiPassive * totalTime * mimiFieldtime : 0)
+        );
+    }
+
+    function checkTypeResonance(typeValue) {
+        const resonanceTypes = {}; // Initialize an object to count resonance types
+    
+        // Count the number of each resonance type in the party
+        typeValue.forEach(value => {
+            resonanceTypes[value] = (resonanceTypes[value] || 0) + 1;
+        });
+    
+        // Check for resonance effects
+        if (resonanceTypes['Attack'] === 2) {
+            return 1.10;
+        } else if (resonanceTypes['Benediction'] === 2) {
+            return 1;
+        } else if (resonanceTypes['Fortitude'] === 2) {
+            return 1;
+        } else if (
+            resonanceTypes['Attack'] === 1 &&
+            resonanceTypes['Benediction'] === 1 &&
+            resonanceTypes['Fortitude'] === 1
+        ) {
+            return 1.05;
+        } else {
+            return 1;
+        }
+    }
+
+    function totalDmgPercent() {
+        return (finalDamage()*finalMultiplier() + finalFlat()) * checkTypeResonance(typeValue)
+    }
+
+    function dmgPercentPerMin() {
+        return totalDmgPercent() / (totalTime/60)
+    }
+
+    function dmgTotal() {
+        return (dmgPercentPerMin()/100000*alteredAtk*((critRate)*(1-critDamage)+ (1-critRate)))*1.1;
+    }
+
+    console.log(checkTypeResonance(typeValue))
+
+    return {
+        totalDmgPercent : totalDmgPercent(),
+        dmgPercentPerMin  : dmgPercentPerMin(),
+        dmgTotal : dmgTotal(),
+    };
+}
+
+async function finalDmg(interaction) {
+
+    const { commandName, options } = interaction;
+
+    if (commandName === 'dps') {
+        const sCD1 = options.getString('character1');
+        const sCD2 = options.getString('character2');
+        const sCD3 = options.getString('character3');
+        const sM1 = options.getString('matrices1');
+        const sM2 = options.getString('matrices2');
+        const sM3 = options.getString('matrices3');
+        const sTrait = options.getString('trait');
+        const fionaSk1 = options.getString('skill1');
+        const fionaSk2 = options.getString('skill2');
+
+        dpsCalcFinal = calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk2);
+
+        const dpsTitle = `Calculated Dps for ${sCD1} : ${sM1}, ${sCD2} : ${sM2}, ${sCD3} : ${sM3}`;
+        
+        const embed = new MessageEmbed()
+        .setTitle(dpsTitle)
+        .setDescription(`Total Damage Percent: ${dpsCalcFinal.totalDmgPercent}\n Damage Percent Per Min: ${dpsCalcFinal.dmgPercentPerMin}\n Damage Total: ${dpsCalcFinal.dmgTotal}`)
+        .setColor('#ff9900');
+
+        await interaction.reply({ embeds: [embed] });
+    }
+}
+
+module.exports = {
+    finalDmg
+};
+
+
+
+    //  =IF(AND(umiSupport,REGEXMATCH($A21,"Umi")=FALSE,$B21="Physical"),1.25,1)*(1+IF(AND(fionaSlot,OR(fionaS1="Maelstrom",fionaS2="Maelstrom")
+    //  ,MAX($G21,$H21)=LARGE($G$21:$H$23,1)),IF(AND(trait="Fiona",$B21="Physical"),0.61,0.28)*IF(yulanDPS,0.78,IF(gnnSlot,0.68,IF(umiSlot,0,0.7))),0))
+
+
+calculateDPS("yulanmartial6", "fiona6", "alyss6", "claudia4pc3", "alyss4pc3", "yulan4pc3", "yulan", "wellspring", "maelstrom");
 
 // Now you can access the data for a specific character selection
 

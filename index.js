@@ -4,6 +4,7 @@ const {handleScheduleCommand, handleTimes} = require("./schedule");
 const {rotationHandler} = require("./rotation");
 const {registerSlashCommands} = require("./slashCommands");
 const {handleFate} = require("./fate")
+const {finalDmg} = require("./dpscalc");
 require('dotenv/config');
 
 const fs = require('fs');
@@ -30,6 +31,9 @@ mimibot.on('interactionCreate', async (interaction) => {
   if (interaction.isCommand() && interaction.commandName === 'fate') {
     handleFate(interaction);
   }
+  if (interaction.isCommand() && interaction.commandName === 'dps') {
+    finalDmg(interaction);
+  }
   if (interaction.isCommand() && interaction.commandName === 'schedule') {
     const selectedTimes = interaction.options.getString('times').split(',').map((time) => time.trim());
     handleScheduleCommand(interaction, selectedTimes); // Pass selectedTimes to the handleScheduleCommand function
@@ -39,7 +43,7 @@ mimibot.on('interactionCreate', async (interaction) => {
   if (!interaction.isCommand() && !interaction.isSelectMenu()) return;
   else {
     await handleInteraction(interaction);
-  }
+  } 
 });
   
 mimibot.login(process.env.TOKEN);
