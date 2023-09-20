@@ -118,16 +118,16 @@ const characterSelections = {
     "tian5": parsedCharacterData.characters["Tian Lang ☆5"],
     "tian6": parsedCharacterData.characters["Tian Lang ☆6"],
 
-    "annabellagas": parsedCharacterData.characters["Annabella (Gas)"],
-    "annabellagas1": parsedCharacterData.characters["Annabella (Gas) ☆1"],
-    "annabellagas3": parsedCharacterData.characters["Annabella (Gas) ☆3"],
-    "annabellagas5": parsedCharacterData.characters["Annabella (Gas) ☆5"],
-    "annabellagas6": parsedCharacterData.characters["Annabella (Gas) ☆6"],
-    "annabellaburn": parsedCharacterData.characters["Annabella (Burn)"],
-    "annabellaburn1": parsedCharacterData.characters["Annabella (Burn) ☆1"],
-    "annabellaburn3": parsedCharacterData.characters["Annabella (Burn) ☆3"],
-    "annabellaburn5": parsedCharacterData.characters["Annabella (Burn) ☆5"],
-    "annabellaburn6": parsedCharacterData.characters["Annabella (Burn) ☆6"],
+    "annagas": parsedCharacterData.characters["Annabella (Gas)"],
+    "annagas1": parsedCharacterData.characters["Annabella (Gas) ☆1"],
+    "annagas3": parsedCharacterData.characters["Annabella (Gas) ☆3"],
+    "annagas5": parsedCharacterData.characters["Annabella (Gas) ☆5"],
+    "annagas6": parsedCharacterData.characters["Annabella (Gas) ☆6"],
+    "annaburn": parsedCharacterData.characters["Annabella (Burn)"],
+    "annaburn1": parsedCharacterData.characters["Annabella (Burn) ☆1"],
+    "annaburn3": parsedCharacterData.characters["Annabella (Burn) ☆3"],
+    "annaburn5": parsedCharacterData.characters["Annabella (Burn) ☆5"],
+    "annaburn6": parsedCharacterData.characters["Annabella (Burn) ☆6"],
 
     "alyss": parsedCharacterData.characters["Alyss"],
     "alyss1": parsedCharacterData.characters["Alyss ☆1"],
@@ -378,10 +378,10 @@ const matriceSelections = {
     "umi4pc2": parsedMatriceData.matrices["Umi 4pc ☆2"],
     "umi4pc3": parsedMatriceData.matrices["Umi 4pc ☆3"],
 
-    "annabella4pc0": parsedMatriceData.matrices["Annabella 4pc ☆0"],
-    "annabella4pc1": parsedMatriceData.matrices["Annabella 4pc ☆1"],
-    "annabella4pc2": parsedMatriceData.matrices["Annabella 4pc ☆2"],
-    "annabella4pc3": parsedMatriceData.matrices["Annabella 4pc ☆3"],
+    "anna4pc0": parsedMatriceData.matrices["Annabella 4pc ☆0"],
+    "anna4pc1": parsedMatriceData.matrices["Annabella 4pc ☆1"],
+    "anna4pc2": parsedMatriceData.matrices["Annabella 4pc ☆2"],
+    "anna4pc3": parsedMatriceData.matrices["Annabella 4pc ☆3"],
 
     "alyss4pc0": parsedMatriceData.matrices["Alyss 4pc ☆0"],
     "alyss4pc1": parsedMatriceData.matrices["Alyss 4pc ☆1"],
@@ -662,6 +662,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
     const tDodgedmg = selectedTrait.traitDodgedmg;
     const tAdditionalFM = selectedTrait.traitAdditionalFM;
     let tTotalMod = selectedTrait.traitTotalMod;
+
     const tPassiveDmg = selectedTrait.traitPassiveDmg;
     const tEleDmg = selectedTrait.traitEleDmg;
     const tExtra = selectedTrait.traitExtra;
@@ -791,9 +792,9 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
     const containsMimi3 = selectedCharacterNames.some(name => name.includes("mimi3") || name.includes("mimi5") || name.includes("mimi6"));
     const containsMimi6 = selectedCharacterNames.some(name => name.includes("mimi6"));
     const containsAnna = selectedCharacterNames.some(name => name.includes("anna"));
-    const containsAnna1 = selectedCharacterNames.some(name => name.includes("annabellagas1") || name.includes("annabellagas3") || name.includes("annabellagas5") || name.includes("annabellagas6"));
-    const containsAnnaBurn = selectedCharacterNames.some(name => name.includes("annabellaburn"));
-    const containsAnnaBurn5 = selectedCharacterNames.some(name => name.includes("annabellaburn5") || name.includes("annabellaburn6"));
+    const containsAnna1 = selectedCharacterNames.some(name => name.includes("annagas1") || name.includes("annagas3") || name.includes("annagas5") || name.includes("annagas6"));
+    const containsAnnaBurn = selectedCharacterNames.some(name => name.includes("annaburn"));
+    const containsAnnaBurn5 = selectedCharacterNames.some(name => name.includes("annaburn5") || name.includes("annaburn6"));
     const containsAlyss = selectedCharacterNames.some(name => name.includes("alyss"));
     const containsAlyss1 = selectedCharacterNames.some(name => name.includes("alyss1") || name.includes("alyss3") || name.includes("alyss5") || name.includes("alyss6"));
     const containsAlyss3 = selectedCharacterNames.some(name => name.includes("alyss3") || name.includes("alyss5") || name.includes("alyss6"));
@@ -814,7 +815,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
     const containsRubyMat4pc = selectedMatricesNames.some(name => name.includes("ruby4pc"));
     const containsClaudiaMat4pc = selectedMatricesNames.some(name => name.includes("claudia4pc"));
     const containsCobaltMat4pc = selectedMatricesNames.some(name => name.includes("cobalt4pc"));
-    const containsAnnabellaMat4pc = selectedMatricesNames.some(name => name.includes("annabella4pc"));
+    const containsAnnabellaMat4pc = selectedMatricesNames.some(name => name.includes("anna4pc"));
     const containsUmi = selectedCharacterNames.some(name => name.includes("umi"));
     const containsUmi1 = selectedCharacterNames.some(name => name.includes("umi1") || name.includes("umi3") || name.includes("umi5") || name.includes("umi6"));
     const containsUmi3 = selectedCharacterNames.some(name => name.includes("umi3") || name.includes("umi5") || name.includes("umi6"));
@@ -845,7 +846,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
     const containsZeke = selectedCharacterNames.some(name => name.includes("zeke"));
     const containsZeke1 = selectedCharacterNames.some(name => name.includes("zeke1") || name.includes("zeke3") || name.includes("zeke5") || name.includes("zeke6"));
     const containsZeke6 = selectedCharacterNames.some(name => name.includes("zeke6"));
-    const annaGas = selectedCharacterNames.some(name => name.includes("annabellagas"));
+    const annaGas = selectedCharacterNames.some(name => name.includes("annagas"));
     const containsVolt = (element1.includes("Volt") || element2.includes("Volt") || element3.includes("Volt"));
     const containsFrost = (element1.includes("Ice") || element2.includes("Ice") || element3.includes("Ice"));
     const containsAltered = (element1.includes("Altered") || element2.includes("Altered") || element3.includes("Altered"));  
@@ -979,7 +980,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
             lanFrost4pc = (frostCount * lanMatriceEle);
             lanFlame4pc = (flameCount * lanMatriceEle);
             lanPhysical4pc = (physicalCount * lanMatriceEle);
-        } else if (characterMatrix.includes("annabella4pc")) {
+        } else if (characterMatrix.includes("anna4pc")) {
             const annabellaMatriceGlobal = matriceSelections[characterMatrix].additional;
             if(containsDuoFlame) {
                 FDMulti += annabellaMatriceGlobal;
@@ -1213,9 +1214,9 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         if(selectedCharacterNames[findCharacterIndex("yulan")].includes("yulanmartial")){
             tTotalMod += .07;
         } 
-    } else {
-        tTotalMod += 0;
-    }
+    } 
+
+    console.log("how", tTotalMod)
 
     const hp = 1200000;
     const hpBonus = (containsTian1 ? (containsFenrir && !containsTian3 ? 1 : 1.6) : 1);
@@ -1238,6 +1239,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         universalResonance    
         );
 
+
     let frostAttack = (
         (1 + (attackBuffType1 === 'All' || attackBuffType1 === "Ice" ? attackBuffAverage1 : 0) +
              (attackBuffType2 === 'All' || attackBuffType2 === "Ice" ? attackBuffAverage2 : 0) +
@@ -1248,6 +1250,8 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
              + (linType === "N/A" ? 0.15 * linUptimeCapped : 0) + (linType === "Ice" ? 0.1 * linUptimeCapped : 0)
               
     );
+
+    console.log( (buffType3 === 'All' || "Ice" === (buffType3) ? damageBuffAvg[2] : 0))
       
     console.log("yep", (1 + (attackBuffType1 === 'All' || attackBuffType1 === "Ice" ? attackBuffAverage1 : 0) +
     (attackBuffType3 === 'All' || attackBuffType3 === "Ice" ? attackBuffAverage3 : 0) +
@@ -1845,7 +1849,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         for(let i = 0; i<3; i++) {
             actualBurn = chargeBurns + (selectedCharacterNames[i].includes("cobalt6") ? cobaltBurn6 : 0) + (selectedCharacterNames[i].includes("cobalt5") ? cobaltBurn5 : 0) +
             (selectedCharacterNames[i].includes("cobalt3") ? cobaltBurn3 : 0) + (selectedCharacterNames[i].includes("king") ? kingBurn1 : 0) + (characterMatriceKey(i).includes("cobalt4pc") ? cobalt4pcBurn : 0) +
-            (selectedCharacterNames[i].includes("annabellaburn") ? annabellaBurn : 0) + (selectedCharacterNames[i].includes("lan") ? 420 : 0) + (selectedCharacterNames[i].includes("liu") ? 1200 : 0)
+            (selectedCharacterNames[i].includes("annaburn") ? annabellaBurn : 0) + (selectedCharacterNames[i].includes("lan") ? 420 : 0) + (selectedCharacterNames[i].includes("liu") ? 1200 : 0)
         }
         return actualBurn;
     }
@@ -1855,8 +1859,6 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
     const avgHp = 1;
 
     const skillCount = (Math.floor(maxCastsSkillDmg(0) + maxCastsSkillDmg(1) + maxCastsSkillDmg(2), 1));
-    const yulanAnticipateDmg = ((containsYulan1 || (containsLin && containsFiona) ? 1350 : 938) * (skillCount + (containsIcarus ? calcIcarusDischarge()*2 : 0))) * (sTrait =="yulan" ? 
-    1 + elementTypes.filter(element => element === "Ice").length * 0.09 : 1);
 
     function fenrirA1Dodges() {
         let initialVal = ((containsFenrir1 && containsSaki1) ? 2 : 4) 
@@ -2068,11 +2070,11 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
     const formattedArray = sortedArray.map(character => character.replace(/\d+$/, ''));
     const characterKey = formattedArray.join('-');
         
-    if(characterKey == "annabellagas-fiona-lan" || characterKey == "lan-liu-zeke" || characterKey == "annabellagas-lan-zeke" || characterKey == "fiona-yulanmartial-zeke") {
+    if(characterKey == "annagas-fiona-lan" || characterKey == "lan-liu-zeke" || characterKey == "annagas-lan-zeke" || characterKey == "fiona-yulanmartial-zeke") {
         secondarySplit = 1;
-    } else if(characterKey == "fiona-lin-liu" || characterKey == "annabellaburn-lan-liu" || characterKey == "alyss-icarus-yulansweeping" || characterKey == "fiona-lin-yulansweeping" || characterKey == "fenrir-mimi-rubilia") {
+    } else if(characterKey == "fiona-lin-liu" || characterKey == "annaburn-lan-liu" || characterKey == "alyss-icarus-yulansweeping" || characterKey == "fiona-lin-yulansweeping" || characterKey == "fenrir-mimi-rubilia") {
         halfHalf = 1;
-    } else if(characterKey == "annabellaburn-lan-liu" || characterKey == "fiona-icarus-yulansweeping") {
+    } else if(characterKey == "annaburn-lan-liu" || characterKey == "fiona-icarus-yulansweeping") {
         balanced = 1;
     } else if(characterKey == "alyss-fiona-yulanmartial" || characterKey == "fiona-gnonno-zeke" || characterKey == "fiona-gnonno-umi") {
         secondaryOnly = 1;
@@ -2336,17 +2338,6 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         } else {
             return totalCastsDischarge(characterIndex) * dischargeTime[characterIndex];
         }
-    }
-
-
-    function calcIcarusDischarge() {
-        let result = 0;
-        for(let i = 0; i<3; i++) {
-            if(selectedCharacterNames[i].includes("icarus")) {
-                result = totalCastsDischarge(i) + ((containsIcarus && fionaSk2 == "torrential") ? fionaTorrents() : 0) 
-            }
-        }
-        return result
     }
 
 
@@ -2616,6 +2607,18 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         }
     }
 
+    function calcIcarusDischarge() {
+        let result = 0;
+        for(let i = 0; i<3; i++) {
+            if(selectedCharacterNames[i].includes("icarus")) {
+                result = totalCastsDischarge(i) + ((containsIcarus && fionaSk2 == "torrential") ? fionaTorrents() : 0) 
+            }
+        }
+        return result
+    }
+
+    const yulanAnticipateDmg = ((containsYulan1 || (containsLin && containsFiona) ? 1350 : 938) * (skillCount + (containsIcarus ? calcIcarusDischarge()*2 : 0))) * (sTrait =="yulan" ? 
+    1 + elementTypes.filter(element => element === "Ice").length * 0.09 : 1);
 
     function endurancePbDps(characterIndex) {
         return (enduranceDmgBuffedDps(characterIndex) == 0) ? 0 : enduranceDps[characterIndex]
@@ -3586,7 +3589,7 @@ module.exports = {
     //  ,MAX($G21,$H21)=LARGE($G$21:$H$23,1)),IF(AND(trait="Fiona",$B21="Physical"),0.61,0.28)*IF(yulanDPS,0.78,IF(gnnSlot,0.68,IF(umiSlot,0,0.7))),0))
 
 
-calculateDPS("zeke6", "gnonno6", "fiona6", "lyra4pc3", "zeke4pc3", "fiona4pc3", "zeke", "wellspring", "maelstrom");
+calculateDPS("yulansweeping6", "fiona6", "icarus6", "fiona4pc3", "yulan4pc3", "icarus4pc3", "fiona", "hydro", "torrential");
 
 // Now you can access the data for a specific character selection
 

@@ -4,8 +4,8 @@
             "trait": "Samir",
             "traitDodgeDmg": 0,
             "traitAdditionalFM": 0,
-            "traitTotalMod": 0,
-            "traitPassiveDmg": 0.20,
+            "traitTotalMod": 0.20,
+            "traitPassiveDmg": 0,
             "traitEleDmg": 0,
             "traitExtra": 0
         },
@@ -22,8 +22,8 @@
             "trait": "Alyss",
             "traitDodgeDmg": 0,
             "traitAdditionalFM": 0,
-            "traitTotalMod": 0,
-            "traitPassiveDmg": 0.18,
+            "traitTotalMod": 0.18,
+            "traitPassiveDmg": 0,
             "traitEleDmg": 0,
             "traitExtra": 0
         },
@@ -31,8 +31,8 @@
             "trait": "Fenrir",
             "traitDodgeDmg": 0,
             "traitAdditionalFM": 0,
-            "traitTotalMod": 0,
-            "traitPassiveDmg": 0.18,
+            "traitTotalMod": 0.18,
+            "traitPassiveDmg": 0,
             "traitEleDmg": 0,
             "traitExtra": 0
         },
@@ -40,8 +40,8 @@
             "trait": "Fiona",
             "traitDodgeDmg": 0,
             "traitAdditionalFM": 0,
-            "traitTotalMod": 0,
-            "traitPassiveDmg": 0.18,
+            "traitTotalMod": 0.18,
+            "traitPassiveDmg": 0,
             "traitEleDmg": 0,
             "traitExtra": 0
         },
