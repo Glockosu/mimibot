@@ -5,6 +5,7 @@ const {rotationHandler} = require("./rotation");
 const {registerSlashCommands} = require("./slashCommands");
 const {handleFate} = require("./fate")
 const {finalDmg} = require("./dpscalc");
+const {handleMetaCommand} = require("./meta")
 require('dotenv/config');
 
 const fs = require('fs');
@@ -40,6 +41,15 @@ mimibot.on('interactionCreate', async (interaction) => {
   } else if (interaction.customId === 'ScheduleTime') {
     handleTimes(interaction);
   }
+  
+  // Handle the /meta command
+  if (interaction.isCommand() && interaction.commandName === 'meta') {
+    const element = interaction.options.getString('element');
+    const investment = interaction.options.getString('investment');
+
+    await handleMetaCommand(element, investment, interaction);
+  }
+
   if (!interaction.isCommand() && !interaction.isSelectMenu()) return;
   else {
     await handleInteraction(interaction);

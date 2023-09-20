@@ -65,6 +65,8 @@ const matriceEmoji = {
     crow: '<:crow:1152722749383516244>',
     king: '<:king:1152722861866373232>',
     meryl: '<:meryl:1152733115668766773>',
+    zeke: '<:zeke:1153709808097173595>',
+    mimi: '<:mimi:1153709809531625523>',
 }
 
 const skillEmoji = {
@@ -74,6 +76,7 @@ const skillEmoji = {
     maelstrom: '<:maelstrom:1152793513990299658>',
     vortex: '<:vortex:1152793515739336714>',
     torrential: '<:torrential:1152793514866921583>',
+    NA: ':x:',
 }
 
 

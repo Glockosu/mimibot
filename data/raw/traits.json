@@ -58,8 +58,8 @@
             "trait": "Liu Huo",
             "traitDodgeDmg": 0,
             "traitAdditionalFM": 0,
-            "traitTotalMod": 0,
-            "traitPassiveDmg": 0.18,
+            "traitTotalMod": 0.18,
+            "traitPassiveDmg": 0,
             "traitEleDmg": 0,
             "traitExtra": 0
         },
@@ -67,8 +67,8 @@
             "trait": "Yulan",
             "traitDodgeDmg": 0,
             "traitAdditionalFM": 0,
-            "traitTotalMod": 0,
-            "traitPassiveDmg": 0.25,
+            "traitTotalMod": 0.18,
+            "traitPassiveDmg": 0,
             "traitEleDmg": 0,
             "traitExtra": 0
         },
@@ -76,8 +76,17 @@
             "trait": "Zeke",
             "traitDodgeDmg": 0,
             "traitAdditionalFM": 0,
-            "traitTotalMod": 0,
-            "traitPassiveDmg": 0.18,
+            "traitTotalMod": 0.18,
+            "traitPassiveDmg": 0,
+            "traitEleDmg": 0,
+            "traitExtra": 0
+        },
+        "Mimi": {
+            "trait": "Mimi",
+            "traitDodgeDmg": 0,
+            "traitAdditionalFM": 0,
+            "traitTotalMod": 0.24,
+            "traitPassiveDmg": 0,
             "traitEleDmg": 0,
             "traitExtra": 0
         }

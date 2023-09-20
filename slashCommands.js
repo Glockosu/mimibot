@@ -120,14 +120,45 @@ async function registerSlashCommands(mimibot) {
             name: 'skill1',
             type: 'STRING',
             description: 'First fiona skill',
-            required: true,
+            required: false,
           },
           {
             name: 'skill2',
             type: 'STRING',
             description: 'Second fiona skill',
-            required: true,
+            required: false,
           }
+        ],
+      },
+      {
+        name: 'meta',
+        description: 'Meta team comps at various investment levels',
+        options: [
+          {
+            name: 'element',
+            type: 'STRING',
+            description: 'The type of element',
+            required: true,
+            choices: [
+              { name: 'Frost', value: 'frost' },
+              { name: 'Flame', value: 'flame' },
+              { name: 'Volt', value: 'volt' },
+              { name: 'Physical', value: 'physical'},
+              { name: 'Altered', value: 'altered'}
+            ],
+          },
+          {
+            name: 'investment',
+            type: 'STRING',
+            description: 'Level of investment $$',
+            required: true,
+            choices: [
+              { name: 'Whale', value: 'whale' },
+              { name: 'Dolphin', value: 'dolphin' },
+              { name: 'F2P+', value: 'f2p+' },
+              { name: 'F2P', value: 'f2p' },
+            ],
+          },
         ],
       },
     ];

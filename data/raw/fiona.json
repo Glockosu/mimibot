@@ -48,6 +48,13 @@
             "cooldown": 30,
             "totalPercent": 0,
             "percentPerSecondPerCooldown": 0
+        },
+        "NA": {
+            "multiplier": 0,
+            "time": 0,
+            "cooldown": 0,
+            "totalpercent" : 0,
+            "percentPerSecondPerCooldown": 0
         }
     }
 }

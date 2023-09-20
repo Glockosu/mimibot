@@ -11,7 +11,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Huma 2pc ☆1": {
             "matriceDodgeDmg": 19,
@@ -24,7 +31,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Huma 2pc ☆2": {
             "matriceDodgeDmg": 22.5,
@@ -37,7 +51,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Huma 2pc ☆3": {
             "fieldModN": 0,
@@ -50,7 +71,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Cobalt 4pc ☆0": {
             "fieldModN": 0,
@@ -63,7 +91,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Cobalt 4pc ☆1": {
             "fieldModN": 0,
@@ -76,7 +111,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Cobalt 4pc ☆2": {
             "fieldModN": 0,
@@ -89,7 +131,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Cobalt 4pc ☆3": {
             "fieldModN": 0,
@@ -102,7 +151,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Meryl 4pc ☆0": {
             "fieldModN": 0,
@@ -115,7 +171,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Meryl 4pc ☆1": {
             "fieldModN": 0,
@@ -128,7 +191,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Meryl 4pc ☆2": {
             "fieldModN": 0,
@@ -141,7 +211,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Meryl 4pc ☆3": {
             "fieldModN": 0,
@@ -154,7 +231,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Claudia 4pc ☆0": {
             "fieldModN": 0,
@@ -167,7 +251,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Claudia 4pc ☆1": {
             "fieldModN": 0,
@@ -180,7 +271,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Claudia 4pc ☆2": {
             "fieldModN": 0,
@@ -193,7 +291,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Claudia 4pc ☆3": {
             "fieldModN": 0,
@@ -206,7 +311,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Frigg 2pc ☆0": {
             "fieldModN": 0,
@@ -219,7 +331,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Frigg 2pc ☆1": {
             "fieldModN": 0,
@@ -232,7 +351,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Frigg 2pc ☆2": {
             "fieldModN": 0,
@@ -245,7 +371,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Frigg 2pc ☆3": {
             "fieldModN": 0,
@@ -258,7 +391,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Frigg 4pc ☆0": {
             "fieldModN": 0,
@@ -271,7 +411,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Frigg 4pc ☆1": {
             "fieldModN": 0,
@@ -284,7 +431,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Frigg 4pc ☆2": {
             "fieldModN": 0,
@@ -297,7 +451,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Frigg 4pc ☆3": {
             "fieldModN": 0,
@@ -310,7 +471,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Saki 2pc ☆0": {
             "fieldModN": 0,
@@ -323,7 +491,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Saki 2pc ☆1": {
             "fieldModN": 0,
@@ -336,7 +511,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Saki 2pc ☆2": {
             "fieldModN": 0,
@@ -349,7 +531,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Saki 2pc ☆3": {
             "fieldModN": 0,
@@ -362,7 +551,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Saki 4pc ☆0": {
             "fieldModN": 0,
@@ -375,7 +571,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Saki 4pc ☆1": {
             "fieldModN": 0,
@@ -388,7 +591,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Saki 4pc ☆2": {
             "fieldModN": 0,
@@ -401,7 +611,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Saki 4pc ☆3": {
             "fieldModN": 0,
@@ -414,7 +631,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Ruby 2pc ☆0": {
             "fieldModN": 0,
@@ -427,7 +651,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Ruby 2pc ☆1": {
             "fieldModN": 0,
@@ -440,7 +671,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Ruby 2pc ☆2": {
             "fieldModN": 0,
@@ -453,7 +691,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Ruby 2pc ☆3": {
             "fieldModN": 0,
@@ -466,7 +711,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Ruby 4pc ☆0": {
             "fieldModN": 0,
@@ -479,7 +731,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Ruby 4pc ☆1": {
             "fieldModN": 0,
@@ -492,7 +751,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Ruby 4pc ☆2": {
             "fieldModN": 0,
@@ -505,7 +771,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Ruby 4pc ☆3": {
             "fieldModN": 0,
@@ -518,7 +791,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lin 2pc ☆0": {
             "fieldModN": 0,
@@ -531,7 +811,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lin 2pc ☆1": {
             "fieldModN": 0,
@@ -544,7 +831,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lin 2pc ☆2": {
             "fieldModN": 0,
@@ -557,7 +851,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lin 2pc ☆3": {
             "fieldModN": 0,
@@ -570,7 +871,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lin 4pc ☆0": {
             "fieldModN": 0,
@@ -583,7 +891,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lin 4pc ☆1": {
             "fieldModN": 0,
@@ -596,7 +911,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lin 4pc ☆2": {
             "fieldModN": 0,
@@ -609,7 +931,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lin 4pc ☆3": {
             "fieldModN": 0,
@@ -622,7 +951,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Nemesis 2pc ☆0": {
             "fieldModN": 0,
@@ -635,7 +971,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Nemesis 2pc ☆1": {
             "fieldModN": 0,
@@ -648,7 +991,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Nemesis 2pc ☆2": {
             "fieldModN": 0,
@@ -661,7 +1011,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Nemesis 2pc ☆3": {
             "fieldModN": 0,
@@ -674,7 +1031,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Nemesis 4pc ☆0": {
             "fieldModN": 0,
@@ -687,7 +1051,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Nemesis 4pc ☆1": {
             "fieldModN": 0,
@@ -700,7 +1071,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Nemesis 4pc ☆2": {
             "fieldModN": 0,
@@ -713,7 +1091,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Nemesis 4pc ☆3": {
             "fieldModN": 0,
@@ -726,7 +1111,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir 4pc ☆0": {
             "fieldModN": 0,
@@ -739,7 +1131,14 @@
             "totalCR": 0,
             "totalCD": 0.1,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir 4pc ☆1": {
             "fieldModN": 0,
@@ -752,7 +1151,14 @@
             "totalCR": 0,
             "totalCD": 0.13,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir 4pc ☆2": {
             "fieldModN": 0,
@@ -765,7 +1171,14 @@
             "totalCR": 0,
             "totalCD": 0.16,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir 4pc ☆3": {
             "fieldModN": 0,
@@ -778,7 +1191,14 @@
             "totalCR": 0,
             "totalCD": 0.2,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro 4pc ☆0": {
             "fieldModN": 0,
@@ -791,7 +1211,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.03888888889
+            "globalMult": 0.03888888889,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro 4pc ☆1": {
             "fieldModN": 0,
@@ -804,7 +1231,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.04861111111
+            "globalMult": 0.04861111111,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro 4pc ☆2": {
             "fieldModN": 0,
@@ -817,7 +1251,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.05833333333
+            "globalMult": 0.05833333333,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro 4pc ☆3": {
             "fieldModN": 0,
@@ -830,7 +1271,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.06805555556
+            "globalMult": 0.06805555556,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Shiro 2pc ☆0": {
             "fieldModN": 0,
@@ -843,7 +1291,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Shiro 2pc ☆1": {
             "fieldModN": 0,
@@ -856,7 +1311,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Shiro 2pc ☆2": {
             "fieldModN": 0,
@@ -869,7 +1331,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Shiro 2pc ☆3": {
             "fieldModN": 0,
@@ -882,7 +1351,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Samir 2pc ☆0": {
             "fieldModN": 0,
@@ -895,7 +1371,14 @@
             "totalCR": 0,
             "totalCD": 0.1,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Samir 2pc ☆1": {
             "fieldModN": 0,
@@ -908,7 +1391,14 @@
             "totalCR": 0,
             "totalCD": 0.13,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Samir 2pc ☆2": {
             "fieldModN": 0,
@@ -921,7 +1411,14 @@
             "totalCR": 0,
             "totalCD": 0.16,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Samir 2pc ☆3": {
             "fieldModN": 0,
@@ -934,7 +1431,14 @@
             "totalCR": 0,
             "totalCD": 0.2,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Huma 2pc ☆0": {
             "fieldModN": 0,
@@ -947,7 +1451,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Huma 2pc ☆1": {
             "fieldModN": 0,
@@ -960,7 +1471,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Huma 2pc ☆2": {
             "fieldModN": 0,
@@ -973,7 +1491,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Crow+Huma 2pc ☆3": {
             "fieldModN": 0,
@@ -986,7 +1511,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Shiro 2pc ☆0": {
             "fieldModN": 0,
@@ -999,7 +1531,14 @@
             "totalCR": 0.1,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Shiro 2pc ☆1": {
             "fieldModN": 0,
@@ -1012,7 +1551,14 @@
             "totalCR": 0.13,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Shiro 2pc ☆2": {
             "fieldModN": 0,
@@ -1025,7 +1571,14 @@
             "totalCR": 0.16,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Shiro 2pc ☆3": {
             "fieldModN": 0,
@@ -1038,7 +1591,14 @@
             "totalCR": 0.2,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Cobalt 2pc ☆0": {
             "fieldModN": 0,
@@ -1051,7 +1611,14 @@
             "totalCR": 0.1,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Cobalt 2pc ☆1": {
             "fieldModN": 0,
@@ -1064,7 +1631,14 @@
             "totalCR": 0.13,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Cobalt 2pc ☆2": {
             "fieldModN": 0,
@@ -1077,7 +1651,14 @@
             "totalCR": 0.16,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Cobalt 2pc ☆3": {
             "fieldModN": 0,
@@ -1090,7 +1671,14 @@
             "totalCR": 0.2,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Huma 2pc ☆0": {
             "fieldModN": 0,
@@ -1103,7 +1691,14 @@
             "totalCR": 0.1,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Huma 2pc ☆1": {
             "fieldModN": 0,
@@ -1116,7 +1711,14 @@
             "totalCR": 0.13,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Huma 2pc ☆2": {
             "fieldModN": 0,
@@ -1129,7 +1731,14 @@
             "totalCR": 0.16,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Huma 2pc ☆3": {
             "fieldModN": 0,
@@ -1142,7 +1751,14 @@
             "totalCR": 0.2,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro+Huma 2pc ☆0": {
             "fieldModN": 0,
@@ -1155,7 +1771,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro+Huma 2pc ☆1": {
             "fieldModN": 0,
@@ -1168,7 +1791,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro+Huma 2pc ☆2": {
             "fieldModN": 0,
@@ -1181,7 +1811,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro+Huma 2pc ☆3": {
             "fieldModN": 0,
@@ -1194,7 +1831,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Tsubasa 2pc ☆0": {
             "fieldModN": 0,
@@ -1207,7 +1851,14 @@
             "totalCR": 0.1,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Tsubasa 2pc ☆1": {
             "fieldModN": 0,
@@ -1220,7 +1871,14 @@
             "totalCR": 0.13,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Tsubasa 2pc ☆2": {
             "fieldModN": 0,
@@ -1233,7 +1891,14 @@
             "totalCR": 0.16,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Samir+Tsubasa 2pc ☆3": {
             "fieldModN": 0,
@@ -1246,7 +1911,14 @@
             "totalCR": 0.2,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro+Tsubasa 2pc ☆0": {
             "fieldModN": 0,
@@ -1259,7 +1931,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro+Tsubasa 2pc ☆1": {
             "fieldModN": 0,
@@ -1272,7 +1951,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro+Tsubasa 2pc ☆2": {
             "fieldModN": 0,
@@ -1285,7 +1971,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Shiro+Tsubasa 2pc ☆3": {
             "fieldModN": 0,
@@ -1298,7 +1991,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "King+Huma 2pc ☆0": {
             "fieldModN": 0,
@@ -1311,7 +2011,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "King+Huma 2pc ☆1": {
             "fieldModN": 0,
@@ -1324,7 +2031,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "King+Huma 2pc ☆2": {
             "fieldModN": 0,
@@ -1337,7 +2051,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "King+Huma 2pc ☆3": {
             "fieldModN": 0,
@@ -1350,7 +2071,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "King+Shiro 2pc ☆0": {
             "fieldModN": 0,
@@ -1363,7 +2091,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "King+Shiro 2pc ☆1": {
             "fieldModN": 0,
@@ -1376,7 +2111,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "King+Shiro 2pc ☆2": {
             "fieldModN": 0,
@@ -1389,7 +2131,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "King+Shiro 2pc ☆3": {
             "fieldModN": 0,
@@ -1402,7 +2151,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra 2pc ☆0": {
             "fieldModN": 0,
@@ -1415,7 +2171,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra 2pc ☆1": {
             "fieldModN": 0,
@@ -1428,7 +2191,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra 2pc ☆2": {
             "fieldModN": 0,
@@ -1441,7 +2211,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra 2pc ☆3": {
             "fieldModN": 0,
@@ -1454,59 +2231,94 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra 4pc ☆0": {
             "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.13,
             "totalMod": 0,
-            "passiveDmg": 0.17,
-            "fieldModE": 0.00,
+            "passiveDmg": 0,
+            "fieldModE": 0.17,
             "extra": 0,
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra 4pc ☆1": {
             "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.17,
             "totalMod": 0,
-            "passiveDmg": 0.205,
-            "fieldModE": 0.00,
+            "passiveDmg": 0,
+            "fieldModE": 0.205,
             "extra": 0,
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra 4pc ☆2": {
             "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.21,
             "totalMod": 0,
-            "passiveDmg": 0.24,
-            "fieldModE": 0.00,
+            "passiveDmg": 0,
+            "fieldModE": 0.24,
             "extra": 0,
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra 4pc ☆3": {
             "fieldModN": 0,
             "matriceDodgeDmg": 0,
             "additional": 0.25,
             "totalMod": 0,
-            "passiveDmg": 0.275,
-            "fieldModE": 0.00,
+            "passiveDmg": 0,
+            "fieldModE": 0.275,
             "extra": 0,
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra+Samir 2pc ☆0": {
             "fieldModN": 0,
@@ -1519,7 +2331,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0.1,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra+Samir 2pc ☆1": {
             "fieldModN": 0,
@@ -1532,7 +2351,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0.13,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra+Samir 2pc ☆2": {
             "fieldModN": 0,
@@ -1545,7 +2371,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0.16,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra+Samir 2pc ☆3": {
             "fieldModN": 0.0,
@@ -1558,7 +2391,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0.2,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra+Shiro 2pc ☆0": {
             "fieldModN": 0,
@@ -1571,7 +2411,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra+Shiro 2pc ☆1": {
             "fieldModN": 0,
@@ -1584,7 +2431,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra+Shiro 2pc ☆2": {
             "fieldModN": 0,
@@ -1597,7 +2451,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lyra+Shiro 2pc ☆3": {
             "fieldModN": 0,
@@ -1610,7 +2471,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Tian 2pc ☆0": {
             "fieldModN": 0,
@@ -1623,7 +2491,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Tian 2pc ☆1": {
             "fieldModN": 0,
@@ -1636,7 +2511,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Tian 2pc ☆2": {
             "fieldModN": 0,
@@ -1649,7 +2531,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Tian 2pc ☆3": {
             "fieldModN": 0,
@@ -1662,7 +2551,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Tian 4pc ☆0": {
             "fieldModN": 0,
@@ -1675,7 +2571,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Tian 4pc ☆1": {
             "fieldModN": 0,
@@ -1688,7 +2591,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Tian 4pc ☆2": {
             "fieldModN": 0,
@@ -1701,7 +2611,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Tian 4pc ☆3": {
             "fieldModN": 0,
@@ -1714,7 +2631,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Umi 4pc ☆0": {
             "fieldModN": 0,
@@ -1727,7 +2651,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0.15,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Umi 4pc ☆1": {
             "fieldModN": 0,
@@ -1740,7 +2671,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0.17,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Umi 4pc ☆2": {
             "fieldModN": 0,
@@ -1753,7 +2691,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0.19,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Umi 4pc ☆3": {
             "fieldModN": 0,
@@ -1766,7 +2711,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0.21,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Annabella 4pc ☆0": {
             "fieldModN": 0,
@@ -1779,7 +2731,14 @@
             "totalCR": 0.04,
             "totalCD": 0.12,
             "fieldFD": 0,
-            "globalMult": 0.07
+            "globalMult": 0.07,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Annabella 4pc ☆1": {
             "fieldModN": 0,
@@ -1792,7 +2751,14 @@
             "totalCR": 0.04,
             "totalCD": 0.14,
             "fieldFD": 0,
-            "globalMult": 0.08
+            "globalMult": 0.08,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Annabella 4pc ☆2": {
             "fieldModN": 0,
@@ -1805,7 +2771,14 @@
             "totalCR": 0.048,
             "totalCD": 0.16,
             "fieldFD": 0,
-            "globalMult": 0.09
+            "globalMult": 0.09,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Annabella 4pc ☆3": {
             "fieldModN": 0,
@@ -1818,7 +2791,14 @@
             "totalCR": 0.048,
             "totalCD": 0.18,
             "fieldFD": 0,
-            "globalMult": 0.1
+            "globalMult": 0.1,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Alyss 4pc ☆0": {
             "fieldModN": 0,
@@ -1831,7 +2811,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.12
+            "globalMult": 0.12,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Alyss 4pc ☆1": {
             "fieldModN": 0,
@@ -1844,7 +2831,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.15
+            "globalMult": 0.15,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Alyss 4pc ☆2": {
             "fieldModN": 0,
@@ -1857,7 +2851,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.18
+            "globalMult": 0.18,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Alyss 4pc ☆3": {
             "fieldModN": 0,
@@ -1870,7 +2871,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.21
+            "globalMult": 0.21,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Fenrir 4pc ☆0": {
             "fieldModN": 0,
@@ -1883,7 +2891,14 @@
             "totalCR": 0,
             "totalCD": 0.14,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Fenrir 4pc ☆1": {
             "fieldModN": 0,
@@ -1896,7 +2911,14 @@
             "totalCR": 0,
             "totalCD": 0.15,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Fenrir 4pc ☆2": {
             "fieldModN": 0,
@@ -1909,7 +2931,14 @@
             "totalCR": 0,
             "totalCD": 0.16,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Fenrir 4pc ☆3": {
             "fieldModN": 0,
@@ -1922,7 +2951,14 @@
             "totalCR": 0,
             "totalCD": 0.18,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lan 4pc ☆0": {
             "fieldModN": 0,
@@ -1935,7 +2971,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.05
+            "globalMult": 0.05,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lan 4pc ☆1": {
             "fieldModN": 0,
@@ -1948,7 +2991,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.06
+            "globalMult": 0.06,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lan 4pc ☆2": {
             "fieldModN": 0,
@@ -1961,7 +3011,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.07
+            "globalMult": 0.07,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Lan 4pc ☆3": {
             "fieldModN": 0,
@@ -1974,7 +3031,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.08
+            "globalMult": 0.08,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Scylla 4pc ☆0": {
             "fieldModN": 0,
@@ -1987,7 +3051,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.095
+            "globalMult": 0.095,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Scylla 4pc ☆1": {
             "fieldModN": 0,
@@ -2000,7 +3071,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.115
+            "globalMult": 0.115,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Scylla 4pc ☆2": {
             "fieldModN": 0,
@@ -2013,7 +3091,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.135
+            "globalMult": 0.135,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Scylla 4pc ☆3": {
             "fieldModN": 0,
@@ -2026,7 +3111,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.155
+            "globalMult": 0.155,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Haboela 4pc ☆0": {
             "fieldModN": 0,
@@ -2039,7 +3131,14 @@
             "totalCR": 0,
             "totalCD": 0.09,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Haboela 4pc ☆1": {
             "fieldModN": 0,
@@ -2052,7 +3151,14 @@
             "totalCR": 0,
             "totalCD": 0.11,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Haboela 4pc ☆2": {
             "fieldModN": 0,
@@ -2065,7 +3171,14 @@
             "totalCR": 0,
             "totalCD": 0.13,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Haboela 4pc ☆3": {
             "fieldModN": 0,
@@ -2078,7 +3191,14 @@
             "totalCR": 0,
             "totalCD": 0.15,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Icarus 4pc ☆0": {
             "fieldModN": 0,
@@ -2091,7 +3211,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.13
+            "globalMult": 0.13,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Icarus 4pc ☆1": {
             "fieldModN": 0,
@@ -2104,7 +3231,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.16
+            "globalMult": 0.16,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Icarus 4pc ☆2": {
             "fieldModN": 0,
@@ -2117,7 +3251,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.19
+            "globalMult": 0.19,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Icarus 4pc ☆3": {
             "fieldModN": 0,
@@ -2130,7 +3271,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.22
+            "globalMult": 0.22,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Fiona 4pc ☆0": {
             "fieldModN": 0,
@@ -2143,7 +3291,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Fiona 4pc ☆1": {
             "fieldModN": 0,
@@ -2156,7 +3311,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Fiona 4pc ☆2": {
             "fieldModN": 0,
@@ -2169,7 +3331,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Fiona 4pc ☆3": {
             "fieldModN": 0,
@@ -2182,7 +3351,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Gnonno 4pc ☆0": {
             "fieldModN": 0,
@@ -2195,7 +3371,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.13
+            "globalMult": 0.13,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Gnonno 4pc ☆1": {
             "fieldModN": 0,
@@ -2208,7 +3391,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.16
+            "globalMult": 0.16,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Gnonno 4pc ☆2": {
             "fieldModN": 0,
@@ -2221,7 +3411,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.19
+            "globalMult": 0.19,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Gnonno 4pc ☆3": {
             "fieldModN": 0,
@@ -2234,7 +3431,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.22
+            "globalMult": 0.22,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Rubilia 4pc ☆0": {
             "fieldModN": 0,
@@ -2247,7 +3451,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.13
+            "globalMult": 0.13,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Rubilia 4pc ☆1": {
             "fieldModN": 0,
@@ -2260,7 +3471,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.16
+            "globalMult": 0.16,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Rubilia 4pc ☆2": {
             "fieldModN": 0,
@@ -2273,7 +3491,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.19
+            "globalMult": 0.19,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Rubilia 4pc ☆3": {
             "fieldModN": 0,
@@ -2286,7 +3511,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.22
+            "globalMult": 0.22,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Liu Huo 4pc ☆0": {
             "fieldModN": 0,
@@ -2299,7 +3531,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Liu Huo 4pc ☆1": {
             "fieldModN": 0,
@@ -2312,7 +3551,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Liu Huo 4pc ☆2": {
             "fieldModN": 0,
@@ -2325,7 +3571,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Liu Huo 4pc ☆3": {
             "fieldModN": 0,
@@ -2338,7 +3591,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Yulan 4pc ☆0": {
             "fieldModN": 0,
@@ -2351,7 +3611,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Yulan 4pc ☆1": {
             "fieldModN": 0,
@@ -2364,7 +3631,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Yulan 4pc ☆2": {
             "fieldModN": 0,
@@ -2377,7 +3651,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Yulan 4pc ☆3": {
             "fieldModN": 0,
@@ -2390,7 +3671,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0
+            "globalMult": 0,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Zeke 4pc ☆0": {
             "fieldModN": 0,
@@ -2403,7 +3691,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.14
+            "globalMult": 0.14,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Zeke 4pc ☆1": {
             "fieldModN": 0,
@@ -2416,7 +3711,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.17
+            "globalMult": 0.17,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Zeke 4pc ☆2": {
             "fieldModN": 0,
@@ -2429,7 +3731,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.2
+            "globalMult": 0.2,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Zeke 4pc ☆3": {
             "fieldModN": 0,
@@ -2442,7 +3751,14 @@
             "totalCR": 0,
             "totalCD": 0,
             "fieldFD": 0,
-            "globalMult": 0.23
+            "globalMult": 0.23,
+            "globalFD": 0,
+            "globalAllE": 0,
+            "globalFireDmg": 0,
+            "globalFrostDmg": 0,
+            "globalVoltDmg": 0,
+            "globalPhysDmg": 0,
+            "globalSkillDmg": 0
         },
         "Mimi 4pc ☆0": {
             "fieldModN": 0,
