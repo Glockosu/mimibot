@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 // List of possible fates
 const possibleFates = [
@@ -47,7 +47,7 @@ async function handleFate(interaction) {
   const fateTitle = generateRandomFate(user1, user2);
   const randomDescription = possibleDescriptions[Math.floor(Math.random() * possibleDescriptions.length)];
 
-  const embed = new MessageEmbed()
+  const embed = new EmbedBuilder()
     .setTitle(fateTitle)
     .setDescription(randomDescription.description)
     .setColor(randomDescription.color);

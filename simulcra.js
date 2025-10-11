@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { MessageSelectMenu, MessageActionRow, MessageEmbed } = require('discord.js');
+const { StringSelectMenuBuilder, StringSelectMenuOptionBuilder, ActionRowBuilder, EmbedBuilder } = require('discord.js');
 
 const characterDataCache = {};
 const matriceDataCache = {};
@@ -89,33 +89,33 @@ function parseMatriceInfo(setsData) {
 
 
 function generateCharacterMenuRow() {
-  const characterMenu = new MessageSelectMenu()
+  const characterMenu = new StringSelectMenuBuilder()
     .setCustomId('SimulcraCharacter')
     .setPlaceholder('Select a character')
     .addOptions([
-      { label: 'alyss', emoji: "<:alyss:1138553284555190384>", value: 'Alyss', description: "Unyielding Wing" },
-      { label: 'annabella', emoji: "<:annabella:1138553286333583370>", value: 'Annabella', description: "Clover Cross" },
-      { label: 'claudia', emoji: "<:claudia:1138553288896294972>", value: 'Claudia', description: "Guren Blade" },
-      { label: 'cobalt-b', emoji: "<:cobaltb:1138553291391897611>", value: 'Cobalt-B', description: "Flaming Revolver" },
-      { label: 'fenrir', emoji: "<:fenrir:1138553326850560060>", value: 'Fenrir', description: "Gleipnir" },
-      { label: 'fiona', emoji: "<:fiona:1138553328637325372>", value: 'Fiona', description: "Moonstar Bracelet" },
-      { label: 'frigg', emoji: "<:frigg:1138553361885581483>", value: 'Frigg', description: "Balmung" },
-      { label: 'garnett', emoji: "<:garnett:1138553363961753650>", value: 'Liu Huo', description: "Pine Comet" },
-      { label: 'gnonno', emoji: "<:gnonno:1138553366130204872>", value: 'Gnonno', description: "Mini Hurricane" },
-      { label: 'icarus', emoji: "<:icarus:1138553395951702057>", value: 'Icarus', description: "Precious One" },
-      { label: 'lan', emoji: "<:lan:1138553400024383569>", value: 'Lan', description: "Lingguang" },
-      { label: 'lin', emoji: "<:lin:1138553401844715690>", value: 'Lin', description: "Shadoweave" },
-      { label: 'lyra', emoji: "<:lyra:1138553428365283388>", value: 'Lyra', description: "Vesper" },
-      { label: 'nemesis', emoji: "<:nemesis:1138553433763348580>", value: 'Nemesis', description: "Venus" },
-      { label: 'rubilia', emoji: "<:rubillia:1138553456492290048>", value: 'Rubilia', description: "Lost Art" },
-      { label: 'ruby', emoji: "<:ruby:1138553458677534822>", value: 'Ruby', description: "Spark" },
-      { label: 'saki-fuwa', emoji: "<:saki:1138553460573347953>", value: 'Saki Fuwa', description: "Heartstream" },
-      { label: 'tian-lang', emoji: "<:tianlang:1138553512515604550>", value: 'Tian Lang', description: "Thunderbreaker" },
-      { label: 'umi', emoji: "<:umi:1138553515996893244>", value: 'Umi', description: "Mobius" },
-      { label: 'yulan', emoji: "<:yulan:1138553482694111232>", value: 'Yulan', description: "Unity" },
+      new StringSelectMenuOptionBuilder().setLabel('alyss').setEmoji("<:alyss:1138553284555190384>").setValue('Alyss').setDescription("Unyielding Wing"),
+      new StringSelectMenuOptionBuilder().setLabel('annabella').setEmoji("<:annabella:1138553286333583370>").setValue('Annabella').setDescription("Clover Cross"),
+      new StringSelectMenuOptionBuilder().setLabel('claudia').setEmoji("<:claudia:1138553288896294972>").setValue('Claudia').setDescription("Guren Blade"),
+      new StringSelectMenuOptionBuilder().setLabel('cobalt-b').setEmoji("<:cobaltb:1138553291391897611>").setValue('Cobalt-B').setDescription("Flaming Revolver"),
+      new StringSelectMenuOptionBuilder().setLabel('fenrir').setEmoji("<:fenrir:1138553326850560060>").setValue('Fenrir').setDescription("Gleipnir"),
+      new StringSelectMenuOptionBuilder().setLabel('fiona').setEmoji("<:fiona:1138553328637325372>").setValue('Fiona').setDescription("Moonstar Bracelet"),
+      new StringSelectMenuOptionBuilder().setLabel('frigg').setEmoji("<:frigg:1138553361885581483>").setValue('Frigg').setDescription("Balmung"),
+      new StringSelectMenuOptionBuilder().setLabel('garnett').setEmoji("<:garnett:1138553363961753650>").setValue('Liu Huo').setDescription("Pine Comet"),
+      new StringSelectMenuOptionBuilder().setLabel('gnonno').setEmoji("<:gnonno:1138553366130204872>").setValue('Gnonno').setDescription("Mini Hurricane"),
+      new StringSelectMenuOptionBuilder().setLabel('icarus').setEmoji("<:icarus:1138553395951702057>").setValue('Icarus').setDescription("Precious One"),
+      new StringSelectMenuOptionBuilder().setLabel('lan').setEmoji("<:lan:1138553400024383569>").setValue('Lan').setDescription("Lingguang"),
+      new StringSelectMenuOptionBuilder().setLabel('lin').setEmoji("<:lin:1138553401844715690>").setValue('Lin').setDescription("Shadoweave"),
+      new StringSelectMenuOptionBuilder().setLabel('lyra').setEmoji("<:lyra:1138553428365283388>").setValue('Lyra').setDescription("Vesper"),
+      new StringSelectMenuOptionBuilder().setLabel('nemesis').setEmoji("<:nemesis:1138553433763348580>").setValue('Nemesis').setDescription("Venus"),
+      new StringSelectMenuOptionBuilder().setLabel('rubilia').setEmoji("<:rubillia:1138553456492290048>").setValue('Rubilia').setDescription("Lost Art"),
+      new StringSelectMenuOptionBuilder().setLabel('ruby').setEmoji("<:ruby:1138553458677534822>").setValue('Ruby').setDescription("Spark"),
+      new StringSelectMenuOptionBuilder().setLabel('saki-fuwa').setEmoji("<:saki:1138553460573347953>").setValue('Saki Fuwa').setDescription("Heartstream"),
+      new StringSelectMenuOptionBuilder().setLabel('tian-lang').setEmoji("<:tianlang:1138553512515604550>").setValue('Tian Lang').setDescription("Thunderbreaker"),
+      new StringSelectMenuOptionBuilder().setLabel('umi').setEmoji("<:umi:1138553515996893244>").setValue('Umi').setDescription("Mobius"),
+      new StringSelectMenuOptionBuilder().setLabel('yulan').setEmoji("<:yulan:1138553482694111232>").setValue('Yulan').setDescription("Unity"),
     ]);
 
-  const characterRow = new MessageActionRow().addComponents(characterMenu);
+  const characterRow = new ActionRowBuilder().addComponents(characterMenu);
 
   return characterRow;
 }
@@ -155,20 +155,20 @@ async function handleInteraction(interaction) {
 
       interaction.message.selectedCharacterLabel = selectedCharacterLabel;
 
-      const infoMenu = new MessageSelectMenu()
+      const infoMenu = new StringSelectMenuBuilder()
           .setCustomId('SimulcraData')
           .setPlaceholder('Select the info type')
           .addOptions([
-            { label: 'matrices', emoji: '✨', value: 'sets', description: `${selectedCharacterLabel}'s Matrices!` },
-            { label: 'weaponEffects', emoji: '✨', value: 'weaponEffects', description: `${selectedCharacterLabel}'s Weapon Effects!` },
-            { label: 'advancements', emoji: '🎭', value: 'advancements', description: `${selectedCharacterLabel}'s Advancements!` },
-            { label: 'abilities', emoji: '🔮', value: 'abilities', description: `${selectedCharacterLabel}'s Abilities!` },
+            new StringSelectMenuOptionBuilder().setLabel('matrices').setEmoji('✨').setValue('sets').setDescription(`${selectedCharacterLabel}'s Matrices!`),
+            new StringSelectMenuOptionBuilder().setLabel('weaponEffects').setEmoji('✨').setValue('weaponEffects').setDescription(`${selectedCharacterLabel}'s Weapon Effects!`),
+            new StringSelectMenuOptionBuilder().setLabel('advancements').setEmoji('🎭').setValue('advancements').setDescription(`${selectedCharacterLabel}'s Advancements!`),
+            new StringSelectMenuOptionBuilder().setLabel('abilities').setEmoji('🔮').setValue('abilities').setDescription(`${selectedCharacterLabel}'s Abilities!`),
             // { label: 'recommendedPairings', emoji: '👥', value: 'recommendedPairings', description: `${selectedCharacterLabel}'s Recommended Pairings!` },
-            { label: 'recommendedMatrices', emoji: '🔢', value: 'recommendedMatrices', description: `${selectedCharacterLabel}'s Recommended Matrices!` },
+            new StringSelectMenuOptionBuilder().setLabel('recommendedMatrices').setEmoji('🔢').setValue('recommendedMatrices').setDescription(`${selectedCharacterLabel}'s Recommended Matrices!`),
             // Add other info type options here if needed
           ]);
   
-        const infoRow = new MessageActionRow().addComponents(infoMenu);
+        const infoRow = new ActionRowBuilder().addComponents(infoMenu);
   
         interaction.update({
           content: `You selected: ${selectedCharacterLabel}\nPlease select the info type:`,
@@ -181,16 +181,16 @@ async function handleInteraction(interaction) {
         const specificData = parseCharacterInfo(characterDataCache[selectedCharacterLabel], selectedInfoType);
   
       if (selectedInfoType === 'weaponEffects') {
-          // Create a MessageEmbed to display the formatted data
-          const embed = new MessageEmbed()
+          // Create an EmbedBuilder to display the formatted data
+          const embed = new EmbedBuilder()
             .setTitle(`${selectedCharacterLabel}'s Weapon Effects`)
             .setColor('#00bfff') // Set a blue color for weapon effects
             .setDescription(specificData.map((effect) => `**${effect.title}**: ${effect.description}`).join('\n\n'));
   
           interaction.reply({ embeds: [embed] });
       } else if (selectedInfoType === 'advancements') {
-          // Create a MessageEmbed to display the formatted data
-          const embed = new MessageEmbed()
+          // Create an EmbedBuilder to display the formatted data
+          const embed = new EmbedBuilder()
             .setTitle(`${selectedCharacterLabel}'s Advancements`)
             .setColor('#32c980') // Set mimi color
             .setDescription(specificData.map((advancement, index) => `**${index + 1}★:**  ${advancement}`).join('\n\n'));
@@ -210,7 +210,7 @@ async function handleInteraction(interaction) {
         // Create an array of embeds with the ability information
         const embeds = descriptionChunks.map((chunk, index) => {
             const title = index === 0 ? `${selectedCharacterLabel}'s Abilities` : '';
-            return new MessageEmbed()
+            return new EmbedBuilder()
                 .setTitle(title)
                 .setColor('#ff9900') // Set a different color for abilities
                 .setDescription(chunk);
@@ -218,16 +218,16 @@ async function handleInteraction(interaction) {
     
         interaction.reply({ embeds });
       } else if (selectedInfoType === 'recommendedPairings') {
-        // Create a MessageEmbed to display the formatted data
-        const embed = new MessageEmbed()
+        // Create an EmbedBuilder to display the formatted data
+        const embed = new EmbedBuilder()
             .setTitle(`${selectedCharacterLabel}'s Recommended Pairings`)
             .setColor('#ff3399') // Set a different color for recommended pairings
             .setDescription(specificData.join('\n'));
   
           interaction.reply({ embeds: [embed] });
       } else if (selectedInfoType === 'recommendedMatrices') {
-          // Create a MessageEmbed to display the formatted data
-          const embed = new MessageEmbed()
+          // Create an EmbedBuilder to display the formatted data
+          const embed = new EmbedBuilder()
             .setTitle(`${selectedCharacterLabel}'s Recommended Matrices`)
             .setColor('#9933ff') // Set a different color for recommended matrices
             .setDescription(specificData.map((matrix) => `**${matrix.name}**: ${matrix.description}`).join('\n\n'));
@@ -255,8 +255,8 @@ async function handleInteraction(interaction) {
         const specificData = parseMatriceInfo(matriceDataCache[selectedCharacterLabel]);
         const characterImageURL = characterImageArray[selectedCharacterLabel.toLowerCase()];
 
-        // Create a MessageEmbed to display the formatted data
-        const embed = new MessageEmbed()
+        // Create an EmbedBuilder to display the formatted data
+        const embed = new EmbedBuilder()
           .setTitle(`${selectedCharacterLabel}'s Matrices`)
           .setColor('#9933ff') // Set a different color for recommended matrices
           .setDescription(specificData.map((matrix) => `**${matrix.name}**: ${matrix.description}`).join('\n\n'))

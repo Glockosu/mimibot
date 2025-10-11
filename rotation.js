@@ -1,4 +1,4 @@
-const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, StringSelectMenuOptionBuilder } = require('discord.js');
 
 
 const rotationVideo = {
@@ -46,13 +46,13 @@ function isValidCharacter(character) {
 function createRotationEmbed(rotationData) {
   const { rotationDescription, rotationTitle, rotationVideoLink } = rotationData;
 
-  const embed = new MessageEmbed()
+  const embed = new EmbedBuilder()
     .setTitle(rotationTitle)
     .setDescription(rotationDescription)
     .setColor('#00ff00'); // You can change the color to your liking
 
   if (rotationVideoLink) {
-    embed.addField('Rotation Video', rotationVideoLink);
+    embed.addFields({ name: 'Rotation Video', value: rotationVideoLink });
   }
 
   return embed;

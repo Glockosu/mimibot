@@ -1,3 +1,5 @@
+const { ApplicationCommandOptionType } = require('discord.js');
+
 async function registerSlashCommands(mimibot) {
   try {
     // Wait for the application's commands to be loaded
@@ -14,7 +16,7 @@ async function registerSlashCommands(mimibot) {
         options: [
           {
             name: 'type',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'The type of event to schedule (raids, oow, or voidabyss).',
             required: true,
             choices: [
@@ -24,36 +26,45 @@ async function registerSlashCommands(mimibot) {
             ],
           },
           {
-            name: 'day',
-            type: 'STRING',
-            description: 'The day for the scheduled event.',
-            required: true,
-            choices: [
-              { name: 'Monday', value: 'monday' },
-              { name: 'Tuesday', value: 'tuesday' },
-              { name: 'Wednesday', value: 'wednesday' },
-              { name: 'Thursday', value: 'thursday' },
-              { name: 'Friday', value: 'friday' },
-              { name: 'Saturday', value: 'saturday' },
-              { name: 'Sunday', value: 'sunday' }
-            ],
-          },
-          {
             name: 'times',
-            type: 'STRING', // Change the type to STRING
-            description: 'Custom times in UTC format (hh:mm), separated by spaces.',
-            required: true, // Make this parameter optional
+            type: ApplicationCommandOptionType.String,
+            description: 'Custom times in discord timestamp format <t:xxxxx>, separated by commas.',
+            required: true,
           },
         ],
       },
       {
-        name: 'rotation',
-        description: 'Get rotations for characters.',
+        name: 'pullcalc',
+        description: 'Calculate the probability of getting a certain number of copies in a limited banner.',
         options: [
           {
-            name: 'characters',
-            type: 'STRING',
-            description: 'The characters for which you want to get rotations (comma-separated).',
+            name: 'current_counter',
+            type: ApplicationCommandOptionType.Integer,
+            description: 'Your current counter out of 80.',
+            required: true,
+          },
+          {
+            name: 'flame_gold',
+            type: ApplicationCommandOptionType.Integer,
+            description: 'Your current amount of flame gold.',
+            required: true,
+          },
+          {
+            name: 'number_of_copies',
+            type: ApplicationCommandOptionType.Integer,
+            description: 'Number of limited banner weapon copies you want.',
+            required: true,
+          },
+          {
+            name: 'total_pulls',
+            type: ApplicationCommandOptionType.Integer,
+            description: 'Total amount of pulls.',
+            required: true,
+          },
+          {
+            name: 'last_two_outcomes',
+            type: ApplicationCommandOptionType.Integer,
+            description: 'Last 2 outcomes (-1 for lost both, 0 for lost last, 0 for won last, 1 for won both).',
             required: true,
           },
         ],
@@ -64,7 +75,7 @@ async function registerSlashCommands(mimibot) {
         options: [
           {
             name: 'user',
-            type: 'USER',
+            type: ApplicationCommandOptionType.User,
             description: 'The user whose fate you want to check.',
             required: true,
           },
@@ -76,55 +87,55 @@ async function registerSlashCommands(mimibot) {
         options: [
           {
             name: 'character1',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'The first character.',
             required: true,
           },
           {
             name: 'character2',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'The second character.',
             required: true,
           },
           {
             name: 'character3',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'The third character.',
             required: true,
           },
           {
             name: 'matrices1',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'Matrices for the first character (comma-separated).',
             required: true,
           },
           {
             name: 'matrices2',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'Matrices for the second character (comma-separated).',
             required: true,
           },
           {
             name: 'matrices3',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'Matrices for the third character (comma-separated).',
             required: true,
           },
           {
             name: 'trait',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'The trait used by the characters.',
             required: true,
           },
           {
             name: 'skill1',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'First fiona skill',
             required: false,
           },
           {
             name: 'skill2',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'Second fiona skill',
             required: false,
           }
@@ -136,7 +147,7 @@ async function registerSlashCommands(mimibot) {
         options: [
           {
             name: 'element',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'The type of element',
             required: true,
             choices: [
@@ -149,7 +160,7 @@ async function registerSlashCommands(mimibot) {
           },
           {
             name: 'investment',
-            type: 'STRING',
+            type: ApplicationCommandOptionType.String,
             description: 'Level of investment $$',
             required: true,
             choices: [
@@ -160,6 +171,30 @@ async function registerSlashCommands(mimibot) {
             ],
           },
         ],
+      },
+      {
+        name: 'dpshelp',
+        description: 'Dps calc helper!',
+      },
+      {
+        name: 'join',
+        description: 'join embed',
+      },
+      {
+        name: 'blame',
+        description: 'blame people',
+        options: [
+          {
+            name: 'user',
+            type: ApplicationCommandOptionType.String,
+            description: 'usually eresh',
+            required: true,
+          },
+        ]
+      },
+      {
+        name: 'assigntofrole',
+        description: '[ADMIN ONLY] Assign the Tower of Fantasy role to all server members',
       },
     ];
     for (const command of commandData) {

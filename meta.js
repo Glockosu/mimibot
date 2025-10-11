@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { characterEmoji, matriceEmoji, skillEmoji } = require('./storage');
 const stringSimilarity = require('string-similarity');
 const { calculateDPS } = require('./dpscalc');
@@ -222,7 +222,7 @@ async function handleMetaCommand(element, investment, interaction) {
     investmentEmoji = `:whale:`;
   }
 
-  const embed = new MessageEmbed()
+  const embed = new EmbedBuilder()
     .setTitle(`Meta Comps for ${element} ${investmentEmoji}`)
     .setColor('#FF5733');
 
@@ -230,6 +230,7 @@ async function handleMetaCommand(element, investment, interaction) {
   const numColumns = 3; // Change this number to the desired number of columns
   const numRows = Math.ceil(keys.length / numColumns);
 
+  const fields = [];
   for (let row = 0; row < numRows; row++) {
     for (let column = 0; column < numColumns; column++) {
       const index = row + column * numRows;
@@ -240,13 +241,13 @@ async function handleMetaCommand(element, investment, interaction) {
         const formattedSets = formattedSetData[key];
 
         if (Array.isArray(formattedChars) && formattedChars.length > 0) {
-          embed.addField('Characters', formattedChars.join('\n'), true);
+          fields.push({ name: 'Characters', value: formattedChars.join('\n'), inline: true });
         } else {
           console.error(`Invalid or empty formatted characters for key "${key}"`);
         }
 
         if (Array.isArray(formattedSets) && formattedSets.length > 0) {
-          embed.addField('Sets', formattedSets.join('\n'), true);
+          fields.push({ name: 'Sets', value: formattedSets.join('\n'), inline: true });
         } else {
           console.error(`Invalid or empty formatted sets for key "${key}"`);
         }
@@ -260,13 +261,15 @@ async function handleMetaCommand(element, investment, interaction) {
 
           const traitEmoji = getCharacterEmoji(trait);
           const skillsEmoji = getSkillEmoji(skills);
-          embed.addField(fieldName, `**Trait:** ${traitEmoji}  ${trait} \n**Skills:**  ${skillsEmoji}  ${skills} \n \`${value} Dmg%/Min\`\n`, true);
+          fields.push({ name: fieldName, value: `**Trait:** ${traitEmoji}  ${trait} \n**Skills:**  ${skillsEmoji}  ${skills} \n \`${value} Dmg%/Min\`\n`, inline: true });
         } else {
           console.error(`Invalid or empty value for field "${key}"`);
         }
       }
     }
   }
+  
+  embed.addFields(fields);
 
   await interaction.reply({ embeds: [embed] });
 }

@@ -1,8 +1,9 @@
 const fs = require('fs');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { getPriority } = require('os');
 const {characterEmoji, matriceEmoji, skillEmoji} = require('./storage');
 const stringSimilarity = require('string-similarity');
+const Fuse = require('fuse.js');
 
 // Step 1: Read the JSON Data
 const jsonCharacterFilePath = 'data/raw/characters.json';
@@ -96,10 +97,10 @@ const characterSelections = {
     "ruby5": parsedCharacterData.characters["Ruby ☆5"],
     "ruby6": parsedCharacterData.characters["Ruby ☆6"],
 
-    "sakifuwa": parsedCharacterData.characters["Saki Fuwa"],
-    "sakifuwa1": parsedCharacterData.characters["Saki Fuwa ☆1"],
-    "sakifuwa3": parsedCharacterData.characters["Saki Fuwa ☆3"],
-    "sakifuwa6": parsedCharacterData.characters["Saki Fuwa ☆6"],
+    "saki": parsedCharacterData.characters["Saki Fuwa"],
+    "saki1": parsedCharacterData.characters["Saki Fuwa ☆1"],
+    "saki3": parsedCharacterData.characters["Saki Fuwa ☆3"],
+    "saki6": parsedCharacterData.characters["Saki Fuwa ☆6"],
 
     "lin": parsedCharacterData.characters["Lin"],
     "lin1": parsedCharacterData.characters["Lin ☆1"],
@@ -474,6 +475,52 @@ const skillsSelection = {
 };
 
 
+function normalizeCharacterName(name) {
+    // Remove spaces and convert to lowercase
+    name = name.replace(/\s/g, '').toLowerCase();
+  
+    // Extract star advancement if present
+    const starAdvancement = name.match(/\d+(?:\*|star|☆|★)?/);
+    if (starAdvancement) {
+      name = name.replace(starAdvancement[0], '');
+      return `${name}${starAdvancement[0].replace(/\*|star|☆|★/g, '')}`;
+    }
+  
+    return name;
+}
+  
+  // Function to normalize matrix names
+  function findClosestMatrixMatch(input) {
+    // Convert input to lowercase and remove spaces
+    input = input.toLowerCase().replace(/\s/g, '');
+  
+    const keys = Object.keys(matriceSelections);
+  
+    // Set up a fuse instance with custom options
+    const fuse = new Fuse(keys, {
+      shouldSort: true,
+      threshold: 0.7, // Adjust the threshold as needed
+      keys: ['value'], // Specify the property to match against
+    });
+  
+    // Search for matches
+    const results = fuse.search(input);
+  
+    if (results.length > 0) {
+      const bestMatch = results[0].item;
+      return bestMatch; // Return the best matching key as a string
+    }
+  
+    // Handle no close match found
+    return "No match found";
+  }
+  
+  // Function to normalize trait names
+  function normalizeTraitName(name) {
+    return normalizeCharacterName(name);
+  }
+  
+
 function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", fionaSk2 = "NA") {
 
     if (!(sCD1 in characterSelections) || !(sCD2 in characterSelections) || !(sCD3 in characterSelections)) {
@@ -488,6 +535,15 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
     if (sCD1 == sCD2 && sCD1 == sCD3 && sCD2 == sCD3) {
         return "No duplicate character entries!! Thank you!!";
     }
+
+    if (sCD1.includes("tian") || sCD2.includes("tian") || sCD3.includes("tian")) {
+        return "Tian is broken rn, I WILL FIX SOON :D";
+    }
+
+    if (sCD1.includes("saki") || sCD2.includes("saki") || sCD3.includes("saki")) {
+        return "Saki is broken rn, I will fix soon";
+    }
+
 
     // Check if the provided trait selection is valid
     if (!(sTrait in traitSelection)) {
@@ -504,7 +560,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
 
     const selectedTrait = traitSelection[sTrait];
 
-    const naturalCharge = 12;
+    const naturalCharge = 10;
     const encounterTime = 180;
     const phantasiaPerEncounter = 0;
     const ShatterPerEncounter = 3;
@@ -524,6 +580,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         return "Sorry, I don't understand the skills input. Please input the fiona skills you would like to use :D. You can use `/dpshelp` for help on how to input correctly.";
     }
 
+    
     //simulacra 1 data
     const element1 = selectedCharacterData1.element;
     const maxAutoDPS1 = selectedCharacterData1.maxAutoDPS;
@@ -907,7 +964,6 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
     const resistShredMulti = (1-resistance*(1-resistShred))/(1-resistance);
 
     //todo : working on spSkillDamagePercent
-    const fenrirCloneShred = ((1/(1-resistance)) / resistShredMulti) * Math.min(1, calcFenrirCloneUptime()) + resistShredMulti * (1-Math.min(1, calcFenrirCloneUptime()));
 
     let umiMultiplier = (containsUmi1 ? .15 : 0) + 1
 
@@ -1781,23 +1837,6 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         return claudiaCDR;
     }
 
-
-    function totalCastsSpSkill(characterIndex) {
-        if (selectedCharacterNames[characterIndex].includes("fenrir")) {
-            return adjCastsSkillDmg(characterIndex) * (containsSaki1 ? 2 : 4);
-          } else if (selectedCharacterNames[characterIndex].includes("icarus")) {
-            return calcIcarusDischarge() * 2;
-          } else if (selectedCharacterNames[characterIndex].includes("fiona")) {
-            if (fionaSk2 === "torrential") {
-              return totalTime / fionaTorrents();
-            } else {
-              return totalTime / specialSkillCooldown[characterIndex];
-            }
-          } else {
-            return 0;
-          }
-    }
-
     function totalTimeSpSkill(characterIndex) {
         return totalCastsSpSkill(characterIndex) * specialSkillCast[characterIndex];
     }
@@ -1815,9 +1854,29 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         return fenrirCloneUptime;
     }
 
+
+    const fenrirCloneShred = ((1/(1-resistance)) / resistShredMulti) * Math.min(1, calcFenrirCloneUptime()) + resistShredMulti * (1-Math.min(1, calcFenrirCloneUptime()));
+
     function pbDmgSpSkill(characterIndex) {
         return specialSkillDmg[characterIndex];
     }
+
+    function totalCastsSpSkill(characterIndex) {
+        if (selectedCharacterNames[characterIndex].includes("fenrir")) {
+            return adjCastsSkillDmg(characterIndex) * (containsSaki1 ? 2 : 4);
+          } else if (selectedCharacterNames[characterIndex].includes("icarus")) {
+            return calcIcarusDischarge() * 2;
+          } else if (selectedCharacterNames[characterIndex].includes("fiona")) {
+            if (fionaSk2 === "torrential") {
+              return totalTime / fionaTorrents();
+            } else {
+              return totalTime / specialSkillCooldown[characterIndex];
+            }
+          } else {
+            return 0;
+          }
+    }
+
 
     
     function extraMultiBonusDmg(characterIndex) {
@@ -1854,70 +1913,19 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         return actualBurn;
     }
 
-
     const eeCount = (containsNemesis ? 1 : 0) + (containsFenrir ? 1.5 : 2);
     const avgHp = 1;
 
     const skillCount = (Math.floor(maxCastsSkillDmg(0) + maxCastsSkillDmg(1) + maxCastsSkillDmg(2), 1));
 
     function fenrirA1Dodges() {
-        let initialVal = ((containsFenrir1 && containsSaki1) ? 2 : 4) 
-        let conditional = 0;
-        for(let i =0; i<3; i++) {
-            conditional +=(selectedCharacterNames[i].includes("fenrir") ? adjCastsSkillDmg(i) : 0);
-        }
-        return initialVal * (conditional/(containsMimi ? 4 : (containsRubilia ? 2 : 0)));
-    }
-
-    function pbDmgBonusDmg(characterIndex) {
-        const characterName = selectedCharacterNames[characterIndex];
-        let bonusDmg = 0;
+        let initialVal = (containsFenrir1 && containsSaki1) ? 2 : 4;
+        let conditional = adjCastsSkillDmg(findCharacterIndex("fenrir"));
       
-        bonusDmg += characterName.includes("ruby")
-          ? actualBurns() * burnMod
-          : characterName.includes("king")
-          ? 1800
-          : calcDodgeBonus(characterIndex);
+        // Ensure the denominator is never zero
+        let denominator = containsMimi ? 4 : (containsRubilia ? 2 : 1);
       
-        if (characterName.includes("frigg5") || characterName.includes("frigg6")) {
-          bonusDmg += 35 * 15 * 2;
-        }
-      
-        if (characterName.includes("tian")) {
-          bonusDmg += tianBonus;
-          if (containsFenrir) {
-            bonusDmg += tianA3Charge * tianCharge;
-          }
-        }
-      
-        if (characterName.includes("alyss")) {
-          bonusDmg += alyssHoarFrost;
-        }
-      
-        if (characterName.includes("fenrir")) {
-          bonusDmg +=
-            fenrirA1Dodges() * 3 * fenrirNote +
-            fenrirCombos * 3.5 * fenrirNote +
-            totalTime * calcDodgeMatrix();
-        }
-      
-        if (containsLan3 && characterName.includes("lan")) {
-          bonusDmg += lanA3Bonus;
-        }
-      
-        if (characterName.includes("rubilia")) {
-          bonusDmg += rubiliaFeedback;
-        }
-      
-        if (characterName.includes("yulansweeping")) {
-          bonusDmg += yulanAnticipateDmg;
-        }
-      
-        if (containsZeke1 && characterName.includes("zeke")) {
-          bonusDmg += 50;
-        }
-      
-        return bonusDmg;
+        return initialVal * (conditional / denominator);
     }
 
     function physicalFieldTime() {
@@ -2097,7 +2105,11 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         }
     }
 
-    const totalNaturalDischarges = naturalCharge + calcLinBonusDischarge() + calcRubyBonusDischarge()
+
+
+    const linBonusDischarge = (containsLin5 ? ((linUptimeCapped * 30 * totalTime) / 1000) : 0) + (containsFiona && 
+        (fionaSk1 == "torrential" || fionaSk2 == "torrential")) ? 60*totalTime / 1000 : 0
+    const totalNaturalDischarges = naturalCharge + linBonusDischarge + calcRubyBonusDischarge()
     const zekeA1Total = (containsGnonno ? totalTime/30*42 : totalNaturalDischarges);
     const zekeDarkSlash = totalTime/200*4500;
     const mightyWind = (((containsZeke1 ? zekeA1Total : 0 ) + (basicDmgCharacterCheck().includes("zeke") ? basicDmgRevisedTime()/3.88 : 0)) * 25) /totalTime
@@ -2324,8 +2336,6 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         }  
     }
 
-   
-
     function cancelDischarge(characterIndex) {
         return ((selectedCharacterNames[characterIndex].includes("zeke") || selectedCharacterNames[characterIndex].includes("anna")) && zekeDischarge) ||
         (containsMimi && (!selectedCharacterNames[characterIndex].includes("rubilia") && !selectedCharacterNames[characterIndex].includes("fiona")))
@@ -2524,16 +2534,6 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         ? claudiaMatrice2pc : 0)/(normalMulti + fieldModN[characterIndex]) 
     }
 
-
-
-    function calcLinBonusDischarge() {
-        if(containsLin5) {
-            return (linUptimeCapped * 30 * totalTime)/1000 + ((containsFiona || fionaSk1 == "torrential" || fionaSk2 == "torrential") ? 60*totalTime / 1000 : 0)
-        } else {
-            return 0
-        }
-    }
-
     function calcRubyBonusDischarge() {
         return containsRuby5 ? (totalTime * 0.3 * 0.9 * 75)/1000 : 0
     }
@@ -2584,19 +2584,21 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
         }
     }
 
+    console.log("natural", totalNaturalDischarges)
+
     function castCalcDischarge(characterIndex) {
-        if ((secondaryOnly && (rawPriorityDischarge(characterIndex) === 2)) ||
+        if ((secondaryOnly && rawPriorityDischarge(characterIndex) === 2) ||
             ((rawPriorityDischarge(characterIndex) === 1) && !secondarySplit) ||
             ((rawPriorityDischarge(characterIndex) === 2) && dischargeDistribution() <= 0.5) ||
             ((rawPriorityDischarge(characterIndex) === 3) && (dischargeDistribution() <= 0.34 || secondarySplit))) {
-            return (totalNaturalDischarges + phantasiaPerEncounter) * dischargeDistribution() -
-            (((rawPriorityDischarge(characterIndex) === 1) && dischargeDistribution() === 1) ||
-            ((rawPriorityDischarge(characterIndex) === 2) && (secondaryOnly || dischargeDistribution() <= 0.5)))
-            ? calcNemesisDischarge() + ((!selectedCharacterNames[characterIndex].includes("claudia") && containsClaudia1) ? 1 : 0) +
+            return (totalNaturalDischarges + phantasiaPerEncounter) * dischargeDistribution() - 
+                (((rawPriorityDischarge(characterIndex) === 1) && dischargeDistribution() === 1) ||
+                ((rawPriorityDischarge(characterIndex) === 2) && (secondaryOnly || dischargeDistribution() <= 0.5))) ?
+                calcNemesisDischarge() + ((!selectedCharacterNames[characterIndex].includes("claudia") && containsClaudia1) ? 1 : 0) +
                 (((containsFiona && containsGnonno && containsLan) || (containsFiona && containsRubilia && containsFenrir)) ? 0 :
                 (secondarySplit ? 0 :
-                ((!selectedCharacterNames[characterIndex].includes("fiona") || (containsFiona && balanced && totalNaturalDischarges / 3 < (totalTime / 30))) ? totalTime / 30 : 0)))
-            : 0;
+                ((!selectedCharacterNames[characterIndex].includes("fiona") || (balanced && totalNaturalDischarges / 3 < (totalTime / 30))) ? totalTime / 30 : 0)))
+                : 0;
         } else if (selectedCharacterNames[characterIndex].includes("nemesis")) {
             return calcNemesisDischarge();
         } else if ((selectedCharacterNames[characterIndex].includes("claudia") && containsClaudia1) ||
@@ -2606,6 +2608,7 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
             return 0;
         }
     }
+
 
     function calcIcarusDischarge() {
         let result = 0;
@@ -2937,6 +2940,60 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
     }
 
     const fenrirNote = (containsFenrir5 ? 80 : 40);
+
+    function pbDmgBonusDmg(characterIndex) {
+        const characterName = selectedCharacterNames[characterIndex];
+        let bonusDmg = 0;
+      
+        bonusDmg += characterName.includes("ruby")
+          ? actualBurns() * burnMod
+          : characterName.includes("king")
+          ? 1800
+          : calcDodgeBonus(characterIndex);
+      
+        if (characterName.includes("frigg5") || characterName.includes("frigg6")) {
+          bonusDmg += 35 * 15 * 2;
+        }
+      
+        if (characterName.includes("tian")) {
+          bonusDmg += tianBonus;
+          if (containsFenrir) {
+            bonusDmg += tianA3Charge * tianCharge;
+          }
+        }
+      
+        if (characterName.includes("alyss")) {
+          bonusDmg += alyssHoarFrost;
+        }
+      
+        if (characterName.includes("fenrir")) {
+          bonusDmg +=
+            fenrirA1Dodges() * 3 * fenrirNote +
+            fenrirCombos * 3.5 * fenrirNote +
+            totalTime * calcDodgeMatrix();
+        }
+      
+        if (containsLan3 && characterName.includes("lan")) {
+          bonusDmg += lanA3Bonus;
+        }
+      
+        if (characterName.includes("rubilia")) {
+          bonusDmg += rubiliaFeedback;
+        }
+      
+        if (characterName.includes("yulansweeping")) {
+          bonusDmg += yulanAnticipateDmg;
+        }
+      
+        if (containsZeke1 && characterName.includes("zeke")) {
+          bonusDmg += 50;
+        }
+      
+        return bonusDmg;
+    }
+
+    console.log("check", fenrirA1Dodges())
+
     const fenrirCombos = fenrirUptime() / (1.41667 + .81667)
     const timeWithoutRevision = totalTime - (totalTimeSkillDmg(0) + totalTimeSkillDmg(1) + totalTimeSkillDmg(2)) - (totalTimeDischarge(0) + totalTimeDischarge(1) + totalTimeDischarge(2)) -
     (totalTimeSpSkill(0) + totalTimeSpSkill(1) + totalTimeSpSkill(2)) - totalTimeDodge2() - basicDmgTotalTimePriority() - basicDmgTotalTimePriority2() - 
@@ -3367,9 +3424,6 @@ function calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1 = "NA", 
     };
 }
 
-function extractCharacterName(input) {
-    return input.replace(/\d/g, ''); // Remove all digits from the input
-}
 
 function formatCharacterInput(input) {
     // Extract the character name and star rating from the input
@@ -3481,24 +3535,32 @@ async function finalDmg(interaction) {
             fionaSk2 = options.getString('skill2');
         }
 
-        const formattedCharacter1 = formatCharacterInput(sCD1);
-        const formattedCharacter2 = formatCharacterInput(sCD2);
-        const formattedCharacter3 = formatCharacterInput(sCD3);
+        const normalizedCharacter1 = normalizeCharacterName(sCD1); // Outputs: "fionaX6"
+        const normalizedCharacter2 = normalizeCharacterName(sCD2);
+        const normalizedCharacter3 = normalizeCharacterName(sCD3);
+        const normalizedMatrix1 = findClosestMatrixMatch(sM1); // Outputs: "fiona4pc3"
+        const normalizedMatrix2 = findClosestMatrixMatch(sM2);
+        const normalizedMatrix3 = findClosestMatrixMatch(sM3);
+        const normalizedTrait = normalizeTraitName(sTrait); // Outputs: "yulan"
+        
+        const formattedCharacter1 = formatCharacterInput(normalizedCharacter1);
+        const formattedCharacter2 = formatCharacterInput(normalizedCharacter2);
+        const formattedCharacter3 = formatCharacterInput(normalizedCharacter3);
 
-        const characterEmoji1 = getCharacterEmoji(sCD1);
-        const characterEmoji2 = getCharacterEmoji(sCD2);
-        const characterEmoji3 = getCharacterEmoji(sCD3);
+        const characterEmoji1 = getCharacterEmoji(normalizedCharacter1);
+        const characterEmoji2 = getCharacterEmoji(normalizedCharacter2);
+        const characterEmoji3 = getCharacterEmoji(normalizedCharacter3);
 
-        const formattedMatrix1 = formatMatrixInput(sM1);
-        const formattedMatrix2 = formatMatrixInput(sM2);
-        const formattedMatrix3 = formatMatrixInput(sM3);
+        const formattedMatrix1 = formatMatrixInput(normalizedMatrix1);
+        const formattedMatrix2 = formatMatrixInput(normalizedMatrix2);
+        const formattedMatrix3 = formatMatrixInput(normalizedMatrix3);
 
-        const matriceEmoji1 = getMatrixEmoji(sM1);
-        const matriceEmoji2 = getMatrixEmoji(sM2);
-        const matriceEmoji3 = getMatrixEmoji(sM3);
+        const matriceEmoji1 = getMatrixEmoji(normalizedMatrix1);
+        const matriceEmoji2 = getMatrixEmoji(normalizedMatrix2);
+        const matriceEmoji3 = getMatrixEmoji(normalizedMatrix3);
 
-        const formattedTrait = formatTraitInput(sTrait);
-        const traitEmoji = getCharacterEmoji(sTrait);
+        const formattedTrait = formatTraitInput(normalizedTrait);
+        const traitEmoji = getCharacterEmoji(normalizedTrait);
 
         const formattedSkill1 = formatSkillInput(fionaSk1);
         const formattedSkill2 = formatSkillInput(fionaSk2);
@@ -3506,7 +3568,8 @@ async function finalDmg(interaction) {
         const skillEmoji1 = getSkillEmoji(fionaSk1);
         const skillEmoji2 = getSkillEmoji(fionaSk2);
 
-        dpsCalcFinal = calculateDPS(sCD1, sCD2, sCD3, sM1, sM2, sM3, sTrait, fionaSk1, fionaSk2);
+        dpsCalcFinal = calculateDPS(normalizedCharacter1, normalizedCharacter2, normalizedCharacter3, normalizedMatrix1, normalizedMatrix2, normalizedMatrix3,
+            normalizedTrait, fionaSk1, fionaSk2);
 
         if (typeof dpsCalcFinal === 'string') {
             // This means there was an error in the inputs, return the error message
@@ -3515,7 +3578,7 @@ async function finalDmg(interaction) {
             // Inputs are valid, proceed with the embed
             const dpsTitle = `**Damage Calculator V1.0.1**`;
 
-            const embed = new MessageEmbed()
+            const embed = new EmbedBuilder()
                 .setTitle(dpsTitle)
                 .setColor(0x18e1ee)
                 .setTimestamp(Date.now())
@@ -3551,9 +3614,7 @@ async function finalDmg(interaction) {
                         value: `${skillEmoji2} ${formattedSkill2}`,
                         inline: true,
                     },
-                )
-                .addField('\u200B', '\u200B')
-                .addFields([
+                    { name: '\u200B', value: '\u200B' },
                     {
                         name: 'Total Damage%',
                         value: `\`${dpsCalcFinal.totalDmgPercent}\``,
@@ -3568,14 +3629,15 @@ async function finalDmg(interaction) {
                         name: 'Damage Total',
                         value: `\`${dpsCalcFinal.dmgTotal}\``,
                         inline: true,
-                    },
-                ])
+                    }
+                )
                 .setColor('#ff9900');
 
             await interaction.reply({ embeds: [embed] });
         }
     }
 }
+
 
 
 module.exports = {
@@ -3589,8 +3651,8 @@ module.exports = {
     //  ,MAX($G21,$H21)=LARGE($G$21:$H$23,1)),IF(AND(trait="Fiona",$B21="Physical"),0.61,0.28)*IF(yulanDPS,0.78,IF(gnnSlot,0.68,IF(umiSlot,0,0.7))),0))
 
 
-calculateDPS("yulansweeping6", "fiona6", "icarus6", "fiona4pc3", "yulan4pc3", "icarus4pc3", "fiona", "hydro", "torrential");
-
+calculateDPS("yulansweeping6", "fiona6", "icarus6", "fiona4pc3", "yulan4pc3", "icarus4pc3", "yulan", "hydro", "torrential");
+console.log(findClosestMatrixMatch("fionamatrice4piece3")); 
 // Now you can access the data for a specific character selection
 
   
