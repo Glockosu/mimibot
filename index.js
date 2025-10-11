@@ -11,6 +11,7 @@ const {handleJoin} = require("./join")
 const {blameCommand} = require("./blame")
 const {handlePullCalcCommand}= require("./pullcalc")
 const {handleAssignTofRole} = require("./assignrole")
+const {handleApplicationCommand, handleApplicationButton, handleDMResponse, handleApplicationReview} = require("./application")
 require('dotenv/config');
 
 const fs = require('fs');
@@ -22,6 +23,8 @@ const mimibot = new Client({
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.GuildMembers, // Required to fetch and manage members
+    GatewayIntentBits.DirectMessages, // Required for DM handling
+    GatewayIntentBits.MessageContent, // Required to read DM message content
   ],
 });
 
@@ -76,6 +79,9 @@ mimibot.on('interactionCreate', async (interaction) => {
             await interaction.reply({ content: 'You do not have the required permissions to use this command.', ephemeral: true });
           }
           break;
+        case 'bpapplication':
+          await handleApplicationCommand(interaction);
+          break;
         default:
           await handleInteraction(interaction);
           break;
@@ -89,8 +95,24 @@ mimibot.on('interactionCreate', async (interaction) => {
         await interaction.reply(errorMessage);
       }
     }
-  } else if (interaction.isButton() && interaction.customId === 'ScheduleTime') {
-    await handleTimes(interaction);
+  } else if (interaction.isButton()) {
+    if (interaction.customId === 'ScheduleTime') {
+      await handleTimes(interaction);
+    } else if (interaction.customId === 'bp_apply_button') {
+      await handleApplicationButton(interaction);
+    } else if (interaction.customId.startsWith('bp_approve_')) {
+      await handleApplicationReview(interaction, true);
+    } else if (interaction.customId.startsWith('bp_deny_')) {
+      await handleApplicationReview(interaction, false);
+    }
+  }
+});
+
+// Handle DM messages for application responses
+mimibot.on('messageCreate', async (message) => {
+  // Only process DM messages
+  if (message.channel.isDMBased()) {
+    await handleDMResponse(message);
   }
 });
   

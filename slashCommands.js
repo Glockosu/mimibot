@@ -196,6 +196,10 @@ async function registerSlashCommands(mimibot) {
         name: 'assigntofrole',
         description: '[ADMIN ONLY] Assign the Tower of Fantasy role to all server members',
       },
+      {
+        name: 'bpapplication',
+        description: 'Create a Blue Protocol guild application embed',
+      },
     ];
     for (const command of commandData) {
       await mimibot.application?.commands.create(command);
