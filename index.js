@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, PermissionFlagsBits } = require('discord.js');
+const { Client, GatewayIntentBits, PermissionFlagsBits, Partials, ChannelType } = require('discord.js');
 const {handleInteraction} = require('./simulcra');
 const {handleScheduleCommand, handleTimes} = require("./schedule");
 const {rotationHandler} = require("./rotation");
@@ -12,6 +12,7 @@ const {blameCommand} = require("./blame")
 const {handlePullCalcCommand}= require("./pullcalc")
 const {handleAssignTofRole} = require("./assignrole")
 const {handleApplicationCommand, handleApplicationButton, handleDMResponse, handleApplicationReview} = require("./application")
+const {handleRaidCommand, handleRaidSignupButton, handleRoleSelection, handleRaidAvailabilitySubmit, handleViewRoster, handleSuggestTimes, handleTimeVote, handleResetRaid, handleRaidStatus} = require("./raid")
 require('dotenv/config');
 
 const fs = require('fs');
@@ -23,15 +24,24 @@ const mimibot = new Client({
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.GuildMembers, // Required to fetch and manage members
-    GatewayIntentBits.DirectMessages, // Required for DM handling
-    GatewayIntentBits.MessageContent, // Required to read DM message content
+    GatewayIntentBits.DirectMessages, // Required to receive DMs for applications
+    GatewayIntentBits.MessageContent, // Required to read message content in DMs
   ],
+  partials: [Partials.Channel], // Required to receive DMs
 });
 
 mimibot.once('ready', () => {
   console.log('Ready!');
   // Register the slash command globally
   registerSlashCommands(mimibot);
+});
+
+// Handle DM messages for applications
+mimibot.on('messageCreate', async (message) => {
+  // Only handle DMs
+  if (message.channel.type === ChannelType.DM) {
+    await handleDMResponse(message);
+  }
 });
 
 mimibot.on('interactionCreate', async (interaction) => {
@@ -79,8 +89,25 @@ mimibot.on('interactionCreate', async (interaction) => {
             await interaction.reply({ content: 'You do not have the required permissions to use this command.', ephemeral: true });
           }
           break;
-        case 'bpapplication':
+        case 'bpapply':
           await handleApplicationCommand(interaction);
+          break;
+        case 'raid':
+          await handleRaidCommand(interaction);
+          break;
+        case 'raidreset':
+          if (interaction.member.permissions.has(PermissionFlagsBits.Administrator)) {
+            await handleResetRaid(interaction);
+          } else {
+            await interaction.reply({ content: 'You do not have the required permissions to use this command.', ephemeral: true });
+          }
+          break;
+        case 'raidstatus':
+          if (interaction.member.permissions.has(PermissionFlagsBits.Administrator)) {
+            await handleRaidStatus(interaction);
+          } else {
+            await interaction.reply({ content: 'You do not have the required permissions to use this command.', ephemeral: true });
+          }
           break;
         default:
           await handleInteraction(interaction);
@@ -95,24 +122,39 @@ mimibot.on('interactionCreate', async (interaction) => {
         await interaction.reply(errorMessage);
       }
     }
-  } else if (interaction.isButton()) {
-    if (interaction.customId === 'ScheduleTime') {
-      await handleTimes(interaction);
-    } else if (interaction.customId === 'bp_apply_button') {
-      await handleApplicationButton(interaction);
-    } else if (interaction.customId.startsWith('bp_approve_')) {
-      await handleApplicationReview(interaction, true);
-    } else if (interaction.customId.startsWith('bp_deny_')) {
-      await handleApplicationReview(interaction, false);
+    } else if (interaction.isButton()) {
+    try {
+      if (interaction.customId === 'ScheduleTime') {
+        await handleTimes(interaction);
+      } else if (interaction.customId === 'bp_apply_button') {
+        await handleApplicationButton(interaction);
+      } else if (interaction.customId.startsWith('bp_approve_')) {
+        await handleApplicationReview(interaction, true);
+      } else if (interaction.customId.startsWith('bp_deny_')) {
+        await handleApplicationReview(interaction, false);
+      } else if (interaction.customId === 'raid_signup_button') {
+        await handleRaidSignupButton(interaction);
+      } else if (interaction.customId === 'raid_view_roster') {
+        await handleViewRoster(interaction);
+      } else if (interaction.customId === 'raid_suggest_times') {
+        await handleSuggestTimes(interaction);
+      } else if (interaction.customId.startsWith('raid_vote_')) {
+        await handleTimeVote(interaction);
+      }
+    } catch (error) {
+      console.error('Error handling button interaction:', error);
+      if (!interaction.replied && !interaction.deferred) {
+        await interaction.reply({ content: 'There was an error processing this button. Please try again.', ephemeral: true });
+      }
     }
-  }
-});
-
-// Handle DM messages for application responses
-mimibot.on('messageCreate', async (message) => {
-  // Only process DM messages
-  if (message.channel.isDMBased()) {
-    await handleDMResponse(message);
+  } else if (interaction.isStringSelectMenu()) {
+    if (interaction.customId === 'raid_role_select') {
+      await handleRoleSelection(interaction);
+    }
+  } else if (interaction.isModalSubmit()) {
+    if (interaction.customId.startsWith('raid_availability_')) {
+      await handleRaidAvailabilitySubmit(interaction);
+    }
   }
 });
   

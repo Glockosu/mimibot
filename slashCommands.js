@@ -197,8 +197,20 @@ async function registerSlashCommands(mimibot) {
         description: '[ADMIN ONLY] Assign the Tower of Fantasy role to all server members',
       },
       {
-        name: 'bpapplication',
-        description: 'Create a Blue Protocol guild application embed',
+        name: 'bpapply',
+        description: 'Post the Blue Protocol guild application form in the current channel',
+      },
+      {
+        name: 'raid',
+        description: 'Organize a 20-man Dragon Shackles raid with role selection and availability signup',
+      },
+      {
+        name: 'raidreset',
+        description: '[ADMIN ONLY] Reset all raid signups and voting data',
+      },
+      {
+        name: 'raidstatus',
+        description: '[ADMIN ONLY] View current raid data status and persistence info',
       },
     ];
     for (const command of commandData) {
