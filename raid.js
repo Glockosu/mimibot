@@ -379,32 +379,99 @@ async function handleViewRoster(interaction) {
     const healers = signupArray.filter(s => s.role === 'healer');
     const dps = signupArray.filter(s => s.role === 'dps');
 
-    const rosterEmbed = new EmbedBuilder()
+    // Helper function to split a long string into chunks that fit within Discord's 1024 character limit
+    function chunkString(str, maxLength = 1024) {
+        if (str.length <= maxLength) return [str];
+        const chunks = [];
+        const lines = str.split('\n');
+        let currentChunk = '';
+        
+        for (const line of lines) {
+            if ((currentChunk + line + '\n').length > maxLength) {
+                if (currentChunk) chunks.push(currentChunk.trim());
+                currentChunk = line + '\n';
+            } else {
+                currentChunk += line + '\n';
+            }
+        }
+        if (currentChunk) chunks.push(currentChunk.trim());
+        return chunks;
+    }
+
+    // Build the embeds array
+    const embeds = [];
+
+    // Create main roster embed
+    const mainEmbed = new EmbedBuilder()
         .setTitle('Raid Roster')
         .setColor(0x8B0000)
         .setDescription(`**Total Signups:** ${signupArray.length} (${signupArray.length >= RAID_CONFIG.minPlayers ? '✅ Ready!' : `Need ${RAID_CONFIG.minPlayers - signupArray.length} more`})`)
-        .addFields(
-            { 
-                name: `🛡️ Tanks (${tanks.length}/${RAID_CONFIG.tankSlots})`, 
-                value: tanks.length > 0 ? tanks.map(t => `• **${t.ign}** (${t.powerLevel}) - <@${t.userId}>`).join('\n') : 'No tanks signed up',
-                inline: false
-            },
-            { 
-                name: `💚 Healers (${healers.length}/${RAID_CONFIG.healerSlots})`, 
-                value: healers.length > 0 ? healers.map(h => `• **${h.ign}** (${h.powerLevel}) - <@${h.userId}>`).join('\n') : 'No healers signed up',
-                inline: false
-            },
-            { 
-                name: `⚔️ DPS (${dps.length}/${RAID_CONFIG.dpsSlots})`, 
-                value: dps.length > 0 ? dps.map(d => `• **${d.ign}** (${d.powerLevel}) - <@${d.userId}>`).join('\n') : 'No DPS signed up',
-                inline: false
-            }
-        )
         .setFooter({ text: 'Dawn | Starlight - Blue Protocol' })
         .setTimestamp();
 
+    embeds.push(mainEmbed);
 
-    await interaction.reply({ embeds: [rosterEmbed], ephemeral: true });
+    // Add Tanks
+    if (tanks.length > 0) {
+        const tanksText = tanks.map(t => `• **${t.ign}** (${t.powerLevel}) - <@${t.userId}>`).join('\n');
+        const tankChunks = chunkString(tanksText);
+        
+        tankChunks.forEach((chunk, index) => {
+            const embed = new EmbedBuilder()
+                .setTitle(`🛡️ Tanks ${index === 0 ? `(${tanks.length}/${RAID_CONFIG.tankSlots})` : ''}`)
+                .setColor(0x8B0000)
+                .setDescription(chunk);
+            embeds.push(embed);
+        });
+    } else {
+        const embed = new EmbedBuilder()
+            .setTitle(`🛡️ Tanks (0/${RAID_CONFIG.tankSlots})`)
+            .setColor(0x8B0000)
+            .setDescription('No tanks signed up');
+        embeds.push(embed);
+    }
+
+    // Add Healers
+    if (healers.length > 0) {
+        const healersText = healers.map(h => `• **${h.ign}** (${h.powerLevel}) - <@${h.userId}>`).join('\n');
+        const healerChunks = chunkString(healersText);
+        
+        healerChunks.forEach((chunk, index) => {
+            const embed = new EmbedBuilder()
+                .setTitle(`💚 Healers ${index === 0 ? `(${healers.length}/${RAID_CONFIG.healerSlots})` : ''}`)
+                .setColor(0x8B0000)
+                .setDescription(chunk);
+            embeds.push(embed);
+        });
+    } else {
+        const embed = new EmbedBuilder()
+            .setTitle(`💚 Healers (0/${RAID_CONFIG.healerSlots})`)
+            .setColor(0x8B0000)
+            .setDescription('No healers signed up');
+        embeds.push(embed);
+    }
+
+    // Add DPS
+    if (dps.length > 0) {
+        const dpsText = dps.map(d => `• **${d.ign}** (${d.powerLevel}) - <@${d.userId}>`).join('\n');
+        const dpsChunks = chunkString(dpsText);
+        
+        dpsChunks.forEach((chunk, index) => {
+            const embed = new EmbedBuilder()
+                .setTitle(`⚔️ DPS ${index === 0 ? `(${dps.length}/${RAID_CONFIG.dpsSlots})` : ''}`)
+                .setColor(0x8B0000)
+                .setDescription(chunk);
+            embeds.push(embed);
+        });
+    } else {
+        const embed = new EmbedBuilder()
+            .setTitle(`⚔️ DPS (0/${RAID_CONFIG.dpsSlots})`)
+            .setColor(0x8B0000)
+            .setDescription('No DPS signed up');
+        embeds.push(embed);
+    }
+
+    await interaction.reply({ embeds: embeds, ephemeral: true });
 }
 
 async function updateRaidEmbed(interaction) {
