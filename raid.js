@@ -178,7 +178,15 @@ function formatRaidTitle(raidName, raidType) {
     const formattedRaid = raidName.split(' ').map(word => 
         word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
     ).join(' ');
-    const formattedType = raidType.charAt(0).toUpperCase() + raidType.slice(1).toLowerCase();
+    
+    // Handle "both" type specially
+    let formattedType;
+    if (raidType.toLowerCase() === 'both') {
+        formattedType = 'Normal & Hard';
+    } else {
+        formattedType = raidType.charAt(0).toUpperCase() + raidType.slice(1).toLowerCase();
+    }
+    
     return `Blue Protocol - ${formattedRaid} ${formattedType}`;
 }
 

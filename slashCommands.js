@@ -218,6 +218,7 @@ async function registerSlashCommands(mimibot) {
             choices: [
               { name: 'Normal', value: 'normal' },
               { name: 'Hard', value: 'hard' },
+              { name: 'Both', value: 'both' },
             ],
           },
           {
