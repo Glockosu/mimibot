@@ -6,6 +6,7 @@ const path = require('path');
 const activeRaids = new Map();
 const raidSignups = new Map(); // raidId -> Map of userId -> signup data
 const currentRaidId = 'dragon_shackles_current'; // Use a consistent ID for the current raid
+const raidMetadata = new Map(); // raidId -> { title, times, type, raid }
 
 // Raid configuration
 const RAID_CONFIG = {
@@ -23,6 +24,7 @@ const raidVoting = new Map(); // raidId -> { votes: Map<optionNumber, Set<userna
 const DATA_DIR = path.join(__dirname, 'data');
 const SIGNUPS_FILE = path.join(DATA_DIR, 'raid_signups.json');
 const VOTING_FILE = path.join(DATA_DIR, 'raid_voting.json');
+const METADATA_FILE = path.join(DATA_DIR, 'raid_metadata.json');
 
 // Initialize data directory
 async function initializeDataDirectory() {
@@ -54,9 +56,15 @@ async function saveRaidData() {
             }
         }
 
+        const metadataData = {};
+        for (const [raidId, metadata] of raidMetadata.entries()) {
+            metadataData[raidId] = metadata;
+        }
+
         // Save to files
         await fs.writeFile(SIGNUPS_FILE, JSON.stringify(signupsData, null, 2));
         await fs.writeFile(VOTING_FILE, JSON.stringify(votingData, null, 2));
+        await fs.writeFile(METADATA_FILE, JSON.stringify(metadataData, null, 2));
         
         console.log('[RAID] Data saved successfully');
     } catch (error) {
@@ -100,6 +108,19 @@ async function loadRaidData() {
         } catch (error) {
             console.log('[RAID] No voting data to load');
         }
+
+        // Load metadata
+        try {
+            const metadataContent = await fs.readFile(METADATA_FILE, 'utf8');
+            const metadataData = JSON.parse(metadataContent);
+            
+            for (const [raidId, metadata] of Object.entries(metadataData)) {
+                raidMetadata.set(raidId, metadata);
+            }
+            console.log('[RAID] Metadata loaded');
+        } catch (error) {
+            console.log('[RAID] No metadata to load');
+        }
     } catch (error) {
         console.error('[RAID] Error loading data:', error);
     }
@@ -128,14 +149,77 @@ process.on('SIGTERM', async () => {
     process.exit(0);
 });
 
+// Helper function to parse Discord time codes
+function parseTimeCodes(timeString) {
+    // Split by comma and extract time codes
+    const timeCodes = timeString.split(',').map(t => t.trim()).filter(t => t);
+    const parsedTimes = [];
+    
+    for (const timeCode of timeCodes) {
+        // Match Discord time format: <t:timestamp:format>
+        const match = timeCode.match(/<t:(\d+):([FfDdTtR])>/);
+        if (match) {
+            const timestamp = parseInt(match[1]);
+            const format = match[2];
+            parsedTimes.push({
+                timestamp: timestamp,
+                display: `<t:${timestamp}:${format}>`,
+                raw: timeCode
+            });
+        }
+    }
+    
+    return parsedTimes;
+}
+
+// Helper function to format raid title
+function formatRaidTitle(raidName, raidType) {
+    // Capitalize first letter of each word
+    const formattedRaid = raidName.split(' ').map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    ).join(' ');
+    const formattedType = raidType.charAt(0).toUpperCase() + raidType.slice(1).toLowerCase();
+    return `Blue Protocol - ${formattedRaid} ${formattedType}`;
+}
+
 async function handleRaidCommand(interaction) {
     console.log('[RAID] Command started by', interaction.user.tag);
 
+    // Get parameters from interaction
+    const timesParam = interaction.options.getString('times');
+    const raidType = interaction.options.getString('type');
+    const raidName = interaction.options.getString('raid');
+    const minimumAbilityScore = interaction.options.getInteger('minimum_ability_score');
+
+    // Parse time codes
+    const parsedTimes = parseTimeCodes(timesParam);
+    
+    if (parsedTimes.length === 0) {
+        await interaction.reply({
+            content: '❌ Invalid time codes provided. Please use Discord time format: `<t:timestamp:F>` separated by commas.',
+            ephemeral: true
+        });
+        return;
+    }
+
+    // Build dynamic title
+    const raidTitle = formatRaidTitle(raidName, raidType);
+
+    // Store metadata for this raid
+    const raidId = currentRaidId;
+    raidMetadata.set(raidId, {
+        title: raidTitle,
+        times: parsedTimes,
+        type: raidType,
+        raid: raidName,
+        minimumAbilityScore: minimumAbilityScore
+    });
+
     // Create the raid embed
     const embed = new EmbedBuilder()
-        .setTitle('Blue Protocol - Dragon Shackles Raid')
+        .setTitle(raidTitle)
         .setColor(0x8B0000) // Dark red for dragon theme
-        .setDescription('\n**Raid Information:**\n> • **Minimum Players:** 20 (unlimited signups)\n> • **Healers:** 4 slots\n> • **Tanks:** 3-4 slots\n> • **DPS:** 12-13 slots\n> • **Video Guide:** [Click here for strategy guide](' + RAID_CONFIG.videoGuide + ')')
+        .setDescription(`\n**Raid Information:**\n> • **Minimum Players:** 20 (unlimited signups)\n> • **Minimum Ability Score:** ${minimumAbilityScore}\n> • **Healers:** 4 slots\n> • **Tanks:** 3-4 slots\n> • **DPS:** 12-13 slots\n> • **Video Guide:** [Click here for strategy guide](${RAID_CONFIG.videoGuide})`)
         .addFields(
             { 
                 name: '**How to Sign Up**', 
@@ -170,25 +254,16 @@ async function handleRaidCommand(interaction) {
     await interaction.reply({ embeds: [embed], components: [row] });
 
     // Initialize voting data if it doesn't exist
-    const raidId = currentRaidId;
     if (!raidVoting.has(raidId)) {
         raidVoting.set(raidId, {
             votes: new Map()
         });
     }
 
-    // Pre-defined raid times
-    const predefinedTimes = [
-        { time: 'Morning (10 AM)', timestamp: 1761580800, display: '<t:1761580800:F>' },
-        { time: 'Afternoon (1 PM)', timestamp: 1761591600, display: '<t:1761591600:F>' },
-        { time: 'Evening (4 PM)', timestamp: 1761602400, display: '<t:1761602400:F>' },
-        { time: 'Night (7 PM)', timestamp: 1761613200, display: '<t:1761613200:F>' }
-    ];
-
     // Get current vote counts
-    const voteCounts = [0, 0, 0, 0];
+    const voteCounts = new Array(parsedTimes.length).fill(0);
     const votingData = raidVoting.get(raidId);
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < parsedTimes.length; i++) {
         voteCounts[i] = votingData.votes.get(i)?.size || 0;
     }
 
@@ -198,7 +273,7 @@ async function handleRaidCommand(interaction) {
         .setColor(0x0099ff)
         .setDescription('Vote for the times that best suit your availability. You can select multiple options!')
         .addFields(
-            predefinedTimes.map((time, index) => ({
+            parsedTimes.map((time, index) => ({
                 name: `Option ${index + 1} (${voteCounts[index]} votes)`,
                 value: `${time.display}`,
                 inline: true
@@ -208,7 +283,7 @@ async function handleRaidCommand(interaction) {
         .setTimestamp();
 
     // Create voting buttons
-    const votingButtons = predefinedTimes.map((time, index) => 
+    const votingButtons = parsedTimes.map((time, index) => 
         new ButtonBuilder()
             .setCustomId(`raid_vote_${index}`)
             .setLabel(`Vote ${index + 1}`)
@@ -220,6 +295,9 @@ async function handleRaidCommand(interaction) {
         votingRows.push(new ActionRowBuilder().addComponents(votingButtons.slice(i, i + 4)));
     }
 
+    // Save metadata
+    await saveRaidData();
+
     // Send second message with voting
     await interaction.channel.send({ embeds: [votingEmbed], components: votingRows });
     console.log('[RAID] Raid embeds posted (2 messages)');
@@ -227,6 +305,11 @@ async function handleRaidCommand(interaction) {
 
 async function handleRaidSignupButton(interaction) {
     console.log('[RAID] Signup button clicked by', interaction.user.tag);
+
+    // Get raid title from metadata
+    const raidId = currentRaidId;
+    const metadata = raidMetadata.get(raidId);
+    const raidTitle = metadata ? metadata.title : 'the raid';
 
     // Create role selection menu
     const roleSelect = new StringSelectMenuBuilder()
@@ -253,7 +336,7 @@ async function handleRaidSignupButton(interaction) {
     const row = new ActionRowBuilder().addComponents(roleSelect);
 
     await interaction.reply({
-        content: '**Select your role for the Dragon Shackles raid:**',
+        content: `**Select your role for ${raidTitle}:**`,
         components: [row],
         ephemeral: true
     });
@@ -312,6 +395,14 @@ async function handleRaidAvailabilitySubmit(interaction) {
     // Use the consistent current raid ID
     const raidId = currentRaidId;
 
+    // Get metadata to check minimum ability score
+    const metadata = raidMetadata.get(raidId);
+    const minimumAbilityScore = metadata ? metadata.minimumAbilityScore : null;
+    
+    // Parse ability score and check against minimum
+    const abilityScoreNum = parseInt(powerLevel);
+    const isBelowMinimum = minimumAbilityScore !== null && !isNaN(abilityScoreNum) && abilityScoreNum < minimumAbilityScore;
+
     // Store the signup data
     if (!raidSignups.has(raidId)) {
         raidSignups.set(raidId, new Map());
@@ -335,13 +426,16 @@ async function handleRaidAvailabilitySubmit(interaction) {
     // Save data to file
     await saveRaidData();
 
-    // Create confirmation embed
+    // Get raid title from metadata
+    const raidTitle = metadata ? metadata.title : 'the raid';
+
+    // Create confirmation embed with warning if below minimum
     const confirmEmbed = new EmbedBuilder()
         .setTitle(existingSignup ? '✅ Raid Signup Updated!' : '✅ Raid Signup Confirmed!')
-        .setColor(0x00ff00)
+        .setColor(isBelowMinimum ? 0xff9900 : 0x00ff00) // Orange if below minimum, green if okay
         .setDescription(existingSignup ? 
-            `You've successfully updated your signup for the **Dragon Shackles Raid**!` :
-            `You've successfully signed up for the **Dragon Shackles Raid**!`)
+            `You've successfully updated your signup for **${raidTitle}**!` :
+            `You've successfully signed up for **${raidTitle}**!`)
         .addFields(
             { name: '🎭 Role', value: `${getRoleEmoji(role)} ${role.toUpperCase()}`, inline: true },
             { name: '👤 IGN', value: ign, inline: true },
@@ -350,6 +444,15 @@ async function handleRaidAvailabilitySubmit(interaction) {
         )
         .setFooter({ text: 'Dawn | Starlight - Blue Protocol' })
         .setTimestamp();
+
+    // Add warning field if below minimum
+    if (isBelowMinimum) {
+        confirmEmbed.addFields({
+            name: '⚠️ Warning',
+            value: `Your ability score (${powerLevel}) is below the minimum required (${minimumAbilityScore}). You may not be ready for this raid.`,
+            inline: false
+        });
+    }
 
     await interaction.reply({ embeds: [confirmEmbed], ephemeral: true });
 
@@ -476,17 +579,22 @@ async function handleViewRoster(interaction) {
 
 async function updateRaidEmbed(interaction) {
     try {
+        // Get raid title from metadata
+        const raidId = currentRaidId;
+        const metadata = raidMetadata.get(raidId);
+        const raidTitle = metadata ? metadata.title : 'Blue Protocol';
+
         // Find the original raid message and update it
         const messages = await interaction.channel.messages.fetch({ limit: 10 });
         const raidMessage = messages.find(msg => 
             msg.embeds.length > 0 && 
-            msg.embeds[0].title?.includes('Dragon Shackles Raid') &&
+            msg.embeds[0].title?.includes(raidTitle) &&
             msg.author.bot
         );
 
         if (raidMessage) {
             // Get current signup count for the current raid
-            const currentSignups = raidSignups.get(currentRaidId);
+            const currentSignups = raidSignups.get(raidId);
             const totalSignups = currentSignups ? currentSignups.size : 0;
 
              const updatedEmbed = EmbedBuilder.from(raidMessage.embeds[0])
@@ -521,13 +629,17 @@ async function handleSuggestTimes(interaction) {
     const signups = raidSignups.get(raidId);
     const signupArray = Array.from(signups.values());
 
-    // Pre-defined raid times (your timestamps)
-    const predefinedTimes = [
-        { time: 'Morning (10 AM)', timestamp: 1761580800, display: '<t:1761580800:F>' },
-        { time: 'Afternoon (1 PM)', timestamp: 1761591600, display: '<t:1761591600:F>' },
-        { time: 'Evening (4 PM)', timestamp: 1761602400, display: '<t:1761602400:F>' },
-        { time: 'Night (7 PM)', timestamp: 1761613200, display: '<t:1761613200:F>' }
-    ];
+    // Get times from metadata
+    const metadata = raidMetadata.get(raidId);
+    if (!metadata || !metadata.times || metadata.times.length === 0) {
+        await interaction.reply({
+            content: '❌ No raid times configured! Please create a raid first.',
+            ephemeral: true
+        });
+        return;
+    }
+
+    const raidTimes = metadata.times;
 
     // Initialize voting data if it doesn't exist
     if (!raidVoting.has(raidId)) {
@@ -537,9 +649,9 @@ async function handleSuggestTimes(interaction) {
     }
 
     // Get current vote counts
-    const voteCounts = [0, 0, 0, 0];
+    const voteCounts = new Array(raidTimes.length).fill(0);
     const votingData = raidVoting.get(raidId);
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < raidTimes.length; i++) {
         voteCounts[i] = votingData.votes.get(i)?.size || 0;
     }
 
@@ -549,7 +661,7 @@ async function handleSuggestTimes(interaction) {
         .setColor(0x0099ff)
         .setDescription(`Vote for your preferred raid time! (${signupArray.length} signup${signupArray.length === 1 ? '' : 's'} so far)`)
         .addFields(
-            predefinedTimes.map((time, index) => ({
+            raidTimes.map((time, index) => ({
                 name: `Option ${index + 1}`,
                 value: `${time.display}\nVotes: ${voteCounts[index]}`,
                 inline: true
@@ -559,7 +671,7 @@ async function handleSuggestTimes(interaction) {
         .setTimestamp();
 
     // Create voting buttons
-    const votingButtons = predefinedTimes.map((time, index) => 
+    const votingButtons = raidTimes.map((time, index) => 
         new ButtonBuilder()
             .setCustomId(`raid_vote_${index}`)
             .setLabel(`Vote ${index + 1}`)
@@ -584,7 +696,12 @@ async function handleTimeVote(interaction) {
         
         console.log(`[RAID] Parsed option number: ${optionNumber}`);
         
-        if (isNaN(optionNumber) || optionNumber < 0 || optionNumber > 3) {
+        // Get metadata to check valid option range
+        const raidId = currentRaidId;
+        const metadata = raidMetadata.get(raidId);
+        const maxOptions = metadata && metadata.times ? metadata.times.length : 0;
+        
+        if (isNaN(optionNumber) || optionNumber < 0 || (maxOptions > 0 && optionNumber >= maxOptions)) {
             await interaction.reply({
                 content: '❌ Invalid vote option! Please try again.',
                 ephemeral: true
@@ -649,8 +766,17 @@ async function handleTimeVote(interaction) {
 
 async function updateVotingResults(interaction) {
     try {
-        const votingData = raidVoting.get(currentRaidId);
+        const raidId = currentRaidId;
+        const votingData = raidVoting.get(raidId);
         if (!votingData) return;
+
+        // Get times from metadata
+        const metadata = raidMetadata.get(raidId);
+        if (!metadata || !metadata.times || metadata.times.length === 0) {
+            return;
+        }
+
+        const raidTimes = metadata.times;
 
         // Find the voting message (should be the second message with Vote for Raid Times title)
         const messages = await interaction.channel.messages.fetch({ limit: 10 });
@@ -661,17 +787,8 @@ async function updateVotingResults(interaction) {
         );
 
         if (votingMessage) {
-            // Pre-defined times
-            const predefinedTimes = [
-                { time: 'Morning (10 AM)', timestamp: 1761580800, display: '<t:1761580800:F>' },
-                { time: 'Afternoon (1 PM)', timestamp: 1761591600, display: '<t:1761591600:F>' },
-                { time: 'Evening (4 PM)', timestamp: 1761602400, display: '<t:1761602400:F>' },
-                { time: 'Night (7 PM)', timestamp: 1761613200, display: '<t:1761613200:F>' }
-            ];
-
             // Calculate vote counts (keep original order, don't sort)
-            const voteCounts = predefinedTimes.map((time, index) => ({
-                time: time.time,
+            const voteCounts = raidTimes.map((time, index) => ({
                 display: time.display,
                 votes: votingData.votes.get(index)?.size || 0
             }));
@@ -714,12 +831,14 @@ async function handleResetRaid(interaction) {
     // Clear all raid data
     raidSignups.clear();
     raidVoting.clear();
+    raidMetadata.clear();
+    activeRaids.clear();
 
     // Save cleared data
     await saveRaidData();
 
     await interaction.reply({
-        content: '✅ Raid data has been reset! All signups and voting data have been cleared.',
+        content: '✅ Raid data has been reset! All signups, voting data, and metadata have been cleared.',
         ephemeral: true
     });
 
@@ -738,26 +857,44 @@ async function handleRaidStatus(interaction) {
         return;
     }
 
-    const signups = raidSignups.get(currentRaidId);
-    const voting = raidVoting.get(currentRaidId);
+    const raidId = currentRaidId;
+    const signups = raidSignups.get(raidId);
+    const voting = raidVoting.get(raidId);
+    const metadata = raidMetadata.get(raidId);
     
     const signupCount = signups ? signups.size : 0;
-    const voteCounts = [0, 0, 0, 0];
     
-    if (voting) {
-        for (let i = 0; i < 4; i++) {
-            voteCounts[i] = voting.votes.get(i)?.size || 0;
+    // Get vote counts dynamically based on metadata
+    let voteText = 'No voting data';
+    if (voting && metadata && metadata.times) {
+        const voteCounts = metadata.times.map((time, index) => {
+            const count = voting.votes.get(index)?.size || 0;
+            return `Option ${index + 1}: ${count}`;
+        });
+        voteText = voteCounts.join(', ');
+    } else if (voting) {
+        // Fallback for old data
+        const voteCounts = [];
+        for (let i = 0; i < 10; i++) {
+            const count = voting.votes.get(i)?.size || 0;
+            if (count > 0 || i < 4) {
+                voteCounts.push(`Option ${i + 1}: ${count}`);
+            }
         }
+        voteText = voteCounts.length > 0 ? voteCounts.join(', ') : 'No votes';
     }
+
+    const raidTitle = metadata ? metadata.title : 'No raid configured';
 
     const statusEmbed = new EmbedBuilder()
         .setTitle('📊 Raid System Status')
         .setColor(0x0099ff)
         .setDescription('Current raid data status and persistence info')
         .addFields(
+            { name: '📝 Current Raid', value: raidTitle, inline: false },
             { name: '📝 Signups', value: `${signupCount} players signed up`, inline: true },
-            { name: '🗳️ Votes', value: `Option 1: ${voteCounts[0]}, Option 2: ${voteCounts[1]}, Option 3: ${voteCounts[2]}, Option 4: ${voteCounts[3]}`, inline: false },
-            { name: '💾 Data Files', value: `Signups: ${SIGNUPS_FILE}\nVoting: ${VOTING_FILE}`, inline: false },
+            { name: '🗳️ Votes', value: voteText, inline: false },
+            { name: '💾 Data Files', value: `Signups: ${SIGNUPS_FILE}\nVoting: ${VOTING_FILE}\nMetadata: ${METADATA_FILE}`, inline: false },
             { name: '🔄 Auto-Save', value: 'Every 5 minutes + on every change', inline: true }
         )
         .setFooter({ text: 'Dawn | Starlight - Blue Protocol' })

@@ -202,7 +202,41 @@ async function registerSlashCommands(mimibot) {
       },
       {
         name: 'raid',
-        description: 'Organize a 20-man Dragon Shackles raid with role selection and availability signup',
+        description: 'Organize a 20-man raid with role selection and availability signup',
+        options: [
+          {
+            name: 'times',
+            type: ApplicationCommandOptionType.String,
+            description: 'Comma-separated Discord time codes (e.g., <t:1762328496:F>, <t:1762328497:F>)',
+            required: true,
+          },
+          {
+            name: 'type',
+            type: ApplicationCommandOptionType.String,
+            description: 'Type of raid difficulty',
+            required: true,
+            choices: [
+              { name: 'Normal', value: 'normal' },
+              { name: 'Hard', value: 'hard' },
+            ],
+          },
+          {
+            name: 'raid',
+            type: ApplicationCommandOptionType.String,
+            description: 'Which raid boss',
+            required: true,
+            choices: [
+              { name: 'Bone Dragon', value: 'bone dragon' },
+              { name: 'Ice Dragon', value: 'ice dragon' },
+            ],
+          },
+          {
+            name: 'minimum_ability_score',
+            type: ApplicationCommandOptionType.Integer,
+            description: 'Minimum ability score required to join the raid',
+            required: true,
+          },
+        ],
       },
       {
         name: 'raidreset',
