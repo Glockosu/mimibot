@@ -224,17 +224,18 @@ async function registerSlashCommands(mimibot) {
           {
             name: 'raid',
             type: ApplicationCommandOptionType.String,
-            description: 'Which raid boss',
+            description: 'Which raid boss(es)',
             required: true,
             choices: [
               { name: 'Bone Dragon', value: 'bone dragon' },
               { name: 'Ice Dragon', value: 'ice dragon' },
+              { name: 'Both', value: 'both' },
             ],
           },
           {
             name: 'minimum_ability_score',
-            type: ApplicationCommandOptionType.Integer,
-            description: 'Minimum ability score required to join the raid',
+            type: ApplicationCommandOptionType.String,
+            description: 'Minimum ability scores per raid (e.g., 15500(ice), 17000(bone))',
             required: true,
           },
         ],

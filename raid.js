@@ -149,22 +149,35 @@ process.on('SIGTERM', async () => {
     process.exit(0);
 });
 
-// Helper function to parse Discord time codes
+// Helper function to parse Discord time codes with raid association
 function parseTimeCodes(timeString) {
     // Split by comma and extract time codes
     const timeCodes = timeString.split(',').map(t => t.trim()).filter(t => t);
     const parsedTimes = [];
     
     for (const timeCode of timeCodes) {
-        // Match Discord time format: <t:timestamp:format>
-        const match = timeCode.match(/<t:(\d+):([FfDdTtR])>/);
+        // Match Discord time format: <t:timestamp:format> (raid) or <t:timestamp:format>
+        const match = timeCode.match(/<t:(\d+):([FfDdTtR])>(\s*\((\w+)\))?/);
         if (match) {
             const timestamp = parseInt(match[1]);
             const format = match[2];
+            const raidTag = match[4] ? match[4].toLowerCase() : null; // Extract raid from (bone) or (ice)
+            
+            // Determine which raid this time is for
+            let raidType = null;
+            if (raidTag) {
+                if (raidTag.includes('bone')) {
+                    raidType = 'bone dragon';
+                } else if (raidTag.includes('ice')) {
+                    raidType = 'ice dragon';
+                }
+            }
+            
             parsedTimes.push({
                 timestamp: timestamp,
                 display: `<t:${timestamp}:${format}>`,
-                raw: timeCode
+                raw: timeCode,
+                raid: raidType
             });
         }
     }
@@ -172,19 +185,49 @@ function parseTimeCodes(timeString) {
     return parsedTimes;
 }
 
-// Helper function to format raid title
-function formatRaidTitle(raidName, raidType) {
-    // Capitalize first letter of each word
-    const formattedRaid = raidName.split(' ').map(word => 
-        word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-    ).join(' ');
+// Helper function to parse minimum ability scores per raid
+function parseMinimumAbilityScores(scoreString) {
+    // Format: "15500(ice), 17000(bone)" or "15500(ice), 17000(bone dragon)"
+    const scores = {};
+    const parts = scoreString.split(',').map(s => s.trim()).filter(s => s);
     
-    // Handle "both" type specially
+    for (const part of parts) {
+        // Match format: number(raid)
+        const match = part.match(/(\d+)\s*\(([^)]+)\)/);
+        if (match) {
+            const score = parseInt(match[1]);
+            const raidTag = match[2].toLowerCase().trim();
+            
+            // Normalize raid names
+            if (raidTag.includes('ice')) {
+                scores['ice dragon'] = score;
+            } else if (raidTag.includes('bone')) {
+                scores['bone dragon'] = score;
+            }
+        }
+    }
+    
+    return scores;
+}
+
+// Helper function to format raid title
+function formatRaidTitle(raidName, raidType, difficultyType) {
+    // Capitalize first letter of each word
+    let formattedRaid;
+    if (raidName.toLowerCase() === 'both') {
+        formattedRaid = 'Ice Dragon & Bone Dragon';
+    } else {
+        formattedRaid = raidName.split(' ').map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        ).join(' ');
+    }
+    
+    // Handle difficulty type
     let formattedType;
-    if (raidType.toLowerCase() === 'both') {
+    if (difficultyType.toLowerCase() === 'both') {
         formattedType = 'Normal & Hard';
     } else {
-        formattedType = raidType.charAt(0).toUpperCase() + raidType.slice(1).toLowerCase();
+        formattedType = difficultyType.charAt(0).toUpperCase() + difficultyType.slice(1).toLowerCase();
     }
     
     return `Blue Protocol - ${formattedRaid} ${formattedType}`;
@@ -195,39 +238,55 @@ async function handleRaidCommand(interaction) {
 
     // Get parameters from interaction
     const timesParam = interaction.options.getString('times');
-    const raidType = interaction.options.getString('type');
+    const difficultyType = interaction.options.getString('type');
     const raidName = interaction.options.getString('raid');
-    const minimumAbilityScore = interaction.options.getInteger('minimum_ability_score');
+    const minimumAbilityScoreParam = interaction.options.getString('minimum_ability_score');
 
-    // Parse time codes
+    // Parse time codes (with raid associations)
     const parsedTimes = parseTimeCodes(timesParam);
     
     if (parsedTimes.length === 0) {
         await interaction.reply({
-            content: '❌ Invalid time codes provided. Please use Discord time format: `<t:timestamp:F>` separated by commas.',
+            content: '❌ Invalid time codes provided. Please use Discord time format: `<t:timestamp:F> (bone)` or `<t:timestamp:F> (ice)` separated by commas.',
+            ephemeral: true
+        });
+        return;
+    }
+
+    // Parse minimum ability scores per raid
+    const minimumAbilityScores = parseMinimumAbilityScores(minimumAbilityScoreParam);
+    
+    if (Object.keys(minimumAbilityScores).length === 0) {
+        await interaction.reply({
+            content: '❌ Invalid minimum ability score format. Please use format: `15500(ice), 17000(bone)`',
             ephemeral: true
         });
         return;
     }
 
     // Build dynamic title
-    const raidTitle = formatRaidTitle(raidName, raidType);
+    const raidTitle = formatRaidTitle(raidName, difficultyType, difficultyType);
+
+    // Format minimum ability scores for display
+    const minScoreDisplay = Object.entries(minimumAbilityScores)
+        .map(([raid, score]) => `${score}(${raid.split(' ')[0]})`)
+        .join(', ');
 
     // Store metadata for this raid
     const raidId = currentRaidId;
     raidMetadata.set(raidId, {
         title: raidTitle,
         times: parsedTimes,
-        type: raidType,
+        type: difficultyType,
         raid: raidName,
-        minimumAbilityScore: minimumAbilityScore
+        minimumAbilityScores: minimumAbilityScores
     });
 
     // Create the raid embed
     const embed = new EmbedBuilder()
         .setTitle(raidTitle)
         .setColor(0x8B0000) // Dark red for dragon theme
-        .setDescription(`\n**Raid Information:**\n> • **Minimum Players:** 20 (unlimited signups)\n> • **Minimum Ability Score:** ${minimumAbilityScore}\n> • **Healers:** 4 slots\n> • **Tanks:** 3-4 slots\n> • **DPS:** 12-13 slots\n> • **Video Guide:** [Click here for strategy guide](${RAID_CONFIG.videoGuide})`)
+        .setDescription(`\n**Raid Information:**\n> • **Minimum Players:** 20 (unlimited signups)\n> • **Minimum Ability Score:** ${minScoreDisplay}\n> • **Healers:** 4 slots\n> • **Tanks:** 3-4 slots\n> • **DPS:** 12-13 slots\n> • **Video Guide:** [Click here for strategy guide](${RAID_CONFIG.videoGuide})`)
         .addFields(
             { 
                 name: '**How to Sign Up**', 
@@ -275,17 +334,23 @@ async function handleRaidCommand(interaction) {
         voteCounts[i] = votingData.votes.get(i)?.size || 0;
     }
 
-    // Create voting embed
+    // Create voting embed with raid information
     const votingEmbed = new EmbedBuilder()
         .setTitle('⏰ Vote for Raid Times')
         .setColor(0x0099ff)
         .setDescription('Vote for the times that best suit your availability. You can select multiple options!')
         .addFields(
-            parsedTimes.map((time, index) => ({
-                name: `Option ${index + 1} (${voteCounts[index]} votes)`,
-                value: `${time.display}`,
-                inline: true
-            }))
+            parsedTimes.map((time, index) => {
+                const raidLabel = time.raid ? ` (${time.raid.split(' ')[0]})` : '';
+                const minScore = time.raid && minimumAbilityScores[time.raid] 
+                    ? ` Min: ${minimumAbilityScores[time.raid]}` 
+                    : '';
+                return {
+                    name: `Option ${index + 1}${raidLabel} (${voteCounts[index]} votes)${minScore}`,
+                    value: `${time.display}`,
+                    inline: true
+                };
+            })
         )
         .setFooter({ text: 'Click the buttons below to vote for your preferred times' })
         .setTimestamp();
@@ -403,13 +468,20 @@ async function handleRaidAvailabilitySubmit(interaction) {
     // Use the consistent current raid ID
     const raidId = currentRaidId;
 
-    // Get metadata to check minimum ability score
+    // Get metadata to check minimum ability scores
     const metadata = raidMetadata.get(raidId);
-    const minimumAbilityScore = metadata ? metadata.minimumAbilityScore : null;
+    const minimumAbilityScores = metadata ? metadata.minimumAbilityScores : {};
     
-    // Parse ability score and check against minimum
+    // Parse ability score and check against minimums
     const abilityScoreNum = parseInt(powerLevel);
-    const isBelowMinimum = minimumAbilityScore !== null && !isNaN(abilityScoreNum) && abilityScoreNum < minimumAbilityScore;
+    const isBelowMinimum = Object.values(minimumAbilityScores).some(minScore => 
+        minScore !== null && !isNaN(abilityScoreNum) && abilityScoreNum < minScore
+    );
+    
+    // Get the lowest minimum to show in warning
+    const lowestMinimum = Object.values(minimumAbilityScores).length > 0 
+        ? Math.min(...Object.values(minimumAbilityScores))
+        : null;
 
     // Store the signup data
     if (!raidSignups.has(raidId)) {
@@ -454,10 +526,15 @@ async function handleRaidAvailabilitySubmit(interaction) {
         .setTimestamp();
 
     // Add warning field if below minimum
-    if (isBelowMinimum) {
+    if (isBelowMinimum && lowestMinimum !== null) {
+        const belowRaids = Object.entries(minimumAbilityScores)
+            .filter(([raid, minScore]) => !isNaN(abilityScoreNum) && abilityScoreNum < minScore)
+            .map(([raid, minScore]) => `${minScore} (${raid.split(' ')[0]})`)
+            .join(', ');
+        
         confirmEmbed.addFields({
             name: '⚠️ Warning',
-            value: `Your ability score (${powerLevel}) is below the minimum required (${minimumAbilityScore}). You may not be ready for this raid.`,
+            value: `Your ability score (${powerLevel}) is below the minimum required for some raids: ${belowRaids}. You may not be able to vote for those raid times.`,
             inline: false
         });
     }
@@ -663,17 +740,26 @@ async function handleSuggestTimes(interaction) {
         voteCounts[i] = votingData.votes.get(i)?.size || 0;
     }
 
+    // Get minimum ability scores from metadata
+    const minimumAbilityScores = metadata ? metadata.minimumAbilityScores : {};
+
     // Create voting embed
     const votingEmbed = new EmbedBuilder()
         .setTitle('⏰ Raid Time Selection')
         .setColor(0x0099ff)
         .setDescription(`Vote for your preferred raid time! (${signupArray.length} signup${signupArray.length === 1 ? '' : 's'} so far)`)
         .addFields(
-            raidTimes.map((time, index) => ({
-                name: `Option ${index + 1}`,
-                value: `${time.display}\nVotes: ${voteCounts[index]}`,
-                inline: true
-            }))
+            raidTimes.map((time, index) => {
+                const raidLabel = time.raid ? ` (${time.raid.split(' ')[0]})` : '';
+                const minScore = time.raid && minimumAbilityScores[time.raid] 
+                    ? `\nMin: ${minimumAbilityScores[time.raid]}` 
+                    : '';
+                return {
+                    name: `Option ${index + 1}${raidLabel}`,
+                    value: `${time.display}${minScore}\nVotes: ${voteCounts[index]}`,
+                    inline: true
+                };
+            })
         )
         .setFooter({ text: 'Vote for your preferred time!' })
         .setTimestamp();
@@ -717,6 +803,35 @@ async function handleTimeVote(interaction) {
             return;
         }
 
+        // Get the time option and its associated raid
+        const timeOption = metadata.times[optionNumber];
+        const raidForTime = timeOption ? timeOption.raid : null;
+        const minimumAbilityScores = metadata ? metadata.minimumAbilityScores : {};
+
+        // Check if user has signed up and get their ability score
+        const userSignup = raidSignups.get(raidId)?.get(interaction.user.id);
+        if (!userSignup) {
+            await interaction.reply({
+                content: '❌ You must sign up for the raid first before voting!',
+                ephemeral: true
+            });
+            return;
+        }
+
+        // If this time option is for a specific raid, check ability score
+        if (raidForTime && minimumAbilityScores[raidForTime]) {
+            const userAbilityScore = parseInt(userSignup.powerLevel);
+            const requiredScore = minimumAbilityScores[raidForTime];
+            
+            if (isNaN(userAbilityScore) || userAbilityScore < requiredScore) {
+                await interaction.reply({
+                    content: `❌ Your ability score (${userSignup.powerLevel}) is below the minimum required (${requiredScore}) for **${raidForTime}**. You cannot vote for this time option.`,
+                    ephemeral: true
+                });
+                return;
+            }
+        }
+
         // Initialize voting data if it doesn't exist
         if (!raidVoting.has(currentRaidId)) {
             raidVoting.set(currentRaidId, {
@@ -742,8 +857,9 @@ async function handleTimeVote(interaction) {
             // Update voting results
             await updateVotingResults(interaction);
 
+            const raidLabel = raidForTime ? ` for **${raidForTime}**` : '';
             await interaction.reply({
-                content: `🗑️ Removed vote for **Option ${optionNumber + 1}**!`,
+                content: `🗑️ Removed vote for **Option ${optionNumber + 1}**${raidLabel}!`,
                 ephemeral: true
             });
             return;
@@ -758,8 +874,9 @@ async function handleTimeVote(interaction) {
         // Update voting results
         await updateVotingResults(interaction);
 
+        const raidLabel = raidForTime ? ` for **${raidForTime}**` : '';
         await interaction.reply({
-            content: `✅ Voted for **Option ${optionNumber + 1}**!`,
+            content: `✅ Voted for **Option ${optionNumber + 1}**${raidLabel}!`,
             ephemeral: true
         });
         
@@ -785,6 +902,7 @@ async function updateVotingResults(interaction) {
         }
 
         const raidTimes = metadata.times;
+        const minimumAbilityScores = metadata ? metadata.minimumAbilityScores : {};
 
         // Find the voting message (should be the second message with Vote for Raid Times title)
         const messages = await interaction.channel.messages.fetch({ limit: 10 });
@@ -798,7 +916,8 @@ async function updateVotingResults(interaction) {
             // Calculate vote counts (keep original order, don't sort)
             const voteCounts = raidTimes.map((time, index) => ({
                 display: time.display,
-                votes: votingData.votes.get(index)?.size || 0
+                votes: votingData.votes.get(index)?.size || 0,
+                raid: time.raid
             }));
 
             const updatedVotingEmbed = new EmbedBuilder()
@@ -806,11 +925,17 @@ async function updateVotingResults(interaction) {
                 .setColor(0x0099ff)
                 .setDescription('Vote for the times that best suit your availability. You can select multiple options!')
                 .addFields(
-                    voteCounts.map((time, index) => ({
-                        name: `Option ${index + 1} (${time.votes} votes)`,
-                        value: `${time.display}`,
-                        inline: true
-                    }))
+                    voteCounts.map((time, index) => {
+                        const raidLabel = time.raid ? ` (${time.raid.split(' ')[0]})` : '';
+                        const minScore = time.raid && minimumAbilityScores[time.raid] 
+                            ? ` Min: ${minimumAbilityScores[time.raid]}` 
+                            : '';
+                        return {
+                            name: `Option ${index + 1}${raidLabel} (${time.votes} votes)${minScore}`,
+                            value: `${time.display}`,
+                            inline: true
+                        };
+                    })
                 )
                 .setFooter({ text: 'Click the buttons below to vote for your preferred times' })
                 .setTimestamp();
