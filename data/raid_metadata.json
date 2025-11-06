@@ -1,20 +1,25 @@
 {
   "dragon_shackles_current": {
-    "title": "Blue Protocol - Bone Dragon Hard",
+    "title": "Blue Protocol - Ice Dragon & Bone Dragon Normal & Hard",
     "times": [
       {
-        "timestamp": 1762328496,
-        "display": "<t:1762328496:F>",
-        "raw": "\"<t:1762328496:F>"
+        "timestamp": 1762635600,
+        "display": "<t:1762635600:F>",
+        "raw": "\"<t:1762635600:F> (bone)",
+        "raid": "bone dragon"
       },
       {
-        "timestamp": 1762328497,
-        "display": "<t:1762328497:F>",
-        "raw": "<t:1762328497:F>\""
+        "timestamp": 1762635600,
+        "display": "<t:1762635600:F>",
+        "raw": "<t:1762635600:F> (ice)\"",
+        "raid": "ice dragon"
       }
     ],
-    "type": "hard",
-    "raid": "bone dragon",
-    "minimumAbilityScore": 5000
+    "type": "both",
+    "raid": "both",
+    "minimumAbilityScores": {
+      "ice dragon": 15500,
+      "bone dragon": 17000
+    }
   }
 }
